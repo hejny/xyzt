@@ -1,4 +1,4 @@
-# vector
+# Vector
 A vector simple vector manipulation class.
 
 
