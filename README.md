@@ -1,2 +1,5 @@
 # vector
-A vector manipulation class
+A vector simple vector manipulation class.
+
+
+TODO: Write some usage and description
