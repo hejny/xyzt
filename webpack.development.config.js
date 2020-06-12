@@ -7,7 +7,7 @@ configs.push(
             filename: 'main.dev.browser.js',
             path: __dirname + '/dist/',
             libraryTarget: 'var',
-            library: 'TouchController',
+            library: 'Vector',
         },
     }),
 );

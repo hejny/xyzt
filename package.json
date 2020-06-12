@@ -22,7 +22,7 @@
     "prettier-watch": "onchange \"{src,test,samples}/**/*.{ts,json,js,html,css}\" -- prettier --config .prettierrc --write {{changed}}",
     "prettier-commit": "git diff --exit-code && npm run prettier && git add src && git commit --allow-empty -m \"Prettier\"",
     "documentation": "typedoc --excludePrivate --hideGenerator --mode file --theme minimal --out docs --name \"Vector\" ./src",
-    "documentation-commit": "git diff --exit-code && npm run documentation && git add docs && git commit --allow-empty -m \"TouchController\"",
+    "documentation-commit": "git diff --exit-code && npm run documentation && git add docs && git commit --allow-empty -m \"Vector\"",
     "test": "jest --config jestconfig.json",
     "test-watch": "jest --config jestconfig.json --watchAll",
     "lint": "tslint -p tsconfig.json",
