@@ -1,6 +1,6 @@
 {
   "name": "xyzt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
   "description": "A vector manipulation class",
   "main": "./dist/main.js",
