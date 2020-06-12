@@ -4,12 +4,12 @@
   "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
   "description": "A vector manipulation class",
   "files": [
-    "/*.ts"
+    "/src/**.ts"
   ],
   "repository": {
     "type": "git",
     "url": "git+git@github.com:hejny/vector.git"
   },
   "keywords": [],
-  "license": "MIT",
+  "license": "MIT"
 }
