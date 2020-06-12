@@ -23,6 +23,8 @@ export class Vector implements IVector {
     public static WindowSize(): Vector {
         // TODO: Should be Size in the name - shouldnt be name just Window
         // TODO: Static constructors with capital letters?
+
+        // TODO: !!! With debug console
         return new Vector(window.innerWidth, window.innerHeight, 0);
     }
 
