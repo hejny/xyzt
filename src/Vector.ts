@@ -27,7 +27,9 @@ export class Vector implements IVector {
     }
 
     public static fromVector(vector: IVector): Vector {
-        if (vector instanceof Vector) return vector;
+        if (vector instanceof Vector) {
+            return vector;
+        }
         return new Vector(vector.x, vector.y, vector.z);
     }
 
@@ -87,7 +89,7 @@ export class Vector implements IVector {
             'x',
             'y',
             'z' /* TODO: Some central place or getter for all axis */,
-        ] as (keyof Vector)[]) {
+        ] as Array<keyof Vector>) {
             const thisAny = this as any; // TODO: Better
             thisAny[axis] = modifier(this[axis] as number);
         }
