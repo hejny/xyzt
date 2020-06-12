@@ -4,7 +4,7 @@ A vector simple vector manipulation class.
 ## Install
 
 ```bash
-npm i TODO
+npm i xyzt
 ```
 
 
