@@ -1,8 +1,6 @@
 import { IVector } from './IVector';
 
-
 export class Vector implements IVector {
-
     // TODO: DRY axis
     // TODO: DRY similar operations
 
@@ -33,7 +31,10 @@ export class Vector implements IVector {
         return new Vector(vector.x, vector.y, vector.z);
     }
 
-    public static fromTopLeft(boundingBox: { top: number; left: number }): Vector {
+    public static fromTopLeft(boundingBox: {
+        top: number;
+        left: number;
+    }): Vector {
         return new Vector(boundingBox.left, boundingBox.top, 0);
     }
 
@@ -46,17 +47,27 @@ export class Vector implements IVector {
     }
 
     public static subtract(a: IVector, b: IVector): Vector {
-        return new Vector((a.x || 0) - (b.x || 0), (a.y || 0) - (b.y || 0), (a.z || 0) - (b.z || 0));
+        return new Vector(
+            (a.x || 0) - (b.x || 0),
+            (a.y || 0) - (b.y || 0),
+            (a.z || 0) - (b.z || 0),
+        );
     }
 
     public static scale(vector: IVector, scale: number): Vector {
-        return new Vector((vector.x || 0) * scale, (vector.y || 0) * scale, (vector.z || 0) * scale);
+        return new Vector(
+            (vector.x || 0) * scale,
+            (vector.y || 0) * scale,
+            (vector.z || 0) * scale,
+        );
     }
 
     constructor(public x = 0, public y: number = 0, public z: number = 0) {
         // TODO: Check values defined
         if (isNaN(x) || isNaN(y) || isNaN(z)) {
-            throw new Error(`Vector(${x},${y},${z}) can not be created due to NaN values.`);
+            throw new Error(
+                `Vector(${x},${y},${z}) can not be created due to NaN values.`,
+            );
         }
     }
 
@@ -72,7 +83,11 @@ export class Vector implements IVector {
 
     public applyInPlace(modifier: (value: number) => number): this {
         // TODO: USE apply in all other methods to avoid making same thing 3x
-        for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as (keyof Vector)[]) {
+        for (const axis of [
+            'x',
+            'y',
+            'z' /* TODO: Some central place or getter for all axis */,
+        ] as (keyof Vector)[]) {
             const thisAny = this as any; // TODO: Better
             thisAny[axis] = modifier(this[axis] as number);
         }
@@ -100,7 +115,11 @@ export class Vector implements IVector {
     }
 
     public subtract(vector: IVector): Vector {
-        return new Vector(this.x - (vector.x || 0), this.y - (vector.y || 0), this.z - (vector.z || 0));
+        return new Vector(
+            this.x - (vector.x || 0),
+            this.y - (vector.y || 0),
+            this.z - (vector.z || 0),
+        );
     }
 
     public subtractInPlace(vector: IVector): this {
@@ -151,11 +170,19 @@ export class Vector implements IVector {
         return new Vector(...this.toArray().map((_) => value));
     }
 
-    public map(modifier: (values: number[] /* TODO: Maybe tuple [number,number,number] */) => number[]): Vector {
+    public map(
+        modifier: (
+            values: number[] /* TODO: Maybe tuple [number,number,number] */,
+        ) => number[],
+    ): Vector {
         return this.clone().mapInPlace(modifier);
     }
 
-    public mapInPlace(modifier: (values: number[] /* TODO: Maybe tuple [number,number,number] */) => number[]): this {
+    public mapInPlace(
+        modifier: (
+            values: number[] /* TODO: Maybe tuple [number,number,number] */,
+        ) => number[],
+    ): this {
         let { x, y, z } = this;
         [x, y, z] = modifier([x, y, z]);
         Object.assign(this, { x, y, z });
@@ -183,12 +210,15 @@ export class Vector implements IVector {
         const base = this.subtract(vector);
         const length = base.length();
         const rotation = base.rotation();
-        return new Vector(Math.cos(rotation + radians) * length, Math.sin(rotation + radians) * length).add(vector);
+        return new Vector(
+            Math.cos(rotation + radians) * length,
+            Math.sin(rotation + radians) * length,
+        ).add(vector);
     }
 
-    public toArray(): number[] & [number, number] {
+    public toArray(): number[] {
         // TODO: [number | number] is legacy from TC
-        return ([this.x, this.y, this.z] as unknown) as [number, number];
+        return [this.x, this.y, this.z];
     }
 
     public toString(): string {
@@ -196,5 +226,4 @@ export class Vector implements IVector {
     }
 
     // TODO: toCss toTopLeft
-
 }

@@ -3,13 +3,48 @@
   "version": "1.0.1",
   "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
   "description": "A vector manipulation class",
+  "main": "./dist/main.js",
+  "types": "./dist/typings/src/main.d.ts",
   "files": [
-    "/src/**.ts"
+    "dist/**"
   ],
   "repository": {
     "type": "git",
     "url": "git+git@github.com:hejny/vector.git"
   },
   "keywords": [],
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run develop",
+    "build": "webpack --config webpack.production.config.js",
+    "develop-build": "onchange \"src/**/*.{ts,tsx}\" --initial --kill --delay 500  -- webpack --config webpack.development.config.js",
+    "prettier": "prettier --config .prettierrc --write \"{src,test,samples}/**/*.{ts,json,js,html,css}\"",
+    "prettier-watch": "onchange \"{src,test,samples}/**/*.{ts,json,js,html,css}\" -- prettier --config .prettierrc --write {{changed}}",
+    "prettier-commit": "git diff --exit-code && npm run prettier && git add src && git commit --allow-empty -m \"Prettier\"",
+    "documentation": "typedoc --excludePrivate --hideGenerator --mode file --theme minimal --out docs --name \"Vector\" ./src",
+    "documentation-commit": "git diff --exit-code && npm run documentation && git add docs && git commit --allow-empty -m \"TouchController\"",
+    "test": "jest --config jestconfig.json",
+    "test-watch": "jest --config jestconfig.json --watchAll",
+    "lint": "tslint -p tsconfig.json",
+    "preversion": "npm test && npm run lint && npm run build && npm run prettier-commit && npm run documentation-commit",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/uuid": "^3.4.5",
+    "codecov": "^3.5.0",
+    "jest": "^24.8.0",
+    "onchange": "^5.2.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^4.5.0",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.14.2",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "express": "^4.16.3",
+    "typescript": "^2.9.2"
+  }
 }
