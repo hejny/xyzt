@@ -197,15 +197,4 @@ export class Vector implements IVector {
 
     // TODO: toCss toTopLeft
 
-    /* TODO:
-    public toBabylon(): Vector3 {
-        // TODO: This is dependent on external library, there should be some registration of theese libs
-
-        const vector = this.clone();
-        vector.scaleInPlace(-1 / 100);
-        vector.z *= -1;
-
-        return new Vector3(...vector.toArray());
-    }
-    */
 }
