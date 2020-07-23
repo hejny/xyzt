@@ -72,20 +72,6 @@ export class Vector implements IVector {
         );
     }
 
-    constructor(public x = 0, public y: number = 0, public z: number = 0) {
-        // TODO: Check values defined
-        if (isNaN(x) || isNaN(y) || isNaN(z)) {
-            throw new Error(
-                `Vector(${x},${y},${z}) can not be created due to NaN values.`,
-            );
-        }
-    }
-
-    public clone(): Vector {
-        // TODO: Maybe getter?
-        return new Vector(this.x, this.y, this.z);
-    }
-
     public static isEqual(vector1: IVector,vector2: IVector): boolean {
        
 
@@ -105,6 +91,20 @@ export class Vector implements IVector {
         return true;
 
 
+    }
+
+    constructor(public x = 0, public y: number = 0, public z: number = 0) {
+        // TODO: Check values defined
+        if (isNaN(x) || isNaN(y) || isNaN(z)) {
+            throw new Error(
+                `Vector(${x},${y},${z}) can not be created due to NaN values.`,
+            );
+        }
+    }
+
+    public clone(): Vector {
+        // TODO: Maybe getter?
+        return new Vector(this.x, this.y, this.z);
     }
 
 
