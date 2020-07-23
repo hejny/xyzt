@@ -33,12 +33,11 @@ export class Vector implements IVector {
             return vector;
         }
 
-        if(typeof vector === 'object'){
+        if (typeof vector === 'object') {
             return new Vector(vector.x, vector.y, vector.z);
         }
 
-        return new Vector;
-      
+        return new Vector();
     }
 
     public static fromTopLeft(boundingBox: {
@@ -72,25 +71,17 @@ export class Vector implements IVector {
         );
     }
 
-    public static isEqual(vector1: IVector,vector2: IVector): boolean {
-       
-
+    public static isEqual(vector1: IVector, vector2: IVector): boolean {
         for (const axis of [
             'x',
             'y',
             'z' /* TODO: Some central place or getter for all axis */,
         ] as Array<keyof IVector>) {
-        
-
-            if(vector1[axis]||0!==vector2[axis]||0){return false;}
-
-
-
-
+            if (vector1[axis] || 0 !== vector2[axis] || 0) {
+                return false;
+            }
         }
         return true;
-
-
     }
 
     constructor(public x = 0, public y: number = 0, public z: number = 0) {
@@ -107,17 +98,20 @@ export class Vector implements IVector {
         return new Vector(this.x, this.y, this.z);
     }
 
-
-    public isEqual(vector: IVector): boolean{
-        return Vector.isEqual(this,vector);
+    public isEqual(vector: IVector): boolean {
+        return Vector.isEqual(this, vector);
     }
 
-    public apply(modifier: (value: number, axis: keyof IVector) => number): Vector {
+    public apply(
+        modifier: (value: number, axis: keyof IVector) => number,
+    ): Vector {
         // TODO: USE apply in all other methods to avoid making same thing 3x
         return this.clone().applyInPlace(modifier);
     }
 
-    public applyInPlace(modifier: (value: number, axis: keyof IVector) => number): this {
+    public applyInPlace(
+        modifier: (value: number, axis: keyof IVector) => number,
+    ): this {
         // TODO: USE apply in all other methods to avoid making same thing 3x
         for (const axis of [
             'x',
@@ -125,7 +119,7 @@ export class Vector implements IVector {
             'z' /* TODO: Some central place or getter for all axis */,
         ] as Array<keyof IVector>) {
             const thisAny = this as any; // TODO: Better
-            thisAny[axis] = modifier(this[axis] as number,axis);
+            thisAny[axis] = modifier(this[axis] as number, axis);
         }
 
         return this;
