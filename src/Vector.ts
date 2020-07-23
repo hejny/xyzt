@@ -86,7 +86,7 @@ export class Vector implements IVector {
         return new Vector(this.x, this.y, this.z);
     }
 
-    static isEqual(vector1: IVector,vector2: IVector): boolean {
+    public static isEqual(vector1: IVector,vector2: IVector): boolean {
        
 
         for (const axis of [
@@ -96,7 +96,7 @@ export class Vector implements IVector {
         ] as Array<keyof IVector>) {
         
 
-            if(vector1[axis]||0!==vector2[axis]||0)return false;
+            if(vector1[axis]||0!==vector2[axis]||0){return false;}
 
 
 
