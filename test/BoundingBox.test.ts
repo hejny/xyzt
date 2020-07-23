@@ -1,7 +1,5 @@
-
 import { BoundingBox } from '../src/BoundingBox';
 import { Vector } from '../src/Vector';
-
 
 describe('BoundingBox', () => {
     const boundingBox1 = new BoundingBox(new Vector(1, 1), new Vector(2, 2), 0);
