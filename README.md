@@ -1,4 +1,4 @@
-# Vector
+# XYZT
 A vector simple vector manipulation class.
 
 ## Install

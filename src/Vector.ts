@@ -32,7 +32,13 @@ export class Vector implements IVector {
         if (vector instanceof Vector) {
             return vector;
         }
-        return new Vector(vector.x, vector.y, vector.z);
+
+        if(typeof vector === 'object'){
+            return new Vector(vector.x, vector.y, vector.z);
+        }
+
+        return new Vector;
+      
     }
 
     public static fromTopLeft(boundingBox: {
@@ -78,6 +84,32 @@ export class Vector implements IVector {
     public clone(): Vector {
         // TODO: Maybe getter?
         return new Vector(this.x, this.y, this.z);
+    }
+
+    static isEqual(vector1: IVector,vector2: IVector): boolean {
+       
+
+        for (const axis of [
+            'x',
+            'y',
+            'z' /* TODO: Some central place or getter for all axis */,
+        ] as Array<keyof IVector>) {
+        
+
+            if(vector1[axis]||0!==vector2[axis]||0)return false;
+
+
+
+
+        }
+        return true;
+
+
+    }
+
+
+    public isEqual(vector: IVector): boolean{
+        return Vector.isEqual(this,vector1);
     }
 
     public apply(modifier: (value: number, axis: keyof IVector) => number): Vector {
