@@ -80,20 +80,20 @@ export class Vector implements IVector {
         return new Vector(this.x, this.y, this.z);
     }
 
-    public apply(modifier: (value: number) => number): Vector {
+    public apply(modifier: (value: number, axis: keyof IVector) => number): Vector {
         // TODO: USE apply in all other methods to avoid making same thing 3x
         return this.clone().applyInPlace(modifier);
     }
 
-    public applyInPlace(modifier: (value: number) => number): this {
+    public applyInPlace(modifier: (value: number, axis: keyof IVector) => number): this {
         // TODO: USE apply in all other methods to avoid making same thing 3x
         for (const axis of [
             'x',
             'y',
             'z' /* TODO: Some central place or getter for all axis */,
-        ] as Array<keyof Vector>) {
+        ] as Array<keyof IVector>) {
             const thisAny = this as any; // TODO: Better
-            thisAny[axis] = modifier(this[axis] as number);
+            thisAny[axis] = modifier(this[axis] as number,axis);
         }
 
         return this;
