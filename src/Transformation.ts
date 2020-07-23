@@ -1,4 +1,3 @@
-
 import {
     svgTransformationDecode,
     svgTransformationEncode,

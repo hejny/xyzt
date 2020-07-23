@@ -1,5 +1,3 @@
-
-
 import { Transformation } from './Transformation';
 import { Vector } from './Vector';
 
