@@ -77,7 +77,7 @@ export class Vector implements IVector {
             'y',
             'z' /* TODO: Some central place or getter for all axis */,
         ] as Array<keyof IVector>) {
-            if (vector1[axis] || 0 !== vector2[axis] || 0) {
+            if ((vector1[axis] || 0) !== (vector2[axis] || 0)) {
                 return false;
             }
         }
