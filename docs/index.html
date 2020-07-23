@@ -910,10 +910,34 @@ img { max-width: 100%; }
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-class">
+			<a href="classes/boundingbox.html" class="tsd-kind-icon">Bounding<wbr>Box</a>
+		</li>
+		<li class=" tsd-kind-class">
+			<a href="classes/transformation.html" class="tsd-kind-icon">Transformation</a>
+		</li>
+		<li class=" tsd-kind-class">
 			<a href="classes/vector.html" class="tsd-kind-icon">Vector</a>
 		</li>
 		<li class=" tsd-kind-interface">
 			<a href="interfaces/ivector.html" class="tsd-kind-icon">IVector</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="globals.html#rotate" class="tsd-kind-icon">ROTATE</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="globals.html#scale" class="tsd-kind-icon">SCALE</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="globals.html#transform" class="tsd-kind-icon">TRANSFORM</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="globals.html#translate" class="tsd-kind-icon">TRANSLATE</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#svgtransformationdecode" class="tsd-kind-icon">svg<wbr>Transformation<wbr>Decode</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#svgtransformationencode" class="tsd-kind-icon">svg<wbr>Transformation<wbr>Encode</a>
 		</li>
 	</ul>
 </nav>
@@ -934,6 +958,8 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Classes</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-class"><a href="classes/boundingbox.html" class="tsd-kind-icon">Bounding<wbr>Box</a></li>
+							<li class="tsd-kind-class"><a href="classes/transformation.html" class="tsd-kind-icon">Transformation</a></li>
 							<li class="tsd-kind-class"><a href="classes/vector.html" class="tsd-kind-icon">Vector</a></li>
 						</ul>
 					</section>
@@ -943,7 +969,115 @@ img { max-width: 100%; }
 							<li class="tsd-kind-interface"><a href="interfaces/ivector.html" class="tsd-kind-icon">IVector</a></li>
 						</ul>
 					</section>
+					<section class="tsd-index-section tsd-is-not-exported">
+						<h3>Variables</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#rotate" class="tsd-kind-icon">ROTATE</a></li>
+							<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#scale" class="tsd-kind-icon">SCALE</a></li>
+							<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#transform" class="tsd-kind-icon">TRANSFORM</a></li>
+							<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#translate" class="tsd-kind-icon">TRANSLATE</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Functions</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-function"><a href="globals.html#svgtransformationdecode" class="tsd-kind-icon">svg<wbr>Transformation<wbr>Decode</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#svgtransformationencode" class="tsd-kind-icon">svg<wbr>Transformation<wbr>Encode</a></li>
+						</ul>
+					</section>
 				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<h2>Variables</h2>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+				<a name="rotate" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> ROTATE</h3>
+				<div class="tsd-signature tsd-kind-icon">ROTATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> =&nbsp;/^rotate\(\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*,?\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*,?\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*\)$/g</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/utils/svgTools.ts#L6">utils/svgTools.ts:6</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+				<a name="scale" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> SCALE</h3>
+				<div class="tsd-signature tsd-kind-icon">SCALE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> =&nbsp;/^scale\(\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*,?\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*\)$/g</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/utils/svgTools.ts#L7">utils/svgTools.ts:7</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+				<a name="transform" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> TRANSFORM</h3>
+				<div class="tsd-signature tsd-kind-icon">TRANSFORM<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> =&nbsp;/\w*\([^)]*\)/g</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/utils/svgTools.ts#L4">utils/svgTools.ts:4</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+				<a name="translate" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> TRANSLATE</h3>
+				<div class="tsd-signature tsd-kind-icon">TRANSLATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol"> =&nbsp;/^translate\(\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*,?\s*(\-?\d*\.?\d+(e\-?\d*\.?\d+)?)\s*\)$/g</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/utils/svgTools.ts#L5">utils/svgTools.ts:5</a></li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Functions</h2>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="svgtransformationdecode" class="tsd-anchor"></a>
+				<h3>svg<wbr>Transformation<wbr>Decode</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">svg<wbr>Transformation<wbr>Decode<span class="tsd-signature-symbol">(</span>transform<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/utils/svgTools.ts#L12">utils/svgTools.ts:12</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> transform: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="classes/transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="svgtransformationencode" class="tsd-anchor"></a>
+				<h3>svg<wbr>Transformation<wbr>Encode</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">svg<wbr>Transformation<wbr>Encode<span class="tsd-signature-symbol">(</span>transformation<span class="tsd-signature-symbol">: </span><a href="classes/transformation.html" class="tsd-signature-type">Transformation</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/utils/svgTools.ts#L97">utils/svgTools.ts:97</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>transformation: <a href="classes/transformation.html" class="tsd-signature-type">Transformation</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
 			</section>
 		</section>
 		<footer>

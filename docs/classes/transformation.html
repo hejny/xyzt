@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IVector | Vector</title>
+	<title>Transformation | Vector</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -910,27 +910,66 @@ img { max-width: 100%; }
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-class">
-			<a href="../classes/boundingbox.html" class="tsd-kind-icon">Bounding<wbr>Box</a>
+			<a href="boundingbox.html" class="tsd-kind-icon">Bounding<wbr>Box</a>
 		</li>
-		<li class=" tsd-kind-class">
-			<a href="../classes/transformation.html" class="tsd-kind-icon">Transformation</a>
-		</li>
-		<li class=" tsd-kind-class">
-			<a href="../classes/vector.html" class="tsd-kind-icon">Vector</a>
-		</li>
-		<li class="current tsd-kind-interface">
-			<a href="ivector.html" class="tsd-kind-icon">IVector</a>
+		<li class="current tsd-kind-class">
+			<a href="transformation.html" class="tsd-kind-icon">Transformation</a>
 			<ul>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="ivector.html#x" class="tsd-kind-icon">x</a>
+				<li class=" tsd-kind-constructor tsd-parent-kind-class">
+					<a href="transformation.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="ivector.html#y" class="tsd-kind-icon">y</a>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="transformation.html#rotate" class="tsd-kind-icon">rotate</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="ivector.html#z" class="tsd-kind-icon">z</a>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="transformation.html#rotatecenter" class="tsd-kind-icon">rotate<wbr>Center</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="transformation.html#scale" class="tsd-kind-icon">scale</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="transformation.html#translate" class="tsd-kind-icon">translate</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#add" class="tsd-kind-icon">add</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#applyonelement" class="tsd-kind-icon">apply<wbr>OnElement</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#applyonhtmlelement" class="tsd-kind-icon">apply<wbr>OnHtml<wbr>Element</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#applyonsvgelement" class="tsd-kind-icon">apply<wbr>OnSvg<wbr>Element</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#clone" class="tsd-kind-icon">clone</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#clonedeep" class="tsd-kind-icon">clone<wbr>Deep</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="transformation.html#subtract" class="tsd-kind-icon">subtract</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="transformation.html#neutral" class="tsd-kind-icon">Neutral</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="transformation.html#rotate-1" class="tsd-kind-icon">rotate</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="transformation.html#scale-1" class="tsd-kind-icon">scale</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="transformation.html#translate-1" class="tsd-kind-icon">translate</a>
 				</li>
 			</ul>
+		</li>
+		<li class=" tsd-kind-class">
+			<a href="vector.html" class="tsd-kind-icon">Vector</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="../interfaces/ivector.html" class="tsd-kind-icon">IVector</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-is-not-exported">
 			<a href="../globals.html#rotate" class="tsd-kind-icon">ROTATE</a>
@@ -958,14 +997,8 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">IVector</span>
+					<span class="target">Transformation</span>
 				</li>
-			</ul>
-		</section>
-		<section class="tsd-panel">
-			<h3>Implemented by</h3>
-			<ul class="tsd-hierarchy">
-				<li><a href="../classes/vector.html" class="tsd-signature-type">Vector</a></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -973,47 +1006,353 @@ img { max-width: 100%; }
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
+						<h3>Constructors</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="transformation.html#constructor" class="tsd-kind-icon">constructor</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivector.html#x" class="tsd-kind-icon">x</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivector.html#y" class="tsd-kind-icon">y</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ivector.html#z" class="tsd-kind-icon">z</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="transformation.html#rotate" class="tsd-kind-icon">rotate</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="transformation.html#rotatecenter" class="tsd-kind-icon">rotate<wbr>Center</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="transformation.html#scale" class="tsd-kind-icon">scale</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="transformation.html#translate" class="tsd-kind-icon">translate</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Methods</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#add" class="tsd-kind-icon">add</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#applyonelement" class="tsd-kind-icon">apply<wbr>OnElement</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#applyonhtmlelement" class="tsd-kind-icon">apply<wbr>OnHtml<wbr>Element</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#applyonsvgelement" class="tsd-kind-icon">apply<wbr>OnSvg<wbr>Element</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#clone" class="tsd-kind-icon">clone</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#clonedeep" class="tsd-kind-icon">clone<wbr>Deep</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transformation.html#subtract" class="tsd-kind-icon">subtract</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transformation.html#neutral" class="tsd-kind-icon">Neutral</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transformation.html#rotate-1" class="tsd-kind-icon">rotate</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transformation.html#scale-1" class="tsd-kind-icon">scale</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transformation.html#translate-1" class="tsd-kind-icon">translate</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Constructors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<a name="constructor" class="tsd-anchor"></a>
+				<h3>constructor</h3>
+				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Transformation<span class="tsd-signature-symbol">(</span>translate<span class="tsd-signature-symbol">?: </span><a href="vector.html" class="tsd-signature-type">Vector</a>, rotate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, rotateCenter<span class="tsd-signature-symbol">?: </span><a href="vector.html" class="tsd-signature-type">Vector</a>, scale<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L22">Transformation.ts:22</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> translate: <a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;Vector.Zero()</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> rotate: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> rotateCenter: <a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;Vector.Zero()</span></h5>
+							</li>
+							<li>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> scale: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="x" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> x</h3>
-				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="rotate" class="tsd-anchor"></a>
+				<h3>rotate</h3>
+				<div class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/IVector.ts#L2">IVector.ts:2</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L26">Transformation.ts:26</a></li>
 					</ul>
 				</aside>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="y" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> y</h3>
-				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="rotatecenter" class="tsd-anchor"></a>
+				<h3>rotate<wbr>Center</h3>
+				<div class="tsd-signature tsd-kind-icon">rotate<wbr>Center<span class="tsd-signature-symbol">:</span> <a href="vector.html" class="tsd-signature-type">Vector</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/IVector.ts#L3">IVector.ts:3</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L27">Transformation.ts:27</a></li>
 					</ul>
 				</aside>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="z" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> z</h3>
-				<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="scale" class="tsd-anchor"></a>
+				<h3>scale</h3>
+				<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/IVector.ts#L4">IVector.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L28">Transformation.ts:28</a></li>
 					</ul>
 				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="translate" class="tsd-anchor"></a>
+				<h3>translate</h3>
+				<div class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">:</span> <a href="vector.html" class="tsd-signature-type">Vector</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L25">Transformation.ts:25</a></li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Methods</h2>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="add" class="tsd-anchor"></a>
+				<h3>add</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>transformation<span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L50">Transformation.ts:50</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>transformation: <a href="transformation.html" class="tsd-signature-type">Transformation</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="applyonelement" class="tsd-anchor"></a>
+				<h3>apply<wbr>OnElement</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">apply<wbr>OnElement<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L69">Transformation.ts:69</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>element: <span class="tsd-signature-type">Element</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="applyonhtmlelement" class="tsd-anchor"></a>
+				<h3>apply<wbr>OnHtml<wbr>Element</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">apply<wbr>OnHtml<wbr>Element<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L79">Transformation.ts:79</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>element: <span class="tsd-signature-type">HTMLElement</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="applyonsvgelement" class="tsd-anchor"></a>
+				<h3>apply<wbr>OnSvg<wbr>Element</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">apply<wbr>OnSvg<wbr>Element<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SVGGElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L86">Transformation.ts:86</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>element: <span class="tsd-signature-type">SVGGElement</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="clone" class="tsd-anchor"></a>
+				<h3>clone</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L31">Transformation.ts:31</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="clonedeep" class="tsd-anchor"></a>
+				<h3>clone<wbr>Deep</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">clone<wbr>Deep<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L40">Transformation.ts:40</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="subtract" class="tsd-anchor"></a>
+				<h3>subtract</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>transformation<span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L59">Transformation.ts:59</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>transformation: <a href="transformation.html" class="tsd-signature-type">Transformation</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="neutral" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> Neutral</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">Neutral<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L8">Transformation.ts:8</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="rotate-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> rotate</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>rotate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L16">Transformation.ts:16</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>rotate: <span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="scale-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> scale</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>scale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L20">Transformation.ts:20</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>scale: <span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="translate-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> translate</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">(</span>translate<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformation.html" class="tsd-signature-type">Transformation</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/27ab8f8/src/Transformation.ts#L12">Transformation.ts:12</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>translate: <a href="vector.html" class="tsd-signature-type">Vector</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="transformation.html" class="tsd-signature-type">Transformation</a></h4>
+					</li>
+				</ul>
 			</section>
 		</section>
 		<footer>
