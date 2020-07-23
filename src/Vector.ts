@@ -109,7 +109,7 @@ export class Vector implements IVector {
 
 
     public isEqual(vector: IVector): boolean{
-        return Vector.isEqual(this,vector1);
+        return Vector.isEqual(this,vector);
     }
 
     public apply(modifier: (value: number, axis: keyof IVector) => number): Vector {
