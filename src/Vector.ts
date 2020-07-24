@@ -47,6 +47,9 @@ export class Vector implements IVector {
         return new Vector(boundingBox.left, boundingBox.top, 0);
     }
 
+    // TODO: Vector is kind of Transformation with only a translation
+    // TODO: add, subtract, etc should take also a Transformation
+
     public static add(...vectors: IVector[]): Vector {
         return new Vector(
             vectors.reduce((x, vector) => x + (vector.x || 0), 0),
