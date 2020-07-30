@@ -4,6 +4,8 @@ export class Vector implements IVector {
     // TODO: DRY axis
     // TODO: DRY similar operations
 
+    [axis: string]: any; // TODO: Better
+
     public static Zero(): Vector {
         // TODO: Static constructors with capital letters?
         return new Vector();
