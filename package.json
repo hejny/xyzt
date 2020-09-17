@@ -16,6 +16,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
+    "preversion": "npm test && npm run lint && npm run build && npm run prettier-commit && npm run documentation-commit",
+    "postversion": "git push && git push --tags && npm publish && npm run update-in-other-repos",
     "build": "webpack --config webpack.production.config.js",
     "develop-build": "onchange \"src/**/*.{ts,tsx}\" --initial --kill --delay 500  -- webpack --config webpack.development.config.js",
     "prettier": "prettier --config .prettierrc --write \"{src,test,samples}/**/*.{ts,json,js,html,css}\"",
@@ -26,8 +28,10 @@
     "test": "jest --config jestconfig.json",
     "test-watch": "jest --config jestconfig.json --watchAll",
     "lint": "tslint -p tsconfig.json",
-    "preversion": "npm test && npm run lint && npm run build && npm run prettier-commit && npm run documentation-commit",
-    "postversion": "git push && git push --tags && npm publish"
+    "update-in-other-repos": "npm run update-in-touchcontroller && npm run update-in-collboard",
+    "update-in-touchcontroller": "cd ../../HeduApp/collboard && git stash && npm i xyzt@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt\" && git push && git stash pop",
+    "update-in-collboard": "cd ../../HeduApp/collboard && git stash && npm i xyzt@latest && npm i touchcontroller@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt and touchcontroller\" && git push && git stash pop"
+
   },
   "dependencies": {},
   "devDependencies": {
