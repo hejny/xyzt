@@ -29,7 +29,7 @@ export class Vector implements IVector {
     }
     */
 
-    public static from(vector: IVector): Vector {
+    public static fromObject(vector: IVector): Vector {
         if (vector instanceof Vector) {
             return vector;
         }
@@ -39,6 +39,16 @@ export class Vector implements IVector {
         }
 
         return new Vector();
+    }
+
+    public static fromArray(values: number[]): Vector;
+    public static fromArray(...values: number[]): Vector;
+    public static fromArray(...values: number[] | [number[]]): Vector {
+        if (Array.isArray(values[0])) {
+            return Vector.fromArray(...values[0]);
+        }
+
+        return new Vector(...(values as number[]));
     }
 
     /*
@@ -87,7 +97,7 @@ export class Vector implements IVector {
         center: IVector = Vector.zero(),
     ): Vector {
         // TODO: Just for compatibility, because it does not make sence in Vector
-        const base = Vector.from(vector).subtract(center);
+        const base = Vector.fromObject(vector).subtract(center);
         const length = base.length();
         const rotation = base.rotation();
         return new Vector(
@@ -135,7 +145,7 @@ export class Vector implements IVector {
 
     public static boxMax(vector: IVector): Vector {
         // TODO: Maybe create boxMin and boxVolume and boxRound
-        const value = Math.max(...Vector.from(vector).toArray());
+        const value = Math.max(...Vector.fromObject(vector).toArray());
         return Vector.box(value);
     }
 
@@ -176,7 +186,11 @@ export class Vector implements IVector {
         return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
     }
 
-    constructor(public x = 0, public y: number = 0, public z: number = 0) {
+    private constructor(
+        public x = 0,
+        public y: number = 0,
+        public z: number = 0,
+    ) {
         // TODO: Maybe better controll data in runtime
 
         if (isNaN(x) || isNaN(y) || isNaN(z)) {
