@@ -12,6 +12,8 @@
     "noUnusedLocals": true,    
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true
   }
 }
