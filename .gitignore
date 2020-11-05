@@ -1,7 +1,7 @@
 
 # build
-/lib
 /dist
+/typings
 
 # dependencies
 /node_modules
