@@ -29,17 +29,20 @@ export class Vector implements IVector {
     }
     */
 
-    public static fromObject(
-        vector: IVector,
-        axisMapping: string[] = ['x', 'y', 'z'],
+    public static fromObject<T>(vector: IVector): Vector;
+    public static fromObject<T>(vector: T, axisMapping: Array<keyof T>): Vector;
+    public static fromObject<T>(
+        vector: IVector | T,
+        axisMapping?: Array<keyof T> | null,
     ): Vector {
         if (vector instanceof Vector) {
             return vector;
         }
 
         if (typeof vector === 'object') {
-            const [x, y, z] = axisMapping;
+            const [x, y, z] = axisMapping || ['x', 'y', 'z'];
 
+            // @ts-expect-error
             return new Vector(vector[x], vector[y], vector[z]);
         }
 

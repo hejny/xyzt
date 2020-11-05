@@ -1,7 +1,27 @@
 import { Vector } from '../src/classes/Vector';
 
 describe('Vector2', () => {
-    // TODO: Constructing
+    it('Constructing', () => {
+        expect(Vector.fromArray()).toEqual(Vector.fromObject({}));
+        expect(Vector.fromArray(1, 2)).toEqual(
+            Vector.fromObject({ x: 1, y: 2 }),
+        );
+        expect(Vector.fromArray([1, 2])).toEqual(
+            Vector.fromObject({ x: 1, y: 2 }),
+        );
+        expect(Vector.fromObject({ x: 1, y: 2 })).toEqual(
+            Vector.fromArray(1, 2),
+        );
+        expect(Vector.fromObject({ top: 2, left: 1 }, ['left', 'top'])).toEqual(
+            Vector.fromArray(1, 2),
+        );
+        expect(
+            Vector.fromObject({ clientX: 1, clientY: 2 }, [
+                'clientX',
+                'clientY',
+            ]),
+        ).toEqual(Vector.fromArray(1, 2));
+    });
 
     it('isEqual', () => {
         expect(Vector.isEqual(Vector.fromArray(0, 0), {})).toBe(true);
