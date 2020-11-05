@@ -16,7 +16,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run develop",
-    "preversion": "npm test && npm run lint && npm run build && npm run prettier-commit && npm run generate-main-exports-commit && npm run documentation-commit",
+    "preversion": "npm test && npm run lint && npm run generate-main-exports-commit && npm run build && npm run prettier-commit && npm run documentation-commit",
     "postversion": "git push && git push --tags && npm publish && npm run update-in-other-repos",
     "build": "webpack --config webpack.production.config.js",
     "develop-build": "onchange \"src/**/*.{ts,tsx}\" --initial --kill --delay 500  -- webpack --config webpack.development.config.js",
