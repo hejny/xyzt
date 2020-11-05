@@ -5,7 +5,7 @@
     "lib": ["es6", "dom"],
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "typings",
+    "declarationDir": "./dist/typings",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
