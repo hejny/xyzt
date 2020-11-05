@@ -29,13 +29,16 @@ export class Vector implements IVector {
     }
     */
 
-    public static fromObject(vector: IVector): Vector {
+    public static fromObject(vector: IVector,axisMapping: string[] = ['x','y','z']): Vector {
         if (vector instanceof Vector) {
             return vector;
         }
 
         if (typeof vector === 'object') {
-            return new Vector(vector.x, vector.y, vector.z);
+
+            const[x,y,z] = axisMapping;
+
+            return new Vector(vector[x], vector[y], vector[z]);
         }
 
         return new Vector();
