@@ -19,7 +19,7 @@ export class Vector implements IVector {
     }
 
     public static box(scale: number): Vector {
-        return Vector.one().scaleInPlace(scale);
+        return Vector.one().scale(scale);
     }
 
     /*
@@ -128,14 +128,35 @@ export class Vector implements IVector {
         return true;
     }
 
+    public static isZero(vector: IVector): boolean {
+        // TODO: Maybe spread arguments as in add
+        for (const axis of [
+            'x',
+            'y',
+            'z' /* TODO: Some central place or getter for all axis */,
+        ] as Array<keyof IVector>) {
+            if (vector[axis] !== 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static distance(
         vector1: IVector,
         vector2: IVector = Vector.zero(),
     ): number {
-        return Math.sqrt(
-            Math.pow((vector1.xx || 0) - (vector2.x || 0), 2) +
-                Math.pow((vector1.yx || 0) - (vector2.y || 0), 2) +
-                Math.pow((vector1.zx || 0) - (vector2.z || 0), 2),
+        return Math.sqrt(Vector.distanceSquared(vector1, vector2));
+    }
+
+    public static distanceSquared(
+        vector1: IVector,
+        vector2: IVector = Vector.zero(),
+    ): number {
+        return (
+            ((vector1.x || 0) - (vector2.x || 0)) ** 2 +
+            ((vector1.y || 0) - (vector2.y || 0)) ** 2 +
+            ((vector1.z || 0) - (vector2.z || 0)) ** 2
         );
     }
 
@@ -270,8 +291,16 @@ export class Vector implements IVector {
         return Vector.isEqual(this, vector2);
     }
 
+    public isZero(): boolean {
+        return Vector.isZero(this);
+    }
+
     public distance(vector2?: IVector): number {
         return Vector.distance(this, vector2);
+    }
+
+    public distanceSquared(vector2?: IVector): number {
+        return Vector.distanceSquared(this, vector2);
     }
 
     public rotation(vector2?: IVector): number {

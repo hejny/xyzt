@@ -30,8 +30,8 @@ export class Transform implements ITransform {
 
     public static clone(transform: ITransform): Transform {
         const optionsFull: Required<ITransform> = {
-            ...transform,
             ...Transform.neutral(),
+            ...transform,
         };
 
         return new Transform(
@@ -42,7 +42,7 @@ export class Transform implements ITransform {
             typeof optionsFull.scale === 'number'
                 ? Vector.box(optionsFull.scale)
                 : Vector.fromObject(optionsFull.scale),
-            Vector.fromObject(optionsFull.skew),
+            // Note: Skew will be available in the future>  Vector.fromObject(optionsFull.skew),
         );
     }
 
@@ -52,7 +52,7 @@ export class Transform implements ITransform {
             Vector.fromObject(transformFull.translate).clone(),
             Vector.fromObject(transformFull.rotate).clone(),
             Vector.fromObject(transformFull.scale).clone(),
-            Vector.fromObject(transformFull.skew).clone(),
+            // Note: Skew will be available in the future>  Vector.fromObject(transformFull.skew).clone(),
         );
     }
 
@@ -74,11 +74,13 @@ export class Transform implements ITransform {
                 (aggregated, { scale }) => aggregated.multiply(scale),
                 Vector.one(),
             ),
+            /* Note: Skew will be available in the future>
             transformsFull.reduce(
                 (aggregated, { skew }) =>
-                    aggregated.add(/* TODO: Maybe multiply and one? */ skew),
+                    aggregated.add(/* TODO: Maybe multiply and one? * / skew),
                 Vector.zero(),
             ),
+            */
         );
     }
 
@@ -88,7 +90,7 @@ export class Transform implements ITransform {
             transformFull.translate.negate(),
             transformFull.rotate.negate(),
             transformFull.scale.inverse(),
-            transformFull.skew.negate(),
+            // Note: Skew will be available in the future> transformFull.skew.negate(),
         );
     }
 
@@ -99,11 +101,12 @@ export class Transform implements ITransform {
         return Transform.combine(transform1, Transform.negate(transform2));
     }
 
+    // TODO: isEqual
+
     private constructor(
         public translate: Vector = Vector.zero(),
         public rotate: Vector = Vector.zero(),
-        public scale: Vector = Vector.one(),
-        public skew: Vector = Vector.zero(),
+        public scale: Vector = Vector.one(), // Note: Skew will be available in the future> public skew: Vector = Vector.zero(),
     ) {}
 
     // Note: Bellow are instance equivalents of static methods
