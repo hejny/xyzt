@@ -1,6 +1,6 @@
 {
   "name": "xyzt",
-  "version": "3.0.0",
+  "version": "2.1.0",
   "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
   "description": "A vector manipulation class",
   "main": "./dist/main.js",
@@ -31,8 +31,8 @@
     "generate-main-exports": "ts-node ./scripts/generate-main-exports/generate-main-exports.ts",
     "generate-main-exports-commit": "git diff --exit-code && npm run generate-main-exports && npm run prettier && git add src && git commit --allow-empty -m \"Updating exports\"",
     "update-in-other-repos": "npm run update-in-touchcontroller && npm run update-in-collboard",
-    "update-in-touchcontroller": "cd ../../HeduApp/collboard && git stash && npm i xyzt@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt\" && git push && git stash pop",
-    "update-in-collboard": "cd ../../HeduApp/collboard && git stash && npm i xyzt@latest && npm i touchcontroller@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt and touchcontroller\" && git push && git stash pop"
+    "update-in-touchcontroller": "cd ../../hejny/touchcontroller && git stash && npm i xyzt@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt\" && git push && git stash pop",
+    "update-in-collboard": "cd ../../collboard/collboard-main && git stash && npm i xyzt@latest && npm i touchcontroller@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt and touchcontroller\" && git push && git stash pop"
   },
   "dependencies": {},
   "devDependencies": {
