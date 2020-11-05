@@ -1,4 +1,4 @@
-import { Vector } from "../src/classes/Vector";
+import { Vector } from '../src/classes/Vector';
 
 describe('Vector2', () => {
     // TODO: Constructing
