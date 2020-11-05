@@ -1,8 +1,8 @@
 import { IVector } from '../interfaces/IVector';
 
 // TODO: toCss toTopLeft as helpers
-// TODO: ? Vector is kind of Transformation with only a translation
-// TODO: ? add, subtract, etc should take also a Transformation
+// TODO: ? Vector is kind of Transform with only a translation
+// TODO: ? add, subtract, etc should take also a Transform
 
 export class Vector implements IVector {
     // TODO: DRY axis
@@ -76,11 +76,19 @@ export class Vector implements IVector {
     }
 
     public static subtract(vector1: IVector, vector2: IVector): Vector {
+        return Vector.add(vector1, Vector.fromObject(vector2).negate());
+    }
+
+    public static multiply(...vectors: IVector[]): Vector {
         return new Vector(
-            (vector1.x || 0) - (vector2.x || 0),
-            (vector1.y || 0) - (vector2.y || 0),
-            (vector1.z || 0) - (vector2.z || 0),
+            vectors.reduce((x, vector) => x + (vector.x || 0), 1),
+            vectors.reduce((y, vector) => y + (vector.y || 0), 1),
+            vectors.reduce((z, vector) => z + (vector.z || 0), 1),
         );
+    }
+
+    public static divide(vector1: IVector, vector2: IVector): Vector {
+        return Vector.multiply(vector1, Vector.fromObject(vector2).inverse());
     }
 
     public static scale(vector: IVector, scale: number): Vector {
@@ -200,6 +208,14 @@ export class Vector implements IVector {
         }
     }
 
+    public inverse(): Vector {
+        return this.map((v) => 1 / v);
+    }
+
+    public negate(): Vector {
+        return this.scale(-1);
+    }
+
     public half(): Vector {
         return this.scale(1 / 2);
     }
@@ -231,6 +247,14 @@ export class Vector implements IVector {
     }
 
     public subtract(vector2: IVector): Vector {
+        return Vector.subtract(this, vector2);
+    }
+
+    public multiply(...vectors: IVector[]): Vector {
+        return Vector.multiply(this, ...vectors);
+    }
+
+    public divide(vector2: IVector): Vector {
         return Vector.subtract(this, vector2);
     }
 
