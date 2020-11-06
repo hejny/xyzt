@@ -219,6 +219,14 @@ export class Vector implements IVector {
         return [vector.x || 0, vector.y || 0, vector.z || 0];
     }
 
+    public static toArray2D(vector: IVector): [number, number] {
+        return [vector.x || 0, vector.y || 0];
+    }
+
+    public static toArray3D(vector: IVector): [number, number, number] {
+        return [vector.x || 0, vector.y || 0, vector.z || 0];
+    }
+
     public static toString(vector: IVector): string {
         return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
     }
