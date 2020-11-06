@@ -337,11 +337,19 @@ export class Vector implements IVector {
         return Vector.rearrangeAxis(this, modifier);
     }
 
-    public toArray(): number[] {
+    public toArray() {
         return Vector.toArray(this);
     }
 
-    public toString(): string {
+    public toArray2D() {
+        return Vector.toArray2D(this);
+    }
+
+    public toArray3D() {
+        return Vector.toArray3D(this);
+    }
+
+    public toString() {
         return Vector.toString(this);
     }
 }
