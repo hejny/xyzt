@@ -4,6 +4,10 @@ import { Transform } from './Transform';
 import { Vector } from './Vector';
 
 export class BoundingBox implements IBoundingBox {
+    public static neutral(): BoundingBox {
+        return new BoundingBox(Transform.neutral());
+    }
+
     public static fromTransform(transform: ITransform): BoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
