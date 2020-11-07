@@ -19,9 +19,14 @@ describe('Creating css transform from Transform object and reverse', () => {
         ).toEqual({
             translate: { x: 2, y: 4, z: 6 },
         });
+        // TODO: More
     });
 
-    it('negate', () => {});
+    it('negate', () => {
+        // TODO:
+    });
 
-    it('subtract', () => {});
+    it('subtract', () => {
+        // TODO:
+    });
 });
