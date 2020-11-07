@@ -103,6 +103,37 @@ export class Transform implements ITransform {
 
     // TODO: isEqual
 
+    public static toJSON(transform: ITransform) {
+        return Transform.toObject(transform);
+    }
+
+    public static toObject(transform: ITransform): ITransform {
+        const { translate, rotate, scale } = transform;
+        const json: ITransform = {};
+
+        if (translate && !Vector.isZero(translate)) {
+            json.translate = translate;
+        }
+
+        if (
+            rotate &&
+            (typeof rotate === 'number' ? rotate !== 0 : !Vector.isZero(rotate))
+        ) {
+            json.rotate = rotate;
+        }
+
+        if (
+            scale &&
+            (typeof scale === 'number'
+                ? scale !== 1
+                : !Vector.isEqual(scale, Vector.one()))
+        ) {
+            json.scale = scale;
+        }
+
+        return json;
+    }
+
     private constructor(
         public translate: Vector = Vector.zero(),
         public rotate: Vector = Vector.zero(),
@@ -129,5 +160,13 @@ export class Transform implements ITransform {
 
     public subtract(transform2: ITransform): Transform {
         return Transform.subtract(this, transform2);
+    }
+
+    public toJSON() {
+        return Transform.toJSON(this);
+    }
+
+    public toObject() {
+        return Transform.toObject(this);
     }
 }

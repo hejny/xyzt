@@ -88,9 +88,9 @@ export class Vector implements IVector {
 
     public static multiply(...vectors: IVector[]): Vector {
         return new Vector(
-            vectors.reduce((x, vector) => x + (vector.x || 0), 1),
-            vectors.reduce((y, vector) => y + (vector.y || 0), 1),
-            vectors.reduce((z, vector) => z + (vector.z || 0), 1),
+            vectors.reduce((x, vector) => x * (vector.x || 0), 1),
+            vectors.reduce((y, vector) => y * (vector.y || 0), 1),
+            vectors.reduce((z, vector) => z * (vector.z || 0), 1),
         );
     }
 

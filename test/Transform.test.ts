@@ -6,5 +6,22 @@ describe('Creating css transform from Transform object and reverse', () => {
         // TODO: More
     });
 
-    // TODO: Other methods
+    it('combine', () => {
+        expect(
+            Transform.combine(
+                {
+                    translate: { x: 1, y: 2, z: 3 },
+                },
+                {
+                    translate: { x: 1, y: 2, z: 3 },
+                },
+            ).toObject(),
+        ).toEqual({
+            translate: { x: 2, y: 4, z: 6 },
+        });
+    });
+
+    it('negate', () => {});
+
+    it('subtract', () => {});
 });
