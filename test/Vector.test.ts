@@ -79,5 +79,44 @@ describe('Vector2', () => {
         );
     });
 
+    it('cross product', () => {
+        expect(
+            Vector.fromArray(2, 3, 4)
+                .crossProduct(Vector.fromArray(5, 6, 7))
+                .toArray(),
+        ).toEqual([-3, 6, -3]);
+    });
+
+    it('dot product', () => {
+        expect(
+            Vector.fromArray(1, 2, 3).dotProduct(Vector.fromArray(4, -5, 6)),
+        ).toEqual(12);
+    });
+
+    it('to statements', () => {
+        expect(Vector.fromArray(1, 2, 3).toJSON()).toEqual({
+            x: 1,
+            y: 2,
+            z: 3,
+        });
+        expect(Vector.fromArray(1, 2, 3).toObject()).toEqual({
+            x: 1,
+            y: 2,
+            z: 3,
+        });
+        expect(Vector.fromArray(1, 2, 3).toObject2D()).toEqual({ x: 1, y: 2 });
+        expect(Vector.fromArray(1, 2, 3).toObject3D()).toEqual({
+            x: 1,
+            y: 2,
+            z: 3,
+        });
+        expect(Vector.fromArray(1, 2, 3).toArray()).toEqual([1, 2, 3]);
+        expect(Vector.fromArray(1, 2, 3).toArray2D()).toEqual([1, 2]);
+        expect(Vector.fromArray(1, 2, 3).toArray3D()).toEqual([1, 2, 3]);
+        expect(Vector.fromArray(1, 2, 3).toString()).toEqual(`[1,2,3]`);
+        expect(Vector.fromArray(1, 2, 3).toString2D()).toEqual(`[1,2]`);
+        expect(Vector.fromArray(1, 2, 3).toString3D()).toEqual(`[1,2,3]`);
+    });
+
     // TODO: Other methods
 });

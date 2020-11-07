@@ -6,7 +6,6 @@ import { IVector } from '../interfaces/IVector';
 
 export class Vector implements IVector {
     // TODO: DRY axis
-    // TODO: DRY similar operations
 
     [axis: string]: any; // TODO: Better
 
@@ -114,12 +113,28 @@ export class Vector implements IVector {
     ): Vector {
         // TODO: Just for compatibility, because it does not make sence in Vector
         const base = Vector.fromObject(vector).subtract(center);
-        const length = base.length();
+        const length = base.distance();
         const rotation = base.rotation();
         return new Vector(
             Math.cos(rotation + radians) * length,
             Math.sin(rotation + radians) * length,
         ).add(center);
+    }
+
+    public static dotProduct(vector1: IVector, vector2: IVector): number {
+        const a = Vector.fromObject(vector1);
+        const b = Vector.fromObject(vector2);
+        return a.x * b.x + a.y * b.y + a.z * b.z;
+    }
+
+    public static crossProduct(vector1: IVector, vector2: IVector): Vector {
+        const a = Vector.fromObject(vector1);
+        const b = Vector.fromObject(vector2);
+        return new Vector(
+            a.y * b.z - a.z * b.y,
+            a.z * b.x - a.x * b.z,
+            a.x * b.y - a.y * b.x,
+        );
     }
 
     public static isEqual(vector1: IVector, vector2: IVector): boolean {
@@ -215,6 +230,22 @@ export class Vector implements IVector {
         return new Vector(x, y, z);
     }
 
+    public static toJSON(vector: IVector) {
+        return Vector.toObject(vector);
+    }
+
+    public static toObject(vector: IVector): IVector {
+        return { x: vector.x || 0, y: vector.y || 0, z: vector.z || 0 };
+    }
+
+    public static toObject2D(vector: IVector): IVector {
+        return { x: vector.x || 0, y: vector.y || 0 };
+    }
+
+    public static toObject3D(vector: IVector): IVector {
+        return { x: vector.x || 0, y: vector.y || 0, z: vector.z || 0 };
+    }
+
     public static toArray(vector: IVector): number[] {
         return [vector.x || 0, vector.y || 0, vector.z || 0];
     }
@@ -228,6 +259,14 @@ export class Vector implements IVector {
     }
 
     public static toString(vector: IVector): string {
+        return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
+    }
+
+    public static toString2D(vector: IVector): string {
+        return `[${vector.x || 0},${vector.y || 0}]`;
+    }
+
+    public static toString3D(vector: IVector): string {
         return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
     }
 
@@ -303,6 +342,14 @@ export class Vector implements IVector {
         return Vector.rotate(this, radians, center);
     }
 
+    public dotProduct(vector2: IVector): number {
+        return Vector.dotProduct(this, vector2);
+    }
+
+    public crossProduct(vector2: IVector): Vector {
+        return Vector.crossProduct(this, vector2);
+    }
+
     public isEqual(vector2: IVector): boolean {
         return Vector.isEqual(this, vector2);
     }
@@ -337,6 +384,22 @@ export class Vector implements IVector {
         return Vector.rearrangeAxis(this, modifier);
     }
 
+    public toJSON() {
+        return Vector.toJSON(this);
+    }
+
+    public toObject() {
+        return Vector.toObject(this);
+    }
+
+    public toObject2D() {
+        return Vector.toObject2D(this);
+    }
+
+    public toObject3D() {
+        return Vector.toObject3D(this);
+    }
+
     public toArray() {
         return Vector.toArray(this);
     }
@@ -351,5 +414,13 @@ export class Vector implements IVector {
 
     public toString() {
         return Vector.toString(this);
+    }
+
+    public toString2D() {
+        return Vector.toString2D(this);
+    }
+
+    public toString3D() {
+        return Vector.toString3D(this);
     }
 }
