@@ -230,8 +230,8 @@ export class Vector implements IVector {
         return new Vector(x, y, z);
     }
 
-    public static to2D(vector: IVector):Vector {
-        return new Vector(vector.x,vector.y);
+    public static to2D(vector: IVector): Vector {
+        return new Vector(vector.x, vector.y);
     }
 
     public static toJSON(vector: IVector) {
