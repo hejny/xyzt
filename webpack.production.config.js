@@ -16,7 +16,7 @@ configs.push(
             filename: 'main.browser.js',
             path: __dirname + '/dist/',
             libraryTarget: 'var',
-            library: 'Vector',
+            library: 'Xyzt',
         },
     }),
 );
