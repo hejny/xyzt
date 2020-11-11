@@ -270,17 +270,36 @@ export class Vector implements IVector {
         return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
     }
 
-    private constructor(
-        public x = 0,
-        public y: number = 0,
-        public z: number = 0,
-    ) {
-        // TODO: Maybe better controll data in runtime
+    public readonly x: number;
+    public readonly y: number;
+    public readonly z: number;
 
-        if (isNaN(x) || isNaN(y) || isNaN(z)) {
-            throw new Error(
-                `Vector(${x},${y},${z}) can not be created due to NaN values.`,
-            );
+    public constructor(vector: IVector);
+    public constructor(
+        x?: number,
+        y?: number,
+        z?: number,
+    ) ;
+    public constructor(
+        x?: number|IVector,
+        y?: number,
+        z?: number,
+    ) {
+        if(typeof x === 'number' || x===undefined){
+            if (isNaN(x||0) || isNaN(y||0) || isNaN(z||0)) {
+                throw new Error(
+                    `Vector can not be constructed due to NaN values.`,
+                );
+            }
+
+            this.x = x||0;
+            this.y = y||0;
+            this.z = z||0;
+        }else{
+            const vector = x;
+            this.x = vector.x||0;
+            this.y = vector.y||0;
+            this.z = vector.z||0;
         }
     }
 
