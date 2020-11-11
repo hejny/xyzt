@@ -2,18 +2,12 @@ import { Vector } from '../src/classes/Vector';
 
 describe('Vector2', () => {
     it('Constructing', () => {
-
-        expect(new Vector(1, 2)).toEqual(
-            Vector.fromObject({ x: 1, y: 2 }),
-        );
+        expect(new Vector(1, 2)).toEqual(Vector.fromObject({ x: 1, y: 2 }));
         expect(new Vector(1, 2, 3)).toEqual(
             Vector.fromObject({ x: 1, y: 2, z: 3 }),
         );
 
-        
-        expect(new Vector({ x: 1, y: 2 })).toEqual(
-            new Vector(1, 2),
-        );
+        expect(new Vector({ x: 1, y: 2 })).toEqual(new Vector(1, 2));
         expect(new Vector({ x: 1, y: 2, z: 3 })).toEqual(
             Vector.fromObject({ x: 1, y: 2, z: 3 }),
         );
