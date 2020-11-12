@@ -1,18 +1,18 @@
 import { Transform } from '../classes/Transform';
 import { Vector } from '../classes/Vector';
 
-export function transformToCss(transform: Transform): string {
+export function transformToStyle(transform: Transform): string {
     const { translate, rotate, scale } = transform;
     return [
-        transformTranslateToCss(translate),
-        transformRotateToCss(rotate),
-        transformScaleToCss(scale),
+        transformTranslateToStyle(translate),
+        transformRotateToStyle(rotate),
+        transformScaleToStyle(scale),
     ]
         .filter((_) => _ !== null)
         .join(' ');
 }
 
-function transformTranslateToCss(translate: Vector): string | null {
+function transformTranslateToStyle(translate: Vector): string | null {
     if (Vector.isZero(translate)) {
         return null;
     }
@@ -20,7 +20,7 @@ function transformTranslateToCss(translate: Vector): string | null {
     return `translate(${x.toFixed(0)}px,${y.toFixed(0)}px)`;
 }
 
-function transformRotateToCss(rotate: Vector): string | null {
+function transformRotateToStyle(rotate: Vector): string | null {
     const { z } = rotate;
     if (!z) {
         return null;
@@ -31,7 +31,7 @@ function transformRotateToCss(rotate: Vector): string | null {
     )}deg)`;
 }
 
-function transformScaleToCss(scale: Vector): string | null {
+function transformScaleToStyle(scale: Vector): string | null {
     if (Vector.isEqual(scale, Vector.one())) {
         return null;
     }
