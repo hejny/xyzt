@@ -1,5 +1,4 @@
-import { ITransform } from "./ITransform";
-
+import { ITransform } from './ITransform';
 
 export interface IBoundingBox {
     transform: ITransform;

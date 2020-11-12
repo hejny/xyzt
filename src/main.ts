@@ -11,12 +11,12 @@ import { transformFromCss } from './utils/transformFromCss';
 import { transformToCss } from './utils/transformToCss';
 
 export {
-Vector,
-IVector,
-Transform,
-ITransform,
-BoundingBox,
-IBoundingBox,
-transformToCss,
-transformFromCss
+    Vector,
+    IVector,
+    Transform,
+    ITransform,
+    BoundingBox,
+    IBoundingBox,
+    transformToCss,
+    transformFromCss,
 };

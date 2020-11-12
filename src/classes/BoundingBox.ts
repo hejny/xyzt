@@ -1,7 +1,7 @@
-import { IBoundingBox } from "../interfaces/IBoundingBox";
-import { ITransform } from "../interfaces/ITransform";
-import { Transform } from "./Transform";
-import { Vector } from "./Vector";
+import { IBoundingBox } from '../interfaces/IBoundingBox';
+import { ITransform } from '../interfaces/ITransform';
+import { Transform } from './Transform';
+import { Vector } from './Vector';
 
 export class BoundingBox implements IBoundingBox {
     public static one(): BoundingBox {
@@ -35,7 +35,7 @@ export class BoundingBox implements IBoundingBox {
 
     public get topLeft() {
         return this.center
-            .add(this.size.multiply({x:-.5,y:-.5}))
+            .add(this.size.multiply({ x: -0.5, y: -0.5 }))
             .rotate(this.rotation.z, this.center);
     }
 
@@ -47,20 +47,20 @@ export class BoundingBox implements IBoundingBox {
 
     public get topRight() {
         return this.center
-        .add(this.size.multiply({x:.5,y:-.5}))
-        .rotate(this.rotation.z, this.center);
+            .add(this.size.multiply({ x: 0.5, y: -0.5 }))
+            .rotate(this.rotation.z, this.center);
     }
 
     public get bottomLeft() {
         return this.center
-        .add(this.size.multiply({x:-.5,y:.5}))
-        .rotate(this.rotation.z, this.center);
+            .add(this.size.multiply({ x: -0.5, y: 0.5 }))
+            .rotate(this.rotation.z, this.center);
     }
 
     public get bottomRight() {
         return this.center
-        .add(this.size.multiply({x:.5,y:.5}))
-        .rotate(this.rotation.z, this.center);
+            .add(this.size.multiply({ x: 0.5, y: 0.5 }))
+            .rotate(this.rotation.z, this.center);
     }
 
     // TODO: Other corners
