@@ -108,27 +108,25 @@ export class Transform implements ITransform {
     }
 
     public static toObject(transform: ITransform): ITransform {
-        const { translate, rotate, scale } = transform;
+
+
+        const transformObject = Transform.fromObject(transform);
+
+    
+        const { translate, rotate, scale } = transformObject;
         const json: ITransform = {};
 
-        if (translate && !Vector.isZero(translate)) {
-            json.translate = translate;
+        if (!Vector.isZero(translate)) {
+            json.translate = translate.toObject();
         }
 
-        if (
-            rotate &&
-            (typeof rotate === 'number' ? rotate !== 0 : !Vector.isZero(rotate))
+        if (!Vector.isZero(rotate)
         ) {
-            json.rotate = rotate;
+            json.rotate = rotate.toObject();
         }
 
-        if (
-            scale &&
-            (typeof scale === 'number'
-                ? scale !== 1
-                : !Vector.isEqual(scale, Vector.one()))
-        ) {
-            json.scale = scale;
+        if (!Vector.isEqual(scale, Vector.one())) {
+            json.scale = scale.toObject();
         }
 
         return json;
