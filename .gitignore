@@ -25,4 +25,5 @@ yarn.lock
 # IDEs
 .idea
 .vscode/*
+!.vscode/settings.json
 !.vscode/terminals.json
