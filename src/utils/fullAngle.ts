@@ -12,5 +12,7 @@ export function fullAngle(unit: IAngleUnit): number {
             return 400;
         case 'turn':
             return 1;
+        default:
+            throw new Error(`Unknown angle unit "${unit}".`);
     }
 }
