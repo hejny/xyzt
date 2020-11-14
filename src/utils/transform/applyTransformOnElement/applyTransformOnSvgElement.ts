@@ -1,6 +1,6 @@
 import { Transform } from '../../../classes/Transform';
+import { transformToStyleSvg } from '../../../main';
 import { transformFromStyle } from '../transformFromStyle/transformFromStyle';
-import { transformToStyleCss } from '../transformToStyle/transformToStyleCss';
 
 export function applyTransformOnSvgElement(
     transform: Transform,
@@ -8,7 +8,7 @@ export function applyTransformOnSvgElement(
 ) {
     element.setAttribute(
         'transform',
-        transformToStyleCss(
+        transformToStyleSvg(
             Transform.combine(
                 transformFromStyle(element.getAttribute('transform') || ''),
                 transform,
