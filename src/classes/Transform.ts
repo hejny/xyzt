@@ -1,4 +1,5 @@
 import { ITransform } from '../interfaces/ITransform';
+import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
 export class Transform implements ITransform {
@@ -36,9 +37,9 @@ export class Transform implements ITransform {
 
         return new Transform(
             Vector.fromObject(optionsFull.translate),
-            typeof optionsFull.rotate === 'number'
+            (typeof optionsFull.rotate === 'number'
                 ? Vector.fromArray(0, 0, optionsFull.rotate)
-                : Vector.fromObject(optionsFull.rotate),
+                : Vector.fromObject(optionsFull.rotate)).map(angle=>convertAngle('(rad)','(rad)',angle)),
             typeof optionsFull.scale === 'number'
                 ? Vector.box(optionsFull.scale)
                 : Vector.fromObject(optionsFull.scale),
