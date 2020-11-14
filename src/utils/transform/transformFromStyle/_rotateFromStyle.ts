@@ -10,6 +10,6 @@ export function _rotateFromStyle(cssTransform: string): number | null {
     return convertAngle(
         (values[0].unit as IAngleUnit) || '(deg)',
         '(rad)',
-        values[0].value
+        values[0].value,
     );
 }

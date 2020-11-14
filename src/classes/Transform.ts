@@ -39,7 +39,8 @@ export class Transform implements ITransform {
             Vector.fromObject(optionsFull.translate),
             (typeof optionsFull.rotate === 'number'
                 ? Vector.fromArray(0, 0, optionsFull.rotate)
-                : Vector.fromObject(optionsFull.rotate)).map(angle=>convertAngle('(rad)','(rad)',angle)),
+                : Vector.fromObject(optionsFull.rotate)
+            ).map((angle) => convertAngle('(rad)', '(rad)', angle)),
             typeof optionsFull.scale === 'number'
                 ? Vector.box(optionsFull.scale)
                 : Vector.fromObject(optionsFull.scale),
@@ -109,11 +110,8 @@ export class Transform implements ITransform {
     }
 
     public static toObject(transform: ITransform): ITransform {
-
-
         const transformObject = Transform.fromObject(transform);
 
-    
         const { translate, rotate, scale } = transformObject;
         const json: ITransform = {};
 
@@ -121,8 +119,7 @@ export class Transform implements ITransform {
             json.translate = translate.toObject();
         }
 
-        if (!Vector.isZero(rotate)
-        ) {
+        if (!Vector.isZero(rotate)) {
             json.rotate = rotate.toObject();
         }
 
