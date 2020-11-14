@@ -27,21 +27,24 @@ describe('Conversion of Transform object to CSS', () => {
                 translate: Vector.fromArray(11, 13.5),
                 rotate: Math.PI / 3,
                 scale: Vector.fromArray(1.5, 1.5, 1),
-            }).toJSON()
+            }).toJSON(),
         );
     });
 
     it('is working with z deg CSS rotate ', () => {
-        (expect(transformFromStyle(`rotate(60deg)`).toJSON()) as any).toMatchCloseTo(
+        (expect(
+            transformFromStyle(`rotate(60deg)`).toJSON(),
+        ) as any).toMatchCloseTo(
             Transform.fromObject({
                 rotate: Math.PI / 3,
             }).toJSON(),
         );
     });
 
-    
     it('is working with z grad CSS rotate ', () => {
-        (expect(transformFromStyle(`rotate(100grad)`).toJSON()) as any).toMatchCloseTo(
+        (expect(
+            transformFromStyle(`rotate(100grad)`).toJSON(),
+        ) as any).toMatchCloseTo(
             Transform.fromObject({
                 rotate: Math.PI / 2,
             }).toJSON(),
@@ -59,7 +62,7 @@ describe('Conversion of Transform object to CSS', () => {
     it('is working with z turn CSS rotate ', () => {
         expect(transformFromStyle(`rotate(1turn)`)).toEqual(
             Transform.fromObject({
-                rotate: Math.PI*2,
+                rotate: Math.PI * 2,
             }),
         );
     });

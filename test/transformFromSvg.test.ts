@@ -61,7 +61,7 @@ describe('Conversion of Transform object to SVG', () => {
     it('is working with z turn SVG rotate ', () => {
         expect(transformFromStyle(`rotate(1turn 0 0)`)).toEqual(
             Transform.fromObject({
-                rotate: Math.PI*2,
+                rotate: Math.PI * 2,
             }),
         );
     });
