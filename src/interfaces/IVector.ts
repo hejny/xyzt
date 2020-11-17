@@ -9,11 +9,3 @@ export interface IVectorObject {
 
 export type IAxis = 'x' | 'y' | 'z';
 export const AXIS = ['x', 'y', 'z'] as IAxis[];
-
-/*
-TODO:
-export interface IVectorContext extends IVector {
-    vector:
-    context: string;
-}
-*/

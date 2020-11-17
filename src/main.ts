@@ -10,7 +10,6 @@ import { IVector } from './interfaces/IVector';
 import { IVectorObject } from './interfaces/IVector';
 import { IAxis } from './interfaces/IVector';
 import { AXIS } from './interfaces/IVector';
-import { IVectorContext } from './interfaces/IVector';
 import { convertAngle } from './utils/convertAngle';
 import { extractValuesFromStyle } from './utils/extractValuesFromStyle';
 import { fullAngle } from './utils/fullAngle';
@@ -54,7 +53,6 @@ export {
     IBoundingBox,
     IVectorObject,
     IDimensionUnit,
-    IVectorContext,
     _scaleFromStyle,
     transformToStyle,
     _rotateFromStyle,
