@@ -1,5 +1,6 @@
 import { IBoundingBox } from '../interfaces/IBoundingBox';
 import { ITransform } from '../interfaces/ITransform';
+import { IVector } from '../main';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
@@ -34,33 +35,19 @@ export class BoundingBox implements IBoundingBox {
     }
 
     public get topLeft() {
-        return this.center
-            .add(this.size.multiply({ x: -0.5, y: -0.5 }))
-            .rotate(this.rotation.z, this.center);
+        return this.corner({ x: -0.5, y: -0.5 });
     }
-
-    /*
-    public set topLeft(value: Vector) {
-        this.center = this.center.add(value.subtract(this.topLeft));
-    }
-    */
 
     public get topRight() {
-        return this.center
-            .add(this.size.multiply({ x: 0.5, y: -0.5 }))
-            .rotate(this.rotation.z, this.center);
+        return this.corner({ x: 0.5, y: -0.5 });
     }
 
     public get bottomLeft() {
-        return this.center
-            .add(this.size.multiply({ x: -0.5, y: 0.5 }))
-            .rotate(this.rotation.z, this.center);
+        return this.corner({ x: -0.5, y: 0.5 });
     }
 
     public get bottomRight() {
-        return this.center
-            .add(this.size.multiply({ x: 0.5, y: 0.5 }))
-            .rotate(this.rotation.z, this.center);
+        return this.corner({ x: 0.5, y: 0.5 });
     }
 
     // TODO: Other corners
@@ -76,19 +63,25 @@ export class BoundingBox implements IBoundingBox {
     // TODO: setters
 
     public intersects(position: Vector): boolean {
-        const position1r = this.center;
-        const position2r = position.rotate(-this.rotation.z, this.center);
+        const positionRotated = this.transform.applyOnPoint(position);
 
         return (
-            position1r.x - this.size.x / 2 <= position2r.x &&
-            position1r.y - this.size.y / 2 <= position2r.y &&
-            position1r.x + this.size.x / 2 >= position2r.x &&
-            position1r.y + this.size.y / 2 >= position2r.y
+            this.center.x - this.size.x / 2 <= positionRotated.x &&
+            this.center.y - this.size.y / 2 <= positionRotated.y &&
+            this.center.x + this.size.x / 2 >= positionRotated.x &&
+            this.center.y + this.size.y / 2 >= positionRotated.y
         );
     }
 
     public applyTransform(transform: ITransform) {
         // TODO: Immutable
         this.transform = Transform.combine(this.transform, transform);
+    }
+
+    private corner(relativePosition: IVector) {
+        return this.transform.applyOnPoint(
+            this.center.add(this.size.multiply(relativePosition)),
+            this.center,
+        );
     }
 }
