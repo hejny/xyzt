@@ -17,12 +17,12 @@ describe('Conversion of Transform object to CSS', () => {
     */
 
     it('is working with complex CSS transform ', () => {
-        (expect(
+        (expect as any)(
             transformFromStyle(
                 // Note: random whitespaces are here intentionally to test that also non canonical form can be parsed
                 `translate(11px, 13.5px)     rotate( 60deg ) scale( 1.5 , 1.5 )`,
             ).toJSON(),
-        ) as any).toMatchCloseTo(
+        ).toMatchCloseTo(
             Transform.fromObject({
                 translate: Vector.fromArray(11, 13.5),
                 rotate: Math.PI / 3,
@@ -32,9 +32,9 @@ describe('Conversion of Transform object to CSS', () => {
     });
 
     it('is working with z deg CSS rotate ', () => {
-        (expect(
+        (expect as any)(
             transformFromStyle(`rotate(60deg)`).toJSON(),
-        ) as any).toMatchCloseTo(
+        ).toMatchCloseTo(
             Transform.fromObject({
                 rotate: Math.PI / 3,
             }).toJSON(),
@@ -42,9 +42,9 @@ describe('Conversion of Transform object to CSS', () => {
     });
 
     it('is working with z grad CSS rotate ', () => {
-        (expect(
+        (expect as any)(
             transformFromStyle(`rotate(100grad)`).toJSON(),
-        ) as any).toMatchCloseTo(
+        ).toMatchCloseTo(
             Transform.fromObject({
                 rotate: Math.PI / 2,
             }).toJSON(),

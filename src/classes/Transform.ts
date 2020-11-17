@@ -1,4 +1,5 @@
 import { ITransform } from '../interfaces/ITransform';
+import { IVector } from '../main';
 import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
@@ -7,15 +8,15 @@ export class Transform implements ITransform {
         return new Transform();
     }
 
-    public static translate(translate: Vector): Transform {
+    public static translate(translate: IVector): Transform {
         return Transform.fromObject({ translate });
     }
 
-    public static rotate(rotate: number): Transform {
+    public static rotate(rotate: number | IVector): Transform {
         return Transform.fromObject({ rotate });
     }
 
-    public static scale(scale: number): Transform {
+    public static scale(scale: number | IVector): Transform {
         return Transform.fromObject({ scale });
     }
 
@@ -23,7 +24,6 @@ export class Transform implements ITransform {
         if (transform instanceof Transform) {
             return transform;
         }
-
         return Transform.clone(transform);
     }
 
@@ -105,6 +105,29 @@ export class Transform implements ITransform {
 
     // TODO: isEqual
 
+    public static applyOnPoint(
+        transform: ITransform,
+        point: IVector,
+        center: IVector = Vector.zero(),
+    ): Vector {
+        let pointCentered = Vector.subtract(point, center);
+        const transformObject = Transform.fromObject(transform);
+
+        // TODO: Make it work 3D
+        // TODO: Optimize
+
+        // Rotate
+        pointCentered = pointCentered.rotate(transformObject.rotate);
+
+        // Scale
+        pointCentered = pointCentered.multiply(transformObject.scale);
+
+        // Translate
+        pointCentered = pointCentered.add(transformObject.translate);
+
+        return pointCentered.add(center);
+    }
+
     public static toJSON(transform: ITransform) {
         return Transform.toObject(transform);
     }
@@ -156,6 +179,10 @@ export class Transform implements ITransform {
 
     public subtract(transform2: ITransform): Transform {
         return Transform.subtract(this, transform2);
+    }
+
+    public applyOnPoint(point: IVector, center?: IVector) {
+        return Transform.applyOnPoint(this, point, center);
     }
 
     public toJSON() {
