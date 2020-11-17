@@ -1,5 +1,5 @@
-import { Vector } from '../src/classes/Vector';
 import { toMatchCloseTo } from 'jest-matcher-deep-close-to';
+import { Vector } from '../src/classes/Vector';
 
 expect.extend({ toMatchCloseTo });
 
