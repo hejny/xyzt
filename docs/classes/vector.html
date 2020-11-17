@@ -94,6 +94,12 @@
 					<a href="vector.html#double" class="tsd-kind-icon">double</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="vector.html#foreachplane" class="tsd-kind-icon">for<wbr>Each<wbr>Plane</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="vector.html#forplane" class="tsd-kind-icon">for<wbr>Plane</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="vector.html#half" class="tsd-kind-icon">half</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -199,10 +205,19 @@
 					<a href="vector.html#dotproduct-1" class="tsd-kind-icon">dot<wbr>Product</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="vector.html#foreachplane-1" class="tsd-kind-icon">for<wbr>Each<wbr>Plane</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="vector.html#forplane-1" class="tsd-kind-icon">for<wbr>Plane</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a href="vector.html#fromarray" class="tsd-kind-icon">from<wbr>Array</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 					<a href="vector.html#fromobject" class="tsd-kind-icon">from<wbr>Object</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a href="vector.html#frompolar" class="tsd-kind-icon">from<wbr>Polar</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a href="vector.html#isequal-1" class="tsd-kind-icon">is<wbr>Equal</a>
@@ -282,13 +297,22 @@
 			<a href="../interfaces/itransformstyleformat.html" class="tsd-kind-icon">ITransform<wbr>Style<wbr>Format</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="../interfaces/ivector.html" class="tsd-kind-icon">IVector</a>
+			<a href="../interfaces/ivectorobject.html" class="tsd-kind-icon">IVector<wbr>Object</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#iangleunit" class="tsd-kind-icon">IAngle<wbr>Unit</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
+			<a href="../globals.html#iaxis" class="tsd-kind-icon">IAxis</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#idimensionunit" class="tsd-kind-icon">IDimension<wbr>Unit</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="../globals.html#ivector" class="tsd-kind-icon">IVector</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../globals.html#axis" class="tsd-kind-icon">AXIS</a>
 		</li>
 		<li class=" tsd-kind-variable">
 			<a href="../globals.html#transformtostylecss" class="tsd-kind-icon">transform<wbr>ToStyle<wbr>Css</a>
@@ -374,7 +398,7 @@
 		<section class="tsd-panel">
 			<h3>Implements</h3>
 			<ul class="tsd-hierarchy">
-				<li><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+				<li><a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></li>
 			</ul>
 		</section>
 		<section class="tsd-panel tsd-kind-class">
@@ -411,6 +435,8 @@
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#divide" class="tsd-kind-icon">divide</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#dotproduct" class="tsd-kind-icon">dot<wbr>Product</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#double" class="tsd-kind-icon">double</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#foreachplane" class="tsd-kind-icon">for<wbr>Each<wbr>Plane</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#forplane" class="tsd-kind-icon">for<wbr>Plane</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#half" class="tsd-kind-icon">half</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#inverse" class="tsd-kind-icon">inverse</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="vector.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a></li>
@@ -446,8 +472,11 @@
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#distancesquared-1" class="tsd-kind-icon">distance<wbr>Squared</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#divide-1" class="tsd-kind-icon">divide</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#dotproduct-1" class="tsd-kind-icon">dot<wbr>Product</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#foreachplane-1" class="tsd-kind-icon">for<wbr>Each<wbr>Plane</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#forplane-1" class="tsd-kind-icon">for<wbr>Plane</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#fromarray" class="tsd-kind-icon">from<wbr>Array</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="vector.html#fromobject" class="tsd-kind-icon">from<wbr>Object</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#frompolar" class="tsd-kind-icon">from<wbr>Polar</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#isequal-1" class="tsd-kind-icon">is<wbr>Equal</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#iszero-1" class="tsd-kind-icon">is<wbr>Zero</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="vector.html#map-1" class="tsd-kind-icon">map</a></li>
@@ -481,20 +510,20 @@
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Vector<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Vector<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 					<li class="tsd-signature tsd-kind-icon">new <wbr>Vector<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L279">classes/Vector.ts:279</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L322">classes/Vector.ts:322</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -502,7 +531,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L281">classes/Vector.ts:281</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L324">classes/Vector.ts:324</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -529,9 +558,9 @@
 				<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> x</h3>
 				<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/ivector.html">IVector</a>.<a href="../interfaces/ivector.html#x">x</a></p>
+					<p>Implementation of <a href="../interfaces/ivectorobject.html">IVectorObject</a>.<a href="../interfaces/ivectorobject.html#x">x</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L277">classes/Vector.ts:277</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L320">classes/Vector.ts:320</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -540,9 +569,9 @@
 				<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> y</h3>
 				<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/ivector.html">IVector</a>.<a href="../interfaces/ivector.html#y">y</a></p>
+					<p>Implementation of <a href="../interfaces/ivectorobject.html">IVectorObject</a>.<a href="../interfaces/ivectorobject.html#y">y</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L278">classes/Vector.ts:278</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L321">classes/Vector.ts:321</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -551,9 +580,9 @@
 				<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> z</h3>
 				<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/ivector.html">IVector</a>.<a href="../interfaces/ivector.html#z">z</a></p>
+					<p>Implementation of <a href="../interfaces/ivectorobject.html">IVectorObject</a>.<a href="../interfaces/ivectorobject.html#z">z</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L279">classes/Vector.ts:279</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L322">classes/Vector.ts:322</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -564,19 +593,19 @@
 				<a name="add" class="tsd-anchor"></a>
 				<h3>add</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L336">classes/Vector.ts:336</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L379">classes/Vector.ts:379</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -593,7 +622,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L388">classes/Vector.ts:388</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L444">classes/Vector.ts:444</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -610,7 +639,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L332">classes/Vector.ts:332</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L375">classes/Vector.ts:375</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -621,19 +650,19 @@
 				<a name="crossproduct" class="tsd-anchor"></a>
 				<h3>cross<wbr>Product</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">cross<wbr>Product<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">cross<wbr>Product<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L364">classes/Vector.ts:364</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L420">classes/Vector.ts:420</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -644,19 +673,19 @@
 				<a name="distance" class="tsd-anchor"></a>
 				<h3>distance</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">distance<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">distance<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L376">classes/Vector.ts:376</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L432">classes/Vector.ts:432</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -667,19 +696,19 @@
 				<a name="distancesquared" class="tsd-anchor"></a>
 				<h3>distance<wbr>Squared</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">distance<wbr>Squared<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">distance<wbr>Squared<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L380">classes/Vector.ts:380</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L436">classes/Vector.ts:436</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -690,19 +719,19 @@
 				<a name="divide" class="tsd-anchor"></a>
 				<h3>divide</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L348">classes/Vector.ts:348</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L391">classes/Vector.ts:391</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -713,19 +742,19 @@
 				<a name="dotproduct" class="tsd-anchor"></a>
 				<h3>dot<wbr>Product</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">dot<wbr>Product<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">dot<wbr>Product<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L360">classes/Vector.ts:360</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L416">classes/Vector.ts:416</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -742,9 +771,97 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L322">classes/Vector.ts:322</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L365">classes/Vector.ts:365</a></li>
 							</ul>
 						</aside>
+						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="foreachplane" class="tsd-anchor"></a>
+				<h3>for<wbr>Each<wbr>Plane</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">for<wbr>Each<wbr>Plane<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>ortogonalAxis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L403">classes/Vector.ts:403</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>callback: <span class="tsd-signature-symbol">(</span>ortogonalAxis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>ortogonalAxis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>ortogonalAxis: <a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a></h5>
+													</li>
+													<li>
+														<h5>vector2D: <a href="vector.html" class="tsd-signature-type">Vector</a></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="forplane" class="tsd-anchor"></a>
+				<h3>for<wbr>Plane</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">for<wbr>Plane<span class="tsd-signature-symbol">(</span>axis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L409">classes/Vector.ts:409</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>axis: <a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a></h5>
+							</li>
+							<li>
+								<h5>callback: <span class="tsd-signature-symbol">(</span>vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>vector2D: <a href="vector.html" class="tsd-signature-type">Vector</a></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
 					</li>
 				</ul>
@@ -759,7 +876,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L310">classes/Vector.ts:310</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L353">classes/Vector.ts:353</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -776,7 +893,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L302">classes/Vector.ts:302</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L345">classes/Vector.ts:345</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -787,19 +904,19 @@
 				<a name="isequal" class="tsd-anchor"></a>
 				<h3>is<wbr>Equal</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L368">classes/Vector.ts:368</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L424">classes/Vector.ts:424</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -816,7 +933,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L372">classes/Vector.ts:372</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L428">classes/Vector.ts:428</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -827,23 +944,23 @@
 				<a name="map" class="tsd-anchor"></a>
 				<h3>map</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">(</span>modifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">(</span>modifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L392">classes/Vector.ts:392</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L448">classes/Vector.ts:448</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>modifier: <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></h5>
+								<h5>modifier: <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></h5>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
@@ -853,7 +970,7 @@
 														<h5>value: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>axis: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+														<h5>axis: <span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -871,19 +988,19 @@
 				<a name="multiply" class="tsd-anchor"></a>
 				<h3>multiply</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L344">classes/Vector.ts:344</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L387">classes/Vector.ts:387</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -900,7 +1017,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L306">classes/Vector.ts:306</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L349">classes/Vector.ts:349</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -917,7 +1034,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L318">classes/Vector.ts:318</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L361">classes/Vector.ts:361</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -934,7 +1051,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L398">classes/Vector.ts:398</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L454">classes/Vector.ts:454</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -969,22 +1086,19 @@
 				<a name="rotate" class="tsd-anchor"></a>
 				<h3>rotate</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>radians<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, center<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>rotate<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L356">classes/Vector.ts:356</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L399">classes/Vector.ts:399</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>radians: <span class="tsd-signature-type">number</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> center: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>rotate: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -995,19 +1109,19 @@
 				<a name="rotation" class="tsd-anchor"></a>
 				<h3>rotation</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L384">classes/Vector.ts:384</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L440">classes/Vector.ts:440</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1024,7 +1138,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L352">classes/Vector.ts:352</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L395">classes/Vector.ts:395</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1041,19 +1155,19 @@
 				<a name="subtract" class="tsd-anchor"></a>
 				<h3>subtract</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L340">classes/Vector.ts:340</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L383">classes/Vector.ts:383</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1070,7 +1184,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L314">classes/Vector.ts:314</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L357">classes/Vector.ts:357</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1087,7 +1201,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L402">classes/Vector.ts:402</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L458">classes/Vector.ts:458</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1104,7 +1218,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L422">classes/Vector.ts:422</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L478">classes/Vector.ts:478</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -1121,7 +1235,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L426">classes/Vector.ts:426</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L482">classes/Vector.ts:482</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
@@ -1138,7 +1252,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L430">classes/Vector.ts:430</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L486">classes/Vector.ts:486</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
@@ -1149,16 +1263,16 @@
 				<a name="tojson" class="tsd-anchor"></a>
 				<h3>toJSON</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L406">classes/Vector.ts:406</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L462">classes/Vector.ts:462</a></li>
 							</ul>
 						</aside>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1166,16 +1280,16 @@
 				<a name="toobject" class="tsd-anchor"></a>
 				<h3>to<wbr>Object</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Object<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L410">classes/Vector.ts:410</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L466">classes/Vector.ts:466</a></li>
 							</ul>
 						</aside>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1183,16 +1297,16 @@
 				<a name="toobject2d" class="tsd-anchor"></a>
 				<h3>to<wbr>Object2D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Object2D<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Object2D<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L414">classes/Vector.ts:414</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L470">classes/Vector.ts:470</a></li>
 							</ul>
 						</aside>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1200,16 +1314,16 @@
 				<a name="toobject3d" class="tsd-anchor"></a>
 				<h3>to<wbr>Object3D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Object3D<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Object3D<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L418">classes/Vector.ts:418</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L474">classes/Vector.ts:474</a></li>
 							</ul>
 						</aside>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1223,7 +1337,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L434">classes/Vector.ts:434</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L490">classes/Vector.ts:490</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1240,7 +1354,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L438">classes/Vector.ts:438</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L494">classes/Vector.ts:494</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1257,7 +1371,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L442">classes/Vector.ts:442</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L498">classes/Vector.ts:498</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1274,7 +1388,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L326">classes/Vector.ts:326</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L369">classes/Vector.ts:369</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1285,19 +1399,19 @@
 				<a name="add-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> add</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L77">classes/Vector.ts:77</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L85">classes/Vector.ts:85</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1314,7 +1428,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L20">classes/Vector.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L20">classes/Vector.ts:20</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1331,19 +1445,19 @@
 				<a name="boxmax-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> box<wbr>Max</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">box<wbr>Max<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">box<wbr>Max<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L198">classes/Vector.ts:198</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L241">classes/Vector.ts:241</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1354,19 +1468,19 @@
 				<a name="clone-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> clone</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L73">classes/Vector.ts:73</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L81">classes/Vector.ts:81</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1377,22 +1491,22 @@
 				<a name="crossproduct-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> cross<wbr>Product</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">cross<wbr>Product<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">cross<wbr>Product<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L130">classes/Vector.ts:130</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L173">classes/Vector.ts:173</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1403,22 +1517,22 @@
 				<a name="distance-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> distance</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">distance<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">distance<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L168">classes/Vector.ts:168</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L211">classes/Vector.ts:211</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1429,22 +1543,22 @@
 				<a name="distancesquared-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> distance<wbr>Squared</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">distance<wbr>Squared<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">distance<wbr>Squared<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L175">classes/Vector.ts:175</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L218">classes/Vector.ts:218</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1455,22 +1569,22 @@
 				<a name="divide-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> divide</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">divide<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L97">classes/Vector.ts:97</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L105">classes/Vector.ts:105</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1481,25 +1595,119 @@
 				<a name="dotproduct-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> dot<wbr>Product</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">dot<wbr>Product<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">dot<wbr>Product<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L124">classes/Vector.ts:124</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L167">classes/Vector.ts:167</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="foreachplane-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> for<wbr>Each<wbr>Plane</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">for<wbr>Each<wbr>Plane<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>ortogonalAxis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L126">classes/Vector.ts:126</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+							</li>
+							<li>
+								<h5>callback: <span class="tsd-signature-symbol">(</span>ortogonalAxis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>ortogonalAxis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>ortogonalAxis: <a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a></h5>
+													</li>
+													<li>
+														<h5>vector2D: <a href="vector.html" class="tsd-signature-type">Vector</a></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="forplane-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> for<wbr>Plane</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">for<wbr>Plane<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, axis<span class="tsd-signature-symbol">: </span><a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L139">classes/Vector.ts:139</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+							</li>
+							<li>
+								<h5>axis: <a href="../globals.html#iaxis" class="tsd-signature-type">IAxis</a></h5>
+							</li>
+							<li>
+								<h5>callback: <span class="tsd-signature-symbol">(</span>vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>vector2D<span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>vector2D: <a href="vector.html" class="tsd-signature-type">Vector</a></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1514,7 +1722,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L51">classes/Vector.ts:51</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L51">classes/Vector.ts:51</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1528,7 +1736,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L52">classes/Vector.ts:52</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L52">classes/Vector.ts:52</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1545,14 +1753,14 @@
 				<a name="fromobject" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Object</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">from<wbr>Object&lt;T&gt;<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">from<wbr>Object&lt;T&gt;<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 					<li class="tsd-signature tsd-kind-icon">from<wbr>Object&lt;T&gt;<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, axisMapping<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L31">classes/Vector.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L31">classes/Vector.ts:31</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1564,7 +1772,7 @@
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1572,7 +1780,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L32">classes/Vector.ts:32</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L32">classes/Vector.ts:32</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1595,25 +1803,51 @@
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-				<a name="isequal-1" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagStatic">Static</span> is<wbr>Equal</h3>
+				<a name="frompolar" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Polar</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<li class="tsd-signature tsd-kind-icon">from<wbr>Polar<span class="tsd-signature-symbol">(</span>rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, distance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L140">classes/Vector.ts:140</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L61">classes/Vector.ts:61</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>rotation: <span class="tsd-signature-type">number</span></h5>
 							</li>
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> distance: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<a name="isequal-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> is<wbr>Equal</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L183">classes/Vector.ts:183</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
+							</li>
+							<li>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1624,19 +1858,19 @@
 				<a name="iszero-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> is<wbr>Zero</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">is<wbr>Zero<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Zero<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L154">classes/Vector.ts:154</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L197">classes/Vector.ts:197</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1647,26 +1881,26 @@
 				<a name="map-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> map</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, modifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, modifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L204">classes/Vector.ts:204</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L247">classes/Vector.ts:247</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5>modifier: <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></h5>
+								<h5>modifier: <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></h5>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, axis<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
@@ -1676,7 +1910,7 @@
 														<h5>value: <span class="tsd-signature-type">number</span></h5>
 													</li>
 													<li>
-														<h5>axis: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+														<h5>axis: <span class="tsd-signature-symbol">keyof </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1694,19 +1928,19 @@
 				<a name="multiply-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> multiply</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">multiply<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>vectors<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L89">classes/Vector.ts:89</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L97">classes/Vector.ts:97</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
+								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vectors: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">[]</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1723,7 +1957,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L16">classes/Vector.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L16">classes/Vector.ts:16</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1734,19 +1968,19 @@
 				<a name="rearrangeaxis-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> rearrange<wbr>Axis</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">rearrange<wbr>Axis<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, modifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">rearrange<wbr>Axis<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, modifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L222">classes/Vector.ts:222</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L265">classes/Vector.ts:265</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
 								<h5>modifier: <span class="tsd-signature-symbol">(</span>values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -1778,25 +2012,22 @@
 				<a name="rotate-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> rotate</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, radians<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, center<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, rotate<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L109">classes/Vector.ts:109</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L117">classes/Vector.ts:117</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5>radians: <span class="tsd-signature-type">number</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> center: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
+								<h5>rotate: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1807,22 +2038,22 @@
 				<a name="rotation-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> rotation</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<li class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L186">classes/Vector.ts:186</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L229">classes/Vector.ts:229</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol"> = Vector.zero()</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1833,19 +2064,19 @@
 				<a name="scale-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> scale</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, scale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, scale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L101">classes/Vector.ts:101</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L109">classes/Vector.ts:109</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
 								<h5>scale: <span class="tsd-signature-type">number</span></h5>
@@ -1859,22 +2090,22 @@
 				<a name="subtract-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> subtract</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">subtract<span class="tsd-signature-symbol">(</span>vector1<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, vector2<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L85">classes/Vector.ts:85</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L93">classes/Vector.ts:93</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector1: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector1: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 							<li>
-								<h5>vector2: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector2: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1885,19 +2116,19 @@
 				<a name="to2d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to2D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vector.html" class="tsd-signature-type">Vector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L233">classes/Vector.ts:233</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L276">classes/Vector.ts:276</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1908,19 +2139,19 @@
 				<a name="toarray-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Array</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Array<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Array<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L253">classes/Vector.ts:253</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L296">classes/Vector.ts:296</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -1931,19 +2162,19 @@
 				<a name="toarray2d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Array2D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Array2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Array2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L257">classes/Vector.ts:257</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L300">classes/Vector.ts:300</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
@@ -1954,19 +2185,19 @@
 				<a name="toarray3d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Array3D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Array3D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Array3D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L261">classes/Vector.ts:261</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L304">classes/Vector.ts:304</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h4>
@@ -1977,22 +2208,22 @@
 				<a name="tojson-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> toJSON</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L237">classes/Vector.ts:237</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L280">classes/Vector.ts:280</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivectorobject.html" class="tsd-signature-type">IVectorObject</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -2000,22 +2231,22 @@
 				<a name="toobject-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Object</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Object<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Object<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L241">classes/Vector.ts:241</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L284">classes/Vector.ts:284</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -2023,22 +2254,22 @@
 				<a name="toobject2d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Object2D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Object2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Object2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L245">classes/Vector.ts:245</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L288">classes/Vector.ts:288</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -2046,22 +2277,22 @@
 				<a name="toobject3d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Object3D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>Object3D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Object3D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L249">classes/Vector.ts:249</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L292">classes/Vector.ts:292</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -2069,19 +2300,19 @@
 				<a name="tostring-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>String</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L265">classes/Vector.ts:265</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L308">classes/Vector.ts:308</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -2092,19 +2323,19 @@
 				<a name="tostring2d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>String2D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>String2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>String2D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L269">classes/Vector.ts:269</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L312">classes/Vector.ts:312</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -2115,19 +2346,19 @@
 				<a name="tostring3d-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>String3D</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">to<wbr>String3D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<li class="tsd-signature tsd-kind-icon">to<wbr>String3D<span class="tsd-signature-symbol">(</span>vector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L273">classes/Vector.ts:273</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L316">classes/Vector.ts:316</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>vector: <a href="../interfaces/ivector.html" class="tsd-signature-type">IVector</a></h5>
+								<h5>vector: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -2144,7 +2375,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/9c563f8/src/classes/Vector.ts#L12">classes/Vector.ts:12</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/0e382f9/src/classes/Vector.ts#L12">classes/Vector.ts:12</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="vector.html" class="tsd-signature-type">Vector</a></h4>
