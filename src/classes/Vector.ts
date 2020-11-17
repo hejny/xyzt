@@ -1,4 +1,4 @@
-import { IVector } from '../interfaces/IVector';
+import { AXIS, IAxis, IVector } from '../interfaces/IVector';
 
 // TODO: toCss toTopLeft as helpers
 // TODO: ? Vector is kind of Transform with only a translation
@@ -39,7 +39,7 @@ export class Vector implements IVector {
         }
 
         if (typeof vector === 'object') {
-            const [x, y, z] = axisMapping || ['x', 'y', 'z'];
+            const [x, y, z] = axisMapping || AXIS;
 
             // @ts-expect-error
             return new Vector(vector[x], vector[y], vector[z]);
@@ -56,6 +56,14 @@ export class Vector implements IVector {
         }
 
         return new Vector(...(values as number[]));
+    }
+
+    public static fromPolar(rotation: number, distance: number = 1): Vector {
+        // TODO: also interface with object options
+        return new Vector(
+            Math.cos(rotation) * distance,
+            Math.sin(rotation) * distance,
+        );
     }
 
     /*
@@ -106,19 +114,54 @@ export class Vector implements IVector {
         );
     }
 
-    public static rotate(
+    public static rotate(vector: IVector, rotate: IVector): Vector {
+        return Vector.forEachPlane(vector, (ortogonalAxis, vector2D) => {
+            const rotateAxis = rotate[ortogonalAxis] || 0;
+            const rotation = vector2D.rotation();
+            const distance = vector2D.distance();
+            return Vector.fromPolar(rotation + rotateAxis, distance);
+        });
+    }
+
+    public static forEachPlane(
         vector: IVector,
-        radians: number,
-        center: IVector = Vector.zero(),
+        callback: (ortogonalAxis: IAxis, vector2D: Vector) => IVector,
     ): Vector {
-        // TODO: Just for compatibility, because it does not make sence in Vector
-        const base = Vector.fromObject(vector).subtract(center);
-        const length = base.distance();
-        const rotation = base.rotation();
-        return new Vector(
-            Math.cos(rotation + radians) * length,
-            Math.sin(rotation + radians) * length,
-        ).add(center);
+        let vectorObject = Vector.fromObject(vector);
+        for (const axis of AXIS) {
+            vectorObject = Vector.forPlane(vectorObject, axis, (vector2D) => {
+                return callback(axis, vector2D);
+            });
+        }
+        return vectorObject;
+    }
+
+    public static forPlane(
+        vector: IVector,
+        axis: IAxis,
+        callback: (vector2D: Vector) => IVector,
+    ): Vector {
+        let { x, y, z } = Vector.fromObject(vector);
+
+        switch (axis) {
+            case 'x':
+                [y, z] = Vector.fromObject(
+                    callback(new Vector(y, z)),
+                ).toArray2D();
+                break;
+            case 'y':
+                [x, z] = Vector.fromObject(
+                    callback(new Vector(x, z)),
+                ).toArray2D();
+                break;
+            case 'z':
+                [x, y] = Vector.fromObject(
+                    callback(new Vector(x, y)),
+                ).toArray2D();
+                break;
+        }
+
+        return new Vector(x, y, z);
     }
 
     public static dotProduct(vector1: IVector, vector2: IVector): number {
@@ -353,8 +396,21 @@ export class Vector implements IVector {
         return Vector.scale(this, scale);
     }
 
-    public rotate(radians: number, center?: IVector): Vector {
-        return Vector.rotate(this, radians, center);
+    public rotate(rotate: IVector): Vector {
+        return Vector.rotate(this, rotate);
+    }
+
+    public forEachPlane(
+        callback: (ortogonalAxis: IAxis, vector2D: Vector) => IVector,
+    ): Vector {
+        return Vector.forEachPlane(this, callback);
+    }
+
+    public forPlane(
+        axis: IAxis,
+        callback: (vector2D: Vector) => IVector,
+    ): Vector {
+        return Vector.forPlane(this, axis, callback);
     }
 
     public dotProduct(vector2: IVector): number {

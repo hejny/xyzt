@@ -1,7 +1,12 @@
 import { Vector } from '../src/classes/Vector';
+import { toMatchCloseTo } from 'jest-matcher-deep-close-to';
+
+expect.extend({ toMatchCloseTo });
 
 describe('Vector2', () => {
-    it('Constructing', () => {
+    it('can be constructed multiple ways', () => {
+        // TODO: From IVectorObject and number[]
+
         expect(new Vector(1, 2)).toEqual(Vector.fromObject({ x: 1, y: 2 }));
         expect(new Vector(1, 2, 3)).toEqual(
             Vector.fromObject({ x: 1, y: 2, z: 3 }),
@@ -31,9 +36,11 @@ describe('Vector2', () => {
                 'clientY',
             ]),
         ).toEqual(Vector.fromArray(1, 2));
+
+        // !!! fromPolar
     });
 
-    it('isEqual', () => {
+    it('can be compared by isEqual', () => {
         expect(Vector.isEqual(Vector.fromArray(0, 0), {})).toBe(true);
         expect(Vector.isEqual({}, {})).toBe(true);
         expect(Vector.isEqual(Vector.fromArray(), Vector.fromArray(0, 0))).toBe(
@@ -78,7 +85,7 @@ describe('Vector2', () => {
         expect(Vector.isEqual(Vector.fromArray(1, 1), {})).toBe(false);
     });
 
-    it('distance', () => {
+    it('count distance', () => {
         expect(Vector.fromArray(1, 1).distance()).toBeCloseTo(1.4142, 2);
         expect(Vector.fromArray(2, 2).distance()).toBeCloseTo(1.4142 * 2, 2);
         expect(
@@ -89,7 +96,9 @@ describe('Vector2', () => {
         );
     });
 
-    it('cross product', () => {
+    it('count rotation', () => {});
+
+    it('count cross product', () => {
         expect(
             Vector.fromArray(2, 3, 4)
                 .crossProduct(Vector.fromArray(5, 6, 7))
@@ -97,13 +106,13 @@ describe('Vector2', () => {
         ).toEqual([-3, 6, -3]);
     });
 
-    it('dot product', () => {
+    it('count dot product', () => {
         expect(
             Vector.fromArray(1, 2, 3).dotProduct(Vector.fromArray(4, -5, 6)),
         ).toEqual(12);
     });
 
-    it('to statements', () => {
+    it('can be serialized to multiple formats', () => {
         expect(Vector.fromArray(1, 2, 3).toJSON()).toEqual({
             x: 1,
             y: 2,
@@ -126,6 +135,67 @@ describe('Vector2', () => {
         expect(Vector.fromArray(1, 2, 3).toString()).toEqual(`[1,2,3]`);
         expect(Vector.fromArray(1, 2, 3).toString2D()).toEqual(`[1,2]`);
         expect(Vector.fromArray(1, 2, 3).toString3D()).toEqual(`[1,2,3]`);
+    });
+
+    it('can be converted via forPlane', () => {
+        expect(
+            new Vector(1, 2, 3)
+                .forPlane('x', ({ x, y }) => new Vector(y, x))
+                .toArray(),
+        ).toEqual([1, 3, 2]);
+        expect(
+            new Vector(1, 2, 3)
+                .forPlane('y', ({ x, y }) => new Vector(y, x))
+                .toArray(),
+        ).toEqual([3, 2, 1]);
+        expect(
+            new Vector(1, 2, 3)
+                .forPlane('z', ({ x, y }) => new Vector(y, x))
+                .toArray(),
+        ).toEqual([2, 1, 3]);
+    });
+
+    it('can be converted via forEachPlane', () => {
+        expect(
+            new Vector(1, 2, 3)
+                .forEachPlane((axis, { x, y }) => new Vector(y, x))
+                .toArray(),
+        ).toEqual([3, 2, 1]);
+    });
+
+    it('rotate zero vector with no rotation', () => {
+        expect(Vector.zero().rotate(Vector.zero())).toEqual(Vector.zero());
+    });
+
+    it('rotate zero vector with rotation', () => {
+        expect(
+            Vector.zero().rotate(
+                new Vector(Math.PI / 2, Math.PI / 3, Math.PI / 4),
+            ),
+        ).toEqual(Vector.zero());
+    });
+
+    it('rotate vector with no rotation', () => {
+        (expect as any)(
+            new Vector(1, 2, 3).rotate(Vector.zero()).toJSON(),
+        ).toMatchCloseTo(new Vector(1, 2, 3).toJSON());
+    });
+
+    it('can be rotated (along axis Z)', () => {
+        (expect as any)(
+            new Vector(1, 2, 3).rotate(new Vector(0, 0, Math.PI / 2)).toJSON(),
+        ).toMatchCloseTo(new Vector(-2, 1, 3).toJSON());
+    });
+
+    it('can be rotated multiple ways and to same result', () => {
+        (expect as any)(
+            new Vector(1, 2, 3)
+                .rotate(new Vector(1, 1, 0))
+                .rotate(new Vector(0, 0, 1))
+                .toJSON(),
+        ).toMatchCloseTo(
+            new Vector(1, 2, 3).rotate(new Vector(1, 1, 1)).toJSON(),
+        );
     });
 
     // TODO: Other methods

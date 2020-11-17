@@ -12,11 +12,11 @@ describe('test myModule', () => {
 
 describe('test myModule', () => {
     it('should return 42', () => {
-        (expect({
+        (expect as any)({
             foo: 42.0003,
             bar: 'xxx',
             baz: 'yyy',
-        }) as any).toMatchCloseTo({ foo: 42.0004, bar: 'xxx' }, 3);
+        }).toMatchCloseTo({ foo: 42.0004, bar: 'xxx' }, 3);
     });
 });
 
