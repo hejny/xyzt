@@ -1,9 +1,10 @@
 import { ITransform } from '../interfaces/ITransform';
-import { IVector } from '../main';
+import { IAppliableOnVector } from '../interfaces/IVectorApplyModifier';
+import { IVector } from '../interfaces/IVector';
 import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
-export class Transform implements ITransform {
+export class Transform implements ITransform, IAppliableOnVector {
     public static neutral(): Transform {
         return new Transform();
     }
@@ -105,7 +106,7 @@ export class Transform implements ITransform {
 
     // TODO: isEqual
 
-    public static applyOnPoint(
+    public static applyOnVector(
         transform: ITransform,
         point: IVector,
         center: IVector = Vector.zero(),
@@ -116,14 +117,14 @@ export class Transform implements ITransform {
         // TODO: Make it work 3D
         // TODO: Optimize
 
-        // Rotate
-        pointCentered = pointCentered.rotate(transformObject.rotate);
+        // Translate
+        pointCentered = pointCentered.add(transformObject.translate);
 
         // Scale
         pointCentered = pointCentered.multiply(transformObject.scale);
 
-        // Translate
-        pointCentered = pointCentered.add(transformObject.translate);
+        // Rotate
+        pointCentered = pointCentered.rotate(transformObject.rotate);
 
         return pointCentered.add(center);
     }
@@ -181,8 +182,8 @@ export class Transform implements ITransform {
         return Transform.subtract(this, transform2);
     }
 
-    public applyOnPoint(point: IVector, center?: IVector) {
-        return Transform.applyOnPoint(this, point, center);
+    public applyOnVector(point: IVector, center?: IVector) {
+        return Transform.applyOnVector(this, point, center);
     }
 
     public toJSON() {

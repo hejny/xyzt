@@ -63,7 +63,7 @@ export class BoundingBox implements IBoundingBox {
     // TODO: setters
 
     public intersects(position: Vector): boolean {
-        const positionRotated = this.transform.applyOnPoint(position);
+        const positionRotated = this.transform.applyOnVector(position);
 
         return (
             this.center.x - this.size.x / 2 <= positionRotated.x &&
@@ -79,7 +79,7 @@ export class BoundingBox implements IBoundingBox {
     }
 
     private corner(relativePosition: IVector) {
-        return this.transform.applyOnPoint(
+        return this.transform.applyOnVector(
             this.center.add(this.size.multiply(relativePosition)),
             this.center,
         );

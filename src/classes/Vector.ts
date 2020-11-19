@@ -1,4 +1,5 @@
 import { AXIS, IAxis, IVector } from '../interfaces/IVector';
+import { IVectorApplyModifier } from '../interfaces/IVectorApplyModifier';
 
 // TODO: toCss toTopLeft as helpers
 // TODO: ? Vector is kind of Transform with only a translation
@@ -273,6 +274,19 @@ export class Vector implements IVector {
         return new Vector(x, y, z);
     }
 
+    public static apply(
+        vector: IVector,
+        modifier: IVectorApplyModifier,
+    ): Vector {
+        if (typeof modifier === 'function') {
+            return Vector.fromObject(modifier(Vector.fromObject(vector)));
+        } else {
+            return Vector.fromObject(
+                modifier.applyOnVector(Vector.fromObject(vector)),
+            );
+        }
+    }
+
     public static to2D(vector: IVector): Vector {
         return new Vector(vector.x, vector.y);
     }
@@ -453,6 +467,10 @@ export class Vector implements IVector {
 
     public rearrangeAxis(modifier: (values: number[]) => number[]): Vector {
         return Vector.rearrangeAxis(this, modifier);
+    }
+
+    public apply(modifier: IVectorApplyModifier): Vector {
+        return Vector.apply(this, modifier);
     }
 
     public to2D() {

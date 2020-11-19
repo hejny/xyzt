@@ -73,32 +73,32 @@ describe('Operations with Transform', () => {
 describe('Operations with Transform and Vector', () => {
     it('do nothing with zero vector and neutral transform', () =>
         (expect as any)(
-            Transform.neutral().applyOnPoint(Vector.zero()).toJSON(),
+            Transform.neutral().applyOnVector(Vector.zero()).toJSON(),
         ).toMatchCloseTo(Vector.zero().toJSON()));
 
     it('do nothing with vector and neutral transform', () =>
         (expect as any)(
-            Transform.neutral().applyOnPoint(new Vector(1, 2, 3)).toJSON(),
+            Transform.neutral().applyOnVector(new Vector(1, 2, 3)).toJSON(),
         ).toMatchCloseTo(new Vector(1, 2, 3).toJSON()));
 
     it('rotate zero vector', () =>
         (expect as any)(
             Transform.rotate(Math.PI / 2)
-                .applyOnPoint(Vector.zero())
+                .applyOnVector(Vector.zero())
                 .toJSON(),
         ).toMatchCloseTo(Vector.zero().toJSON()));
 
     it('rotate with preserving z axis', () =>
         (expect as any)(
             Transform.rotate(Math.PI / 2)
-                .applyOnPoint(new Vector(1, 0, 33))
+                .applyOnVector(new Vector(1, 0, 33))
                 .toJSON(),
         ).toMatchCloseTo(new Vector(0, 1, 33).toJSON()));
 
     it('rotate from center [-1,0,0]', () =>
         (expect as any)(
             Transform.rotate(Math.PI / 2)
-                .applyOnPoint(new Vector(1, 0, 0), new Vector(-1, 0, 0))
+                .applyOnVector(new Vector(1, 0, 0), new Vector(-1, 0, 0))
                 .toJSON(),
         ).toMatchCloseTo(new Vector(-1, 2, 0).toJSON()));
 });
