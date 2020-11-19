@@ -390,6 +390,8 @@ export class Vector implements IVector {
         return Vector.clone(this);
     }
 
+    // TODO: updateWithMutation
+
     public add(...vectors: IVector[]): Vector {
         return Vector.add(this, ...vectors);
     }

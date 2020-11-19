@@ -97,8 +97,8 @@ describe('Operations with Transform and Vector', () => {
 
     it('rotate from center [-1,0,0]', () =>
         (expect as any)(
-            Transform.rotate(Math.PI / 2)
-                .applyOnVector(new Vector(1, 0, 0), new Vector(-1, 0, 0))
+            Transform.rotate(Math.PI / 2, new Vector(-1, 0, 0))
+                .applyOnVector(new Vector(1, 0, 0))
                 .toJSON(),
         ).toMatchCloseTo(new Vector(-1, 2, 0).toJSON()));
 });

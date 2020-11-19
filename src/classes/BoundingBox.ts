@@ -79,9 +79,10 @@ export class BoundingBox implements IBoundingBox {
     }
 
     private corner(relativePosition: IVector) {
-        return this.transform.applyOnVector(
-            this.center.add(this.size.multiply(relativePosition)),
-            this.center,
+        return this.center.add(this.size.multiply(relativePosition)).apply(
+            Transform.fromObject({
+                rotate: this.transform.rotate,
+            }),
         );
     }
 }
