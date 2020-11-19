@@ -3,7 +3,7 @@ import { Vector } from '../src/classes/Vector';
 
 expect.extend({ toMatchCloseTo });
 
-describe('Vector2', () => {
+describe('Vector', () => {
     it('can be constructed multiple ways', () => {
         // TODO: From IVectorObject and number[]
 
@@ -197,6 +197,19 @@ describe('Vector2', () => {
             new Vector(1, 2, 3).rotate(new Vector(1, 1, 1)).toJSON(),
         );
     });
+
+
+    it('can be rotated multiple ways and to same result', () => {
+        (expect as any)(
+            new Vector(1, 2, 3)
+                .rotate(new Vector(1, 1, 0))
+                .rotate(new Vector(0, 0, 1))
+                .toJSON(),
+        ).toMatchCloseTo(
+            new Vector(1, 2, 3).rotate(new Vector(1, 1, 1)).toJSON(),
+        );
+    });
+    
 
     // TODO: Other methods
 });
