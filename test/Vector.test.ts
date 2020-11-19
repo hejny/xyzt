@@ -198,7 +198,6 @@ describe('Vector', () => {
         );
     });
 
-
     it('can be rotated multiple ways and to same result', () => {
         (expect as any)(
             new Vector(1, 2, 3)
@@ -209,7 +208,6 @@ describe('Vector', () => {
             new Vector(1, 2, 3).rotate(new Vector(1, 1, 1)).toJSON(),
         );
     });
-    
 
     // TODO: Other methods
 });
