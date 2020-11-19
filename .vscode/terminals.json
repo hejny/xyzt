@@ -6,10 +6,6 @@
             "command": "npm run prettier-watch"
         },
         {
-            "name": "develop-build",
-            "command": "npm run develop-build"
-        },
-        {
             "name": "test-watch",
             "command": "npm run test-watch"
         },

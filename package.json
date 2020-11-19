@@ -19,7 +19,6 @@
     "preversion": "npm test && npm run lint && npm run generate-main-exports-commit && npm run build && npm run prettier-commit && npm run documentation-commit",
     "postversion": "git push && git push --tags && npm publish && npm run update-in-other-repos",
     "build": "webpack --config webpack.production.config.js",
-    "develop-build": "npx onchange \"src/**/*.{ts,tsx}\" --initial --kill --delay 500  -- webpack --config webpack.development.config.js",
     "pretty-imports": "npx organize-imports-cli tsconfig.json",
     "prettier": "npx prettier --config .prettierrc --write \"{src,test,samples}/**/*.{ts,json,js,html,css}\"",
     "prettier-watch": "npx onchange \"{src,test,samples}/**/*.{ts,json,js,html,css}\" -- npx prettier --config .prettierrc --write {{changed}}",
