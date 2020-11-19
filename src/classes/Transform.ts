@@ -1,6 +1,6 @@
 import { ITransform } from '../interfaces/ITransform';
-import { IAppliableOnVector } from '../interfaces/IVectorApplyModifier';
 import { IVector } from '../interfaces/IVector';
+import { IAppliableOnVector } from '../interfaces/IVectorApplyModifier';
 import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
