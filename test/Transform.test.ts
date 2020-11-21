@@ -44,17 +44,25 @@ describe('initialization of Transform', () => {
     });
 });
 
+describe('Transform expirting', () => {
+    it('pick', () => {
+        // TODO:
+        //expect(Transform.fromObject({}))
+    });
+});
+
 describe('Operations with Transform', () => {
-    it('combine', () => {
+    it('apply', () => {
         expect(
-            Transform.combine(
-                {
-                    translate: { x: 1, y: 2, z: 3 },
-                },
-                {
-                    translate: { x: 1, y: 2, z: 3 },
-                },
-            ).toObject(),
+            Transform.fromObject({
+                translate: { x: 1, y: 2, z: 3 },
+            })
+                .apply(
+                    Transform.fromObject({
+                        translate: { x: 1, y: 2, z: 3 },
+                    }),
+                )
+                .toObject(),
         ).toEqual({
             translate: { x: 2, y: 4, z: 6 },
         });
@@ -62,10 +70,6 @@ describe('Operations with Transform', () => {
     });
 
     it('negate', () => {
-        // TODO:
-    });
-
-    it('subtract', () => {
         // TODO:
     });
 });
@@ -94,11 +98,4 @@ describe('Operations with Transform and Vector', () => {
                 .applyOnVector(new Vector(1, 0, 33))
                 .toJSON(),
         ).toMatchCloseTo(new Vector(0, 1, 33).toJSON()));
-
-    it('rotate from center [-1,0,0]', () =>
-        (expect as any)(
-            Transform.rotate(Math.PI / 2, new Vector(-1, 0, 0))
-                .applyOnVector(new Vector(1, 0, 0))
-                .toJSON(),
-        ).toMatchCloseTo(new Vector(-1, 2, 0).toJSON()));
 });

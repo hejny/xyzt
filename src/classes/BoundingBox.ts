@@ -75,7 +75,7 @@ export class BoundingBox implements IBoundingBox {
 
     public applyTransform(transform: ITransform) {
         // TODO: Immutable
-        this.transform = Transform.combine(this.transform, transform);
+        this.transform = this.transform.apply(Transform.fromObject(transform));
     }
 
     private corner(relativePosition: IVector) {

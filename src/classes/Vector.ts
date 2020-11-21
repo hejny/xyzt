@@ -295,8 +295,17 @@ export class Vector implements IVector {
         return Vector.toObject(vector);
     }
 
-    public static toObject(vector: IVector): IVector {
-        return { x: vector.x || 0, y: vector.y || 0, z: vector.z || 0 };
+    public static toObject<T = IVector>(
+        vector: IVector,
+        axisMapping?: Array<keyof T>,
+    ): T {
+        const object: Partial<T> = {};
+        const array = Vector.toArray(vector);
+
+        for (const axis of axisMapping || ((AXIS as unknown) as keyof T)) {
+            object[axis] = (array.shift() || 0) as any;
+        }
+        return object as T;
     }
 
     public static toObject2D(vector: IVector): IVector {
@@ -385,6 +394,7 @@ export class Vector implements IVector {
     }
 
     // Note: Bellow are instance equivalents of static methods
+    // TODO: Auto-generate them
 
     public clone(): Vector {
         return Vector.clone(this);
@@ -405,7 +415,7 @@ export class Vector implements IVector {
     }
 
     public divide(vector2: IVector): Vector {
-        return Vector.subtract(this, vector2);
+        return Vector.divide(this, vector2);
     }
 
     public scale(scale: number): Vector {
@@ -483,8 +493,8 @@ export class Vector implements IVector {
         return Vector.toJSON(this);
     }
 
-    public toObject() {
-        return Vector.toObject(this);
+    public toObject<T = IVector>(axisMapping?: Array<keyof T>) {
+        return Vector.toObject(this, axisMapping);
     }
 
     public toObject2D() {

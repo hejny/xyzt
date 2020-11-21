@@ -6,9 +6,7 @@ export const transformComplexSamples = (() => {
     for (const transform1 of transformBasicSamples) {
         for (const transform2 of transformBasicSamples) {
             for (const transform3 of transformBasicSamples) {
-                transforms.push(
-                    Transform.combine(transform1, transform2, transform3),
-                );
+                transforms.push(transform1.apply(transform2).apply(transform3));
             }
         }
     }

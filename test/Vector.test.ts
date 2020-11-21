@@ -123,6 +123,11 @@ describe('Vector', () => {
             y: 2,
             z: 3,
         });
+        expect(Vector.fromArray(1, 2, 3).toObject(['t', 'u', 'v'])).toEqual({
+            t: 1,
+            u: 2,
+            v: 3,
+        });
         expect(Vector.fromArray(1, 2, 3).toObject2D()).toEqual({ x: 1, y: 2 });
         expect(Vector.fromArray(1, 2, 3).toObject3D()).toEqual({
             x: 1,

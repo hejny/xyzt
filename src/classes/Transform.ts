@@ -20,13 +20,16 @@ export class Transform
 
     public static rotate(
         rotate: number | IVector,
-        center?: IVector,
+        translate?: IVector,
     ): Transform {
-        return Transform.fromObject({ rotate, center });
+        return Transform.fromObject({ rotate, translate });
     }
 
-    public static scale(scale: number | IVector, center?: IVector): Transform {
-        return Transform.fromObject({ scale, center });
+    public static scale(
+        scale: number | IVector,
+        translate?: IVector,
+    ): Transform {
+        return Transform.fromObject({ scale, translate });
     }
 
     public static fromObject(transform: ITransform): Transform {
@@ -46,7 +49,7 @@ export class Transform
 
         return new Transform(
             Vector.fromObject(optionsFull.translate),
-            Vector.fromObject(optionsFull.center),
+            // Vector.fromObject(optionsFull.center),
             (typeof optionsFull.rotate === 'number'
                 ? Vector.fromArray(0, 0, optionsFull.rotate)
                 : Vector.fromObject(optionsFull.rotate)
@@ -62,7 +65,7 @@ export class Transform
         const transformFull = Transform.fromObject(transform);
         return new Transform(
             Vector.fromObject(transformFull.translate).clone(),
-            Vector.fromObject(transformFull.center).clone(),
+            // Vector.fromObject(transformFull.center).clone(),
             Vector.fromObject(transformFull.rotate).clone(),
             Vector.fromObject(transformFull.scale).clone(),
             // Note: Skew will be available in the future>  Vector.fromObject(transformFull.skew).clone(),
@@ -85,41 +88,6 @@ export class Transform
 
     // TODO: updateWithDeepMutation
 
-    /**
-     * @deprecated Maybe only use apply
-     */
-    public static combine(...transforms: ITransform[]): Transform {
-        const transformsFull = transforms.map((transform) =>
-            Transform.fromObject(transform),
-        );
-        return new Transform(
-            transformsFull.reduce(
-                (aggregated, { translate }) => aggregated.add(translate),
-                Vector.zero(),
-            ),
-            transformsFull.reduce(
-                (aggregated, { center }) => aggregated.add(center),
-                Vector.zero(),
-            ),
-            transformsFull.reduce(
-                (aggregated, { rotate }) => aggregated.add(rotate),
-                // TODO:  % (Math.PI * 2)
-                Vector.zero(),
-            ),
-            transformsFull.reduce(
-                (aggregated, { scale }) => aggregated.multiply(scale),
-                Vector.one(),
-            ),
-            /* Note: Skew will be available in the future>
-            transformsFull.reduce(
-                (aggregated, { skew }) =>
-                    aggregated.add(/* TODO: Maybe multiply and one? * / skew),
-                Vector.zero(),
-            ),
-            */
-        );
-    }
-
     public static apply(
         transform: ITransform,
         modifier: ITransformApplyModifier,
@@ -139,21 +107,9 @@ export class Transform
         const transformFull = Transform.fromObject(transform);
         return new Transform(
             transformFull.translate.negate(),
-            transformFull.center,
             transformFull.rotate.negate(),
             transformFull.scale.inverse(),
-            // Note: Skew will be available in the future> transformFull.skew.negate(),
         );
-    }
-
-    /**
-     * @deprecated Maybe only use apply
-     */
-    public static subtract(
-        transform1: ITransform,
-        transform2: ITransform,
-    ): Transform {
-        return Transform.combine(transform1, Transform.negate(transform2));
     }
 
     // TODO: isEqual
@@ -161,10 +117,28 @@ export class Transform
     public static applyOnTransform(
         from: ITransform,
         to: ITransform,
-    ): ITransform {
+    ): Transform {
+        const t1 = Transform.fromObject(from);
+        const t2 = Transform.fromObject(to);
+
+        return Transform.fromObject({
+            rotate: Vector.add(t1.rotate, t2.rotate),
+            scale: Vector.multiply(t1.scale, t2.scale),
+            translate: Vector.add(
+                t1.translate,
+                t2.translate.apply(
+                    t1.updateWithMutation((t) => {
+                        // !!!
+                        t.translate = Vector.zero();
+                    }),
+                ),
+            ),
+        });
+
+        /*
         const fromObject = Transform.fromObject(from);
         let toCentered = Transform.updateWithMutation(to, (t) => {
-            t.translate = t.translate.subtract(fromObject.center);
+            t.translate = t.translate.subtract(fromObject.translate);
         });
 
         // TODO: Make it work 3D
@@ -182,27 +156,29 @@ export class Transform
         toCentered.translate = toCentered.translate.add(fromObject.translate);
 
         return toCentered.updateWithMutation((t) => {
-            t.translate = t.translate.add(fromObject.center);
+            t.translate = t.translate.add(fromObject.translate);
         });
+        */
     }
 
     public static applyOnVector(from: ITransform, to: IVector): Vector {
-        const fromObject = Transform.fromObject(from);
-        let toCentered = Vector.subtract(to, fromObject.center);
+        let fromObject = Transform.fromObject(from);
+        return Vector.fromObject(to)
+            .add(fromObject.translate)
+            .rotate(fromObject.rotate)
+            .multiply(fromObject.scale);
+    }
 
-        // TODO: Make it work 3D
-        // TODO: Optimize
-
-        // Rotate
-        toCentered = toCentered.rotate(fromObject.rotate);
-
-        // Scale
-        toCentered = toCentered.multiply(fromObject.scale);
-
-        // Translate
-        toCentered = toCentered.add(fromObject.translate);
-
-        return toCentered.add(fromObject.center);
+    public static pick(
+        transform: ITransform,
+        ...keys: Array<keyof ITransform>
+    ): Transform {
+        const transformObject = Transform.fromObject(transform);
+        return Transform.neutral().updateWithMutation((t) => {
+            for (const key of keys) {
+                t[key] = transformObject[key];
+            }
+        });
     }
 
     public static toJSON(transform: ITransform) {
@@ -232,12 +208,13 @@ export class Transform
 
     private constructor(
         public translate: Vector = Vector.zero(),
-        public center: Vector = Vector.zero(),
+        // public center: Vector = Vector.zero(),
         public rotate: Vector = Vector.zero(),
         public scale: Vector = Vector.one(), // Note: Skew will be available in the future> public skew: Vector = Vector.zero(),
     ) {}
 
     // Note: Bellow are instance equivalents of static methods
+    // TODO: Auto-generate them
 
     public clone(): Transform {
         return Transform.clone(this);
@@ -253,13 +230,6 @@ export class Transform
         return Transform.updateWithMutation(this, modifier);
     }
 
-    /**
-     * @deprecated Maybe only use apply
-     */
-    public combine(...transforms: ITransform[]): Transform {
-        return Transform.combine(this, ...transforms);
-    }
-
     public apply(modifier: ITransformApplyModifier): Transform {
         return Transform.apply(this, modifier);
     }
@@ -268,16 +238,16 @@ export class Transform
         return Transform.negate(this);
     }
 
-    public subtract(transform2: ITransform): Transform {
-        return Transform.subtract(this, transform2);
-    }
-
     public applyOnTransform(to: ITransform) {
         return Transform.applyOnTransform(this, to);
     }
 
     public applyOnVector(to: IVector) {
         return Transform.applyOnVector(this, to);
+    }
+
+    public pick(...keys: Array<keyof ITransform>): Transform {
+        return Transform.pick(this, ...keys);
     }
 
     public toJSON() {

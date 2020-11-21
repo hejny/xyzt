@@ -1,17 +1,18 @@
 import { Transform } from '../../../classes/Transform';
-import { transformToStyleSvg } from '../../../main';
+import { ITransform } from '../../../interfaces/ITransform';
 import { transformFromStyle } from '../transformFromStyle/transformFromStyle';
+import { transformToStyleSvg } from '../transformToStyle/transformToStyleSvg';
 
 export function applyTransformOnSvgElement(
-    transform: Transform,
+    transform: ITransform,
     element: SVGGElement,
 ) {
     element.setAttribute(
         'transform',
         transformToStyleSvg(
-            Transform.combine(
+            Transform.apply(
                 transformFromStyle(element.getAttribute('transform') || ''),
-                transform,
+                Transform.fromObject(transform),
             ),
         ),
     );

@@ -1,9 +1,9 @@
-import { Transform } from '../../../classes/Transform';
+import { ITransform } from '../../../interfaces/ITransform';
 import { applyTransformOnHtmlElement } from './applyTransformOnHtmlElement';
 import { applyTransformOnSvgElement } from './applyTransformOnSvgElement';
 
 export function applyTransformOnElement(
-    transform: Transform,
+    transform: ITransform,
     element: Element,
 ) {
     // TODO: Try to preserve options of the transform (with function transformFormatFromStyle)
