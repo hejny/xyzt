@@ -11,6 +11,5 @@ describe('BoundingBox', () => {
             ),
         ).not.toThrowError();
     });
-
     // TODO: Other methods and scenarios
 });

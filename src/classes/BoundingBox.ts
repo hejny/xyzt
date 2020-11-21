@@ -1,6 +1,5 @@
 import { IBoundingBox } from '../interfaces/IBoundingBox';
 import { ITransform } from '../interfaces/ITransform';
-import { IVector } from '../main';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
@@ -34,6 +33,8 @@ export class BoundingBox implements IBoundingBox {
         return this.transform.translate;
     }
 
+    /*
+    TODO: Do after tests
     public get topLeft() {
         return this.corner({ x: -0.5, y: -0.5 });
     }
@@ -49,8 +50,8 @@ export class BoundingBox implements IBoundingBox {
     public get bottomRight() {
         return this.corner({ x: 0.5, y: 0.5 });
     }
+    */
 
-    // TODO: Other corners
 
     public get size(): Vector {
         return this.transform.scale;
@@ -63,13 +64,32 @@ export class BoundingBox implements IBoundingBox {
     // TODO: setters
 
     public intersects(position: Vector): boolean {
-        const positionRotated = this.transform.applyOnVector(position);
+        const positionTransformed = position.apply(this.transform.negate());
+
+        // Note: This stupidity is here because javascript is sometimes not precise in the last decimal digit
+        const bound = 0.5+0.0000000000000002;
+
+
+        console.log({position,positionTransformed});
+        console.log(`
+            ${-bound} <= ${positionTransformed.x},
+            ${-bound} <= ${positionTransformed.y},
+            ${bound} >= ${positionTransformed.x},
+            ${bound} >= ${positionTransformed.y}
+        `)
+        console.log(
+            -bound <= positionTransformed.x,
+            -bound <= positionTransformed.y,
+            bound >= positionTransformed.x,
+            bound >= positionTransformed.y
+        )
+
 
         return (
-            this.center.x - this.size.x / 2 <= positionRotated.x &&
-            this.center.y - this.size.y / 2 <= positionRotated.y &&
-            this.center.x + this.size.x / 2 >= positionRotated.x &&
-            this.center.y + this.size.y / 2 >= positionRotated.y
+            -bound <= positionTransformed.x &&
+            -bound <= positionTransformed.y &&
+            bound >= positionTransformed.x &&
+            bound >= positionTransformed.y
         );
     }
 
@@ -78,11 +98,13 @@ export class BoundingBox implements IBoundingBox {
         this.transform = this.transform.apply(Transform.fromObject(transform));
     }
 
+    /*
+    TODO: Do after tests
     private corner(relativePosition: IVector) {
-        return this.center.add(this.size.multiply(relativePosition)).apply(
-            Transform.fromObject({
-                rotate: this.transform.rotate,
-            }),
-        );
+        return this.center
+        .apply(this.transform.pick('rotate','scale'))
+            .add(this.size.multiply(relativePosition))
+            .apply(this.transform.pick('translate'));
     }
+    */
 }
