@@ -52,7 +52,6 @@ export class BoundingBox implements IBoundingBox {
     }
     */
 
-
     public get size(): Vector {
         return this.transform.scale;
     }
@@ -67,7 +66,7 @@ export class BoundingBox implements IBoundingBox {
         const positionTransformed = position.apply(this.transform.negate());
 
         // Note: This stupidity is here because javascript is sometimes not precise in the last decimal digit
-        const bound = 0.5+0.0000000000000002;
+        const bound = 0.5 + 0.0000000000000002;
 
         return (
             -bound <= positionTransformed.x &&
