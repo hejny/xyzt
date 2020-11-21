@@ -69,22 +69,6 @@ export class BoundingBox implements IBoundingBox {
         // Note: This stupidity is here because javascript is sometimes not precise in the last decimal digit
         const bound = 0.5+0.0000000000000002;
 
-
-        console.log({position,positionTransformed});
-        console.log(`
-            ${-bound} <= ${positionTransformed.x},
-            ${-bound} <= ${positionTransformed.y},
-            ${bound} >= ${positionTransformed.x},
-            ${bound} >= ${positionTransformed.y}
-        `)
-        console.log(
-            -bound <= positionTransformed.x,
-            -bound <= positionTransformed.y,
-            bound >= positionTransformed.x,
-            bound >= positionTransformed.y
-        )
-
-
         return (
             -bound <= positionTransformed.x &&
             -bound <= positionTransformed.y &&
