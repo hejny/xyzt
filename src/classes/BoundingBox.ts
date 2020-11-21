@@ -78,6 +78,7 @@ export class BoundingBox implements IBoundingBox {
     }
 
     public applyTransform(transform: ITransform) {
+        // TODO: Same pattern as Vector and Transform
         // TODO: Immutable
         this.transform = this.transform.apply(Transform.fromObject(transform));
     }
