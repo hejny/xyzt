@@ -181,6 +181,11 @@ export class Vector implements IVector {
         );
     }
 
+
+    public static average(...vectors: IVector[]):IVector{
+        return Vector.add(...vectors).scale(1/vectors.length);
+    }
+
     public static isEqual(vector1: IVector, vector2: IVector): boolean {
         // TODO: Maybe spread arguments as in add
         for (const axis of [

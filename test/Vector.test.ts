@@ -142,6 +142,29 @@ describe('Vector', () => {
         expect(Vector.fromArray(1, 2, 3).toString3D()).toEqual(`[1,2,3]`);
     });
 
+    it('count average', () => {
+        expect(
+            Vector.average(
+                new Vector(0,0),
+                new Vector(1,-1),
+                new Vector(-1,1),
+            ),
+        ).toEqual(new Vector(0,0));
+        expect(
+            Vector.average(
+                new Vector(10,10),
+                new Vector(0,0),
+            ),
+        ).toEqual(new Vector(5,5));
+        expect(
+            Vector.average(
+                new Vector(0,0,10),
+                new Vector(1,-1,10),
+                new Vector(-1,1,10),
+            ),
+        ).toEqual(new Vector(0,0,10));
+    });
+
     it('can be converted via forPlane', () => {
         expect(
             new Vector(1, 2, 3)
