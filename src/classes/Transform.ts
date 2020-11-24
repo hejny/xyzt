@@ -19,17 +19,15 @@ export class Transform
     }
 
     public static rotate(
-        rotate: number | IVector,
-        translate?: IVector,
+        rotate: number | IVector
     ): Transform {
-        return Transform.fromObject({ rotate, translate });
+        return Transform.fromObject({ rotate });
     }
 
     public static scale(
-        scale: number | IVector,
-        translate?: IVector,
+        scale: number | IVector
     ): Transform {
-        return Transform.fromObject({ scale, translate });
+        return Transform.fromObject({ scale });
     }
 
     public static fromObject(transform: ITransform): Transform {
