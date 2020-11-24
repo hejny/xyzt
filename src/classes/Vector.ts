@@ -91,8 +91,8 @@ export class Vector implements IVector {
         );
     }
 
-    public static subtract(vector1: IVector, vector2: IVector): Vector {
-        return Vector.add(vector1, Vector.fromObject(vector2).negate());
+    public static subtract(vectorA: IVector, vectorB: IVector): Vector {
+        return Vector.add(vectorA, Vector.fromObject(vectorB).negate());
     }
 
     public static multiply(...vectors: IVector[]): Vector {
@@ -103,8 +103,8 @@ export class Vector implements IVector {
         );
     }
 
-    public static divide(vector1: IVector, vector2: IVector): Vector {
-        return Vector.multiply(vector1, Vector.fromObject(vector2).inverse());
+    public static divide(vectorA: IVector, vectorB: IVector): Vector {
+        return Vector.multiply(vectorA, Vector.fromObject(vectorB).inverse());
     }
 
     public static scale(vector: IVector, scale: number): Vector {
@@ -116,22 +116,22 @@ export class Vector implements IVector {
     }
 
     public static rotate(vector: IVector, rotate: IVector): Vector {
-        return Vector.forEachPlane(vector, (ortogonalAxis, vector2D) => {
+        return Vector.forEachPlane(vector, (ortogonalAxis, vectorBD) => {
             const rotateAxis = rotate[ortogonalAxis] || 0;
-            const rotation = vector2D.rotation();
-            const distance = vector2D.distance();
+            const rotation = vectorBD.rotation();
+            const distance = vectorBD.distance();
             return Vector.fromPolar(rotation + rotateAxis, distance);
         });
     }
 
     public static forEachPlane(
         vector: IVector,
-        callback: (ortogonalAxis: IAxis, vector2D: Vector) => IVector,
+        callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector,
     ): Vector {
         let vectorObject = Vector.fromObject(vector);
         for (const axis of AXIS) {
-            vectorObject = Vector.forPlane(vectorObject, axis, (vector2D) => {
-                return callback(axis, vector2D);
+            vectorObject = Vector.forPlane(vectorObject, axis, (vectorBD) => {
+                return callback(axis, vectorBD);
             });
         }
         return vectorObject;
@@ -140,7 +140,7 @@ export class Vector implements IVector {
     public static forPlane(
         vector: IVector,
         axis: IAxis,
-        callback: (vector2D: Vector) => IVector,
+        callback: (vectorBD: Vector) => IVector,
     ): Vector {
         let { x, y, z } = Vector.fromObject(vector);
 
@@ -165,15 +165,15 @@ export class Vector implements IVector {
         return new Vector(x, y, z);
     }
 
-    public static dotProduct(vector1: IVector, vector2: IVector): number {
-        const a = Vector.fromObject(vector1);
-        const b = Vector.fromObject(vector2);
+    public static dotProduct(vectorA: IVector, vectorB: IVector): number {
+        const a = Vector.fromObject(vectorA);
+        const b = Vector.fromObject(vectorB);
         return a.x * b.x + a.y * b.y + a.z * b.z;
     }
 
-    public static crossProduct(vector1: IVector, vector2: IVector): Vector {
-        const a = Vector.fromObject(vector1);
-        const b = Vector.fromObject(vector2);
+    public static crossProduct(vectorA: IVector, vectorB: IVector): Vector {
+        const a = Vector.fromObject(vectorA);
+        const b = Vector.fromObject(vectorB);
         return new Vector(
             a.y * b.z - a.z * b.y,
             a.z * b.x - a.x * b.z,
@@ -181,19 +181,18 @@ export class Vector implements IVector {
         );
     }
 
-
-    public static average(...vectors: IVector[]):IVector{
-        return Vector.add(...vectors).scale(1/vectors.length);
+    public static average(...vectors: IVector[]): IVector {
+        return Vector.add(...vectors).scale(1 / vectors.length);
     }
 
-    public static isEqual(vector1: IVector, vector2: IVector): boolean {
+    public static isEqual(vectorA: IVector, vectorB: IVector): boolean {
         // TODO: Maybe spread arguments as in add
         for (const axis of [
             'x',
             'y',
             'z' /* TODO: Some central place or getter for all axis */,
         ] as Array<keyof IVector>) {
-            if ((vector1[axis] || 0) !== (vector2[axis] || 0)) {
+            if ((vectorA[axis] || 0) !== (vectorB[axis] || 0)) {
                 return false;
             }
         }
@@ -215,32 +214,32 @@ export class Vector implements IVector {
     }
 
     public static distance(
-        vector1: IVector,
-        vector2: IVector = Vector.zero(),
+        vectorA: IVector,
+        vectorB: IVector = Vector.zero(),
     ): number {
-        return Math.sqrt(Vector.distanceSquared(vector1, vector2));
+        return Math.sqrt(Vector.distanceSquared(vectorA, vectorB));
     }
 
     public static distanceSquared(
-        vector1: IVector,
-        vector2: IVector = Vector.zero(),
+        vectorA: IVector,
+        vectorB: IVector = Vector.zero(),
     ): number {
         return (
-            ((vector1.x || 0) - (vector2.x || 0)) ** 2 +
-            ((vector1.y || 0) - (vector2.y || 0)) ** 2 +
-            ((vector1.z || 0) - (vector2.z || 0)) ** 2
+            ((vectorA.x || 0) - (vectorB.x || 0)) ** 2 +
+            ((vectorA.y || 0) - (vectorB.y || 0)) ** 2 +
+            ((vectorA.z || 0) - (vectorB.z || 0)) ** 2
         );
     }
 
     public static rotation(
-        vector1: IVector,
-        vector2: IVector = Vector.zero(),
+        vectorA: IVector,
+        vectorB: IVector = Vector.zero(),
     ): number {
         // TODO: Just for compatibility, because it does not make sence in Vector
         // TODO: Work with 3D rotation
         return Math.atan2(
-            (vector1.y || 0) - (vector2.y || 0),
-            (vector1.x || 0) - (vector2.x || 0),
+            (vectorA.y || 0) - (vectorB.y || 0),
+            (vectorA.x || 0) - (vectorB.x || 0),
         );
     }
 
@@ -411,16 +410,16 @@ export class Vector implements IVector {
         return Vector.add(this, ...vectors);
     }
 
-    public subtract(vector2: IVector): Vector {
-        return Vector.subtract(this, vector2);
+    public subtract(vectorB: IVector): Vector {
+        return Vector.subtract(this, vectorB);
     }
 
     public multiply(...vectors: IVector[]): Vector {
         return Vector.multiply(this, ...vectors);
     }
 
-    public divide(vector2: IVector): Vector {
-        return Vector.divide(this, vector2);
+    public divide(vectorB: IVector): Vector {
+        return Vector.divide(this, vectorB);
     }
 
     public scale(scale: number): Vector {
@@ -432,44 +431,44 @@ export class Vector implements IVector {
     }
 
     public forEachPlane(
-        callback: (ortogonalAxis: IAxis, vector2D: Vector) => IVector,
+        callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector,
     ): Vector {
         return Vector.forEachPlane(this, callback);
     }
 
     public forPlane(
         axis: IAxis,
-        callback: (vector2D: Vector) => IVector,
+        callback: (vectorBD: Vector) => IVector,
     ): Vector {
         return Vector.forPlane(this, axis, callback);
     }
 
-    public dotProduct(vector2: IVector): number {
-        return Vector.dotProduct(this, vector2);
+    public dotProduct(vectorB: IVector): number {
+        return Vector.dotProduct(this, vectorB);
     }
 
-    public crossProduct(vector2: IVector): Vector {
-        return Vector.crossProduct(this, vector2);
+    public crossProduct(vectorB: IVector): Vector {
+        return Vector.crossProduct(this, vectorB);
     }
 
-    public isEqual(vector2: IVector): boolean {
-        return Vector.isEqual(this, vector2);
+    public isEqual(vectorB: IVector): boolean {
+        return Vector.isEqual(this, vectorB);
     }
 
     public isZero(): boolean {
         return Vector.isZero(this);
     }
 
-    public distance(vector2?: IVector): number {
-        return Vector.distance(this, vector2);
+    public distance(vectorB?: IVector): number {
+        return Vector.distance(this, vectorB);
     }
 
-    public distanceSquared(vector2?: IVector): number {
-        return Vector.distanceSquared(this, vector2);
+    public distanceSquared(vectorB?: IVector): number {
+        return Vector.distanceSquared(this, vectorB);
     }
 
-    public rotation(vector2?: IVector): number {
-        return Vector.rotation(this, vector2);
+    public rotation(vectorB?: IVector): number {
+        return Vector.rotation(this, vectorB);
     }
 
     public boxMax(): Vector {
