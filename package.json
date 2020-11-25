@@ -34,7 +34,9 @@
     "update-in-other-repos": "",
     "--update-in-other-repos": "npm run update-in-touchcontroller && npm run update-in-collboard",
     "--update-in-touchcontroller": "cd ../../hejny/touchcontroller && git stash && npm i xyzt@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt\" && git push && git stash pop",
-    "--update-in-collboard": "cd ../../collboard/collboard-main && git stash && npm i xyzt@latest && npm i touchcontroller@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt and touchcontroller\" && git push && git stash pop"
+    "--update-in-collboard": "cd ../../collboard/collboard-main && git stash && npm i xyzt@latest && npm i touchcontroller@latest && git add package.json package-lock.json && git commit --allow-empty -m \"Update of xyzt and touchcontroller\" && git push && git stash pop",
+    "update-packages": "npm-check-updates -u && git add ./package.json && git commit -m \"Update packages\" && npm run force-reinstall",
+    "force-reinstall": "rm ./package-lock.json && rm -rf ./node_modules && npm install && git add ./package-lock.json && git commit -m \"Force reinstall\""
   },
   "dependencies": {},
   "devDependencies": {
