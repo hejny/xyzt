@@ -4,7 +4,7 @@ import { Vector } from '../src/classes/Vector';
 
 describe('BoundingBox', () => {
     it('Constructing', () => {
-        expect(() => BoundingBox.one()).not.toThrowError();
+        expect(() => BoundingBox.cube()).not.toThrowError();
         expect(() =>
             BoundingBox.fromTransform(
                 Transform.fromObject({ translate: new Vector(1, 2) }),

@@ -22,7 +22,12 @@ describe('Conversion of CSS style attribute transform to Transform object', () =
             ``,
         );
         expect(
-            transformToStyleCss(Transform.fromObject({ scale: Vector.one() })),
+            transformToStyleCss(
+                Transform.fromObject({ scale: Vector.square() }),
+            ),
+        ).toBe(``);
+        expect(
+            transformToStyleCss(Transform.fromObject({ scale: Vector.cube() })),
         ).toBe(``);
 
         /* Note: Skew will be available in the future

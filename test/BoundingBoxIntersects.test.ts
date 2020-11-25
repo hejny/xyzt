@@ -3,7 +3,7 @@ import { Transform } from '../src/classes/Transform';
 import { Vector } from '../src/classes/Vector';
 
 describe('BoundingBox intersects', () => {
-    const simpleBoundingBox = BoundingBox.one();
+    const simpleBoundingBox = BoundingBox.cube();
 
     it('intersects in simple cases', () => {
         expect(simpleBoundingBox.intersects(new Vector(0, 0))).toBe(true);
@@ -89,22 +89,22 @@ describe('BoundingBox intersects', () => {
         for (const k of [1, 0.99, 0.5, 0, -0.5]) {
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(k, k)),
                 ),
             ).toBe(true);
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(-k, k)),
                 ),
             ).toBe(true);
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, -k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(k, -k)),
                 ),
             ).toBe(true);
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)),
                 ),
             ).toBe(true);
         }
@@ -114,22 +114,22 @@ describe('BoundingBox intersects', () => {
         for (const k of [1.1, 2]) {
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(k, k)),
                 ),
             ).toBe(false);
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(-k, k)),
                 ),
             ).toBe(false);
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, -k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(k, -k)),
                 ),
             ).toBe(false);
             expect(
                 rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)),
+                    Vector.cube(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)),
                 ),
             ).toBe(false);
         }
