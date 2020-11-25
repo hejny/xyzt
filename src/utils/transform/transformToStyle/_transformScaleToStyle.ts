@@ -6,7 +6,10 @@ export function _transformScaleToStyle(
     styleFormat: ITransformStyleFormat,
     scale: Vector,
 ): string | null {
-    if (Vector.isEqual(scale, Vector.one())) {
+    if (
+        Vector.isEqual(scale, Vector.square()) ||
+        Vector.isEqual(scale, Vector.cube())
+    ) {
         return null;
     }
     const { x, y } = scale;

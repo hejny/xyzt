@@ -18,15 +18,11 @@ export class Transform
         return Transform.fromObject({ translate });
     }
 
-    public static rotate(
-        rotate: number | IVector
-    ): Transform {
+    public static rotate(rotate: number | IVector): Transform {
         return Transform.fromObject({ rotate });
     }
 
-    public static scale(
-        scale: number | IVector
-    ): Transform {
+    public static scale(scale: number | IVector): Transform {
         return Transform.fromObject({ scale });
     }
 
@@ -53,7 +49,7 @@ export class Transform
                 : Vector.fromObject(optionsFull.rotate)
             ).map((angle) => convertAngle('(rad)', '(rad)', angle)),
             typeof optionsFull.scale === 'number'
-                ? Vector.box(optionsFull.scale)
+                ? Vector.cube(optionsFull.scale)
                 : Vector.fromObject(optionsFull.scale),
             // Note: Skew will be available in the future>  Vector.fromObject(optionsFull.skew),
         );
@@ -197,7 +193,7 @@ export class Transform
             json.rotate = rotate.toObject();
         }
 
-        if (!Vector.isEqual(scale, Vector.one())) {
+        if (!Vector.isEqual(scale, Vector.cube())) {
             json.scale = scale.toObject();
         }
 
@@ -208,7 +204,7 @@ export class Transform
         public translate: Vector = Vector.zero(),
         // public center: Vector = Vector.zero(),
         public rotate: Vector = Vector.zero(),
-        public scale: Vector = Vector.one(), // Note: Skew will be available in the future> public skew: Vector = Vector.zero(),
+        public scale: Vector = Vector.cube(), // Note: Skew will be available in the future> public skew: Vector = Vector.zero(),
     ) {}
 
     // Note: Bellow are instance equivalents of static methods

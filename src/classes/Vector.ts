@@ -1,5 +1,6 @@
-import { AXIS, IAxis, IVector } from '../interfaces/IVector';
+import { AXES, IAxis, IVector } from '../interfaces/IVector';
 import { IVectorApplyModifier } from '../interfaces/IVectorApplyModifier';
+import { ε } from '../config';
 
 // TODO: toCss toTopLeft as helpers
 // TODO: ? Vector is kind of Transform with only a translation
@@ -14,12 +15,12 @@ export class Vector implements IVector {
         return new Vector();
     }
 
-    public static one(): Vector {
-        return new Vector(1, 1, 1);
+    public static cube(scale: number = 1): Vector {
+        return new Vector(1, 1, 1).scale(scale);
     }
 
-    public static box(scale: number): Vector {
-        return Vector.one().scale(scale);
+    public static square(scale: number = 1): Vector {
+        return new Vector(1, 1).scale(scale);
     }
 
     /*
@@ -31,16 +32,13 @@ export class Vector implements IVector {
 
     public static fromObject<T>(vector: IVector): Vector;
     public static fromObject<T>(vector: T, axisMapping: Array<keyof T>): Vector;
-    public static fromObject<T>(
-        vector: IVector | T,
-        axisMapping?: Array<keyof T> | null,
-    ): Vector {
+    public static fromObject<T>(vector: IVector | T, axisMapping?: Array<keyof T> | null): Vector {
         if (vector instanceof Vector) {
             return vector;
         }
 
         if (typeof vector === 'object') {
-            const [x, y, z] = axisMapping || AXIS;
+            const [x, y, z] = axisMapping || AXES;
 
             // @ts-expect-error
             return new Vector(vector[x], vector[y], vector[z]);
@@ -61,10 +59,7 @@ export class Vector implements IVector {
 
     public static fromPolar(rotation: number, distance: number = 1): Vector {
         // TODO: also interface with object options
-        return new Vector(
-            Math.cos(rotation) * distance,
-            Math.sin(rotation) * distance,
-        );
+        return new Vector(Math.cos(rotation) * distance, Math.sin(rotation) * distance);
     }
 
     /*
@@ -108,11 +103,7 @@ export class Vector implements IVector {
     }
 
     public static scale(vector: IVector, scale: number): Vector {
-        return new Vector(
-            (vector.x || 0) * scale,
-            (vector.y || 0) * scale,
-            (vector.z || 0) * scale,
-        );
+        return new Vector((vector.x || 0) * scale, (vector.y || 0) * scale, (vector.z || 0) * scale);
     }
 
     public static rotate(vector: IVector, rotate: IVector): Vector {
@@ -124,12 +115,9 @@ export class Vector implements IVector {
         });
     }
 
-    public static forEachPlane(
-        vector: IVector,
-        callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector,
-    ): Vector {
+    public static forEachPlane(vector: IVector, callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
         let vectorObject = Vector.fromObject(vector);
-        for (const axis of AXIS) {
+        for (const axis of AXES) {
             vectorObject = Vector.forPlane(vectorObject, axis, (vectorBD) => {
                 return callback(axis, vectorBD);
             });
@@ -137,28 +125,18 @@ export class Vector implements IVector {
         return vectorObject;
     }
 
-    public static forPlane(
-        vector: IVector,
-        axis: IAxis,
-        callback: (vectorBD: Vector) => IVector,
-    ): Vector {
+    public static forPlane(vector: IVector, axis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
         let { x, y, z } = Vector.fromObject(vector);
 
         switch (axis) {
             case 'x':
-                [y, z] = Vector.fromObject(
-                    callback(new Vector(y, z)),
-                ).toArray2D();
+                [y, z] = Vector.fromObject(callback(new Vector(y, z))).toArray2D();
                 break;
             case 'y':
-                [x, z] = Vector.fromObject(
-                    callback(new Vector(x, z)),
-                ).toArray2D();
+                [x, z] = Vector.fromObject(callback(new Vector(x, z))).toArray2D();
                 break;
             case 'z':
-                [x, y] = Vector.fromObject(
-                    callback(new Vector(x, y)),
-                ).toArray2D();
+                [x, y] = Vector.fromObject(callback(new Vector(x, y))).toArray2D();
                 break;
         }
 
@@ -174,11 +152,7 @@ export class Vector implements IVector {
     public static crossProduct(vectorA: IVector, vectorB: IVector): Vector {
         const a = Vector.fromObject(vectorA);
         const b = Vector.fromObject(vectorB);
-        return new Vector(
-            a.y * b.z - a.z * b.y,
-            a.z * b.x - a.x * b.z,
-            a.x * b.y - a.y * b.x,
-        );
+        return new Vector(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
     }
 
     public static average(...vectors: IVector[]): IVector {
@@ -187,12 +161,8 @@ export class Vector implements IVector {
 
     public static isEqual(vectorA: IVector, vectorB: IVector): boolean {
         // TODO: Maybe spread arguments as in add
-        for (const axis of [
-            'x',
-            'y',
-            'z' /* TODO: Some central place or getter for all axis */,
-        ] as Array<keyof IVector>) {
-            if ((vectorA[axis] || 0) !== (vectorB[axis] || 0)) {
+        for (const axis of AXES) {
+            if (Math.abs((vectorA[axis] || 0) - (vectorB[axis] || 0)) > ε) {
                 return false;
             }
         }
@@ -200,30 +170,14 @@ export class Vector implements IVector {
     }
 
     public static isZero(vector: IVector): boolean {
-        // TODO: Maybe spread arguments as in add
-        for (const axis of [
-            'x',
-            'y',
-            'z' /* TODO: Some central place or getter for all axis */,
-        ] as Array<keyof IVector>) {
-            if (vector[axis] !== 0) {
-                return false;
-            }
-        }
-        return true;
+        return Vector.isEqual({}, vector);
     }
 
-    public static distance(
-        vectorA: IVector,
-        vectorB: IVector = Vector.zero(),
-    ): number {
+    public static distance(vectorA: IVector, vectorB: IVector = Vector.zero()): number {
         return Math.sqrt(Vector.distanceSquared(vectorA, vectorB));
     }
 
-    public static distanceSquared(
-        vectorA: IVector,
-        vectorB: IVector = Vector.zero(),
-    ): number {
+    public static distanceSquared(vectorA: IVector, vectorB: IVector = Vector.zero()): number {
         return (
             ((vectorA.x || 0) - (vectorB.x || 0)) ** 2 +
             ((vectorA.y || 0) - (vectorB.y || 0)) ** 2 +
@@ -231,36 +185,25 @@ export class Vector implements IVector {
         );
     }
 
-    public static rotation(
-        vectorA: IVector,
-        vectorB: IVector = Vector.zero(),
-    ): number {
+    public static rotation(vectorA: IVector, vectorB: IVector = Vector.zero()): number {
         // TODO: Just for compatibility, because it does not make sence in Vector
         // TODO: Work with 3D rotation
-        return Math.atan2(
-            (vectorA.y || 0) - (vectorB.y || 0),
-            (vectorA.x || 0) - (vectorB.x || 0),
-        );
+        return Math.atan2((vectorA.y || 0) - (vectorB.y || 0), (vectorA.x || 0) - (vectorB.x || 0));
     }
 
-    public static boxMax(vector: IVector): Vector {
+    public static cubeMax(vector: IVector): Vector {
         // TODO: Maybe create boxMin and boxVolume and boxRound
         const value = Math.max(...Vector.fromObject(vector).toArray());
-        return Vector.box(value);
+        return Vector.cube(value);
     }
 
-    public static map(
-        vector: IVector,
-        modifier: (value: number, axis: keyof IVector) => number,
-    ): Vector {
+    public static map(vector: IVector, modifier: (value: number, axis: keyof IVector) => number): Vector {
         const mappedVector = Vector.clone(vector);
 
         // TODO: USE apply in all other methods to avoid making same thing 3x
-        for (const axis of [
-            'x',
-            'y',
-            'z' /* TODO: Some central place or getter for all axis */,
-        ] as Array<keyof IVector>) {
+        for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
+            keyof IVector
+        >) {
             mappedVector[axis] = modifier(vector[axis] || 0, axis);
         }
 
@@ -269,25 +212,18 @@ export class Vector implements IVector {
 
     public static rearrangeAxis(
         vector: IVector,
-        modifier: (
-            values: number[] /* TODO: Maybe tuple [number,number,number] */,
-        ) => number[],
+        modifier: (values: number[] /* TODO: Maybe tuple [number,number,number] */) => number[],
     ): Vector {
         let { x, y, z } = vector;
         [x, y, z] = modifier([x || 0, y || 0, z || 0]);
         return new Vector(x, y, z);
     }
 
-    public static apply(
-        vector: IVector,
-        modifier: IVectorApplyModifier,
-    ): Vector {
+    public static apply(vector: IVector, modifier: IVectorApplyModifier): Vector {
         if (typeof modifier === 'function') {
             return Vector.fromObject(modifier(Vector.fromObject(vector)));
         } else {
-            return Vector.fromObject(
-                modifier.applyOnVector(Vector.fromObject(vector)),
-            );
+            return Vector.fromObject(modifier.applyOnVector(Vector.fromObject(vector)));
         }
     }
 
@@ -299,14 +235,11 @@ export class Vector implements IVector {
         return Vector.toObject(vector);
     }
 
-    public static toObject<T = IVector>(
-        vector: IVector,
-        axisMapping?: Array<keyof T>,
-    ): T {
+    public static toObject<T = IVector>(vector: IVector, axisMapping?: Array<keyof T>): T {
         const object: Partial<T> = {};
         const array = Vector.toArray(vector);
 
-        for (const axis of axisMapping || ((AXIS as unknown) as keyof T)) {
+        for (const axis of axisMapping || ((AXES as unknown) as keyof T)) {
             object[axis] = (array.shift() || 0) as any;
         }
         return object as T;
@@ -353,9 +286,7 @@ export class Vector implements IVector {
     public constructor(x?: number | IVector, y?: number, z?: number) {
         if (typeof x === 'number' || x === undefined) {
             if (isNaN(x || 0) || isNaN(y || 0) || isNaN(z || 0)) {
-                throw new Error(
-                    `Vector can not be constructed due to NaN values.`,
-                );
+                throw new Error(`Vector can not be constructed due to NaN values.`);
             }
 
             this.x = x || 0;
@@ -430,16 +361,11 @@ export class Vector implements IVector {
         return Vector.rotate(this, rotate);
     }
 
-    public forEachPlane(
-        callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector,
-    ): Vector {
+    public forEachPlane(callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
         return Vector.forEachPlane(this, callback);
     }
 
-    public forPlane(
-        axis: IAxis,
-        callback: (vectorBD: Vector) => IVector,
-    ): Vector {
+    public forPlane(axis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
         return Vector.forPlane(this, axis, callback);
     }
 
@@ -471,13 +397,11 @@ export class Vector implements IVector {
         return Vector.rotation(this, vectorB);
     }
 
-    public boxMax(): Vector {
-        return Vector.boxMax(this);
+    public cubeMax(): Vector {
+        return Vector.cubeMax(this);
     }
 
-    public map(
-        modifier: (value: number, axis: keyof IVector) => number,
-    ): Vector {
+    public map(modifier: (value: number, axis: keyof IVector) => number): Vector {
         return Vector.map(this, modifier);
     }
 

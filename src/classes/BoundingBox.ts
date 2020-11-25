@@ -1,18 +1,52 @@
+import { ε } from '../config';
 import { IBoundingBox } from '../interfaces/IBoundingBox';
 import { ITransform } from '../interfaces/ITransform';
+import { AXES, IVector } from '../interfaces/IVector';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
 export class BoundingBox implements IBoundingBox {
-    public static one(): BoundingBox {
+    public static cube(): BoundingBox {
         return new BoundingBox(Transform.neutral());
     }
+
+    // TODO: Maybe square
 
     public static fromTransform(transform: ITransform): BoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
+    public static fromPoints(points: IVector[]): BoundingBox {
+        const vectorMin: IVector = {};
+        const vectorMax: IVector = {};
+        for (const point of points) {
+            for (const axis of AXES) {
+                if (vectorMin[axis] === undefined || (point[axis] !== undefined && vectorMin[axis]! > point[axis]!)) {
+                    vectorMin[axis] = point[axis];
+                }
+                if (vectorMax[axis] === undefined || (point[axis] !== undefined && vectorMax[axis]! < point[axis]!)) {
+                    vectorMax[axis] = point[axis];
+                }
+            }
+        }
+        return BoundingBox.fromTwoPoints([vectorMin, vectorMax]);
+    }
+
+    public static fromTwoPoints([vectorA, vectorB]: [IVector, IVector]): BoundingBox {
+        // TODO: param rotation
+
+        const a = Vector.fromObject(vectorA);
+        const b = Vector.fromObject(vectorB);
+
+        const translate = new Vector(Math.min(a.x, b.x), Math.min(a.y, b.y));
+        const scale = Vector.subtract(a, b).map(Math.abs);
+
+        return BoundingBox.fromTransform({ translate, scale });
+    }
+
     protected constructor(public transform: Transform) {}
+
+    // TODO: circumscribed
 
     /*
     TODO:
@@ -33,24 +67,23 @@ export class BoundingBox implements IBoundingBox {
         return this.transform.translate;
     }
 
-    /*
-    TODO: Do after tests
-    public get topLeft() {
-        return this.corner({ x: -0.5, y: -0.5 });
+    public get topLeft(): Vector {
+        return this.corner2D({ x: -0.5, y: -0.5 });
     }
 
-    public get topRight() {
-        return this.corner({ x: 0.5, y: -0.5 });
+    public get topRight(): Vector {
+        return this.corner2D({ x: 0.5, y: -0.5 });
     }
 
-    public get bottomLeft() {
-        return this.corner({ x: -0.5, y: 0.5 });
+    public get bottomLeft(): Vector {
+        return this.corner2D({ x: -0.5, y: 0.5 });
     }
 
-    public get bottomRight() {
-        return this.corner({ x: 0.5, y: 0.5 });
+    public get bottomRight(): Vector {
+        return this.corner2D({ x: 0.5, y: 0.5 });
     }
-    */
+
+    // TODO: Also 3D versions
 
     public get size(): Vector {
         return this.transform.scale;
@@ -66,7 +99,7 @@ export class BoundingBox implements IBoundingBox {
         const positionTransformed = position.apply(this.transform.negate());
 
         // Note: This stupidity is here because javascript is sometimes not precise in the last decimal digit
-        const bound = 0.5 + 0.0000000000000002;
+        const bound = 0.5 + ε;
 
         return (
             -bound <= positionTransformed.x &&
@@ -76,19 +109,18 @@ export class BoundingBox implements IBoundingBox {
         );
     }
 
+    // !! TODO: intersects for another BoundingBox
+
     public applyTransform(transform: ITransform) {
         // TODO: Same pattern as Vector and Transform
         // TODO: Immutable
         this.transform = this.transform.apply(Transform.fromObject(transform));
     }
 
-    /*
-    TODO: Do after tests
-    private corner(relativePosition: IVector) {
+    private corner2D(relativePosition: IVector): Vector {
         return this.center
-        .apply(this.transform.pick('rotate','scale'))
+            .apply(this.transform.pick('rotate', 'scale'))
             .add(this.size.multiply(relativePosition))
             .apply(this.transform.pick('translate'));
     }
-    */
 }

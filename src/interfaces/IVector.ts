@@ -8,4 +8,4 @@ export interface IVectorObject {
 }
 
 export type IAxis = 'x' | 'y' | 'z';
-export const AXIS = ['x', 'y', 'z'] as IAxis[];
+export const AXES = ['x', 'y', 'z'] as IAxis[];

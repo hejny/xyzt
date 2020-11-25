@@ -2,9 +2,9 @@ import { Vector } from '../src/classes/Vector';
 
 export const vectorSamples = [
     Vector.zero(),
-    Vector.one(),
-    Vector.box(1.2),
-    Vector.box(-6),
+    Vector.cube(),
+    Vector.cube(1.2),
+    Vector.cube(-6),
     new Vector(1, 2),
     new Vector(2, 3),
     new Vector(1, 200),

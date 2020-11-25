@@ -11,7 +11,7 @@ import {
     ITransformApplyModifier,
     ITransformApplyModifierFunction,
 } from './interfaces/ITransformApplyModifier';
-import { AXIS, IAxis, IVector, IVectorObject } from './interfaces/IVector';
+import { AXES, IAxis, IVector, IVectorObject } from './interfaces/IVector';
 import {
     IAppliableOnVector,
     IVectorApplyModifier,
@@ -48,7 +48,7 @@ import { _transformScaleToStyle } from './utils/transform/transformToStyle/_tran
 import { _transformTranslateToStyle } from './utils/transform/transformToStyle/_transformTranslateToStyle';
 
 export {
-    AXIS,
+    AXES as AXIS,
     IAxis,
     modulo,
     Vector,
