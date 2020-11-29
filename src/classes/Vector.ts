@@ -306,7 +306,7 @@ export class Vector implements IVector {
         const object: Partial<T> = {};
         const array = Vector.toArray(vector);
 
-        for (const axis of axisMapping || ((AXIS as unknown) as keyof T)) {
+        for (const axis of axisMapping || ((AXIS as unknown) as Array<keyof T>)) {
             object[axis] = (array.shift() || 0) as any;
         }
         return object as T;
@@ -351,13 +351,7 @@ export class Vector implements IVector {
     public constructor(vector: IVector);
     public constructor(x?: number, y?: number, z?: number);
     public constructor(x?: number | IVector, y?: number, z?: number) {
-        if (typeof x === 'number' || x === undefined) {
-            if (isNaN(x || 0) || isNaN(y || 0) || isNaN(z || 0)) {
-                throw new Error(
-                    `Vector can not be constructed due to NaN values.`,
-                );
-            }
-
+        if (typeof x === 'number' || x === undefined || x === null) {
             this.x = x || 0;
             this.y = y || 0;
             this.z = z || 0;
