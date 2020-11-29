@@ -306,7 +306,8 @@ export class Vector implements IVector {
         const object: Partial<T> = {};
         const array = Vector.toArray(vector);
 
-        for (const axis of axisMapping || ((AXIS as unknown) as Array<keyof T>)) {
+        for (const axis of axisMapping ||
+            ((AXIS as unknown) as Array<keyof T>)) {
             object[axis] = (array.shift() || 0) as any;
         }
         return object as T;

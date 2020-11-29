@@ -42,19 +42,21 @@ describe('Vector', () => {
 
     it('does not crash when Vector recives broken data', () => {
         const VectorAny = Vector as any;
-        expect(()=>new VectorAny(null,0,0)).not.toThrow();
-        expect(()=>new VectorAny(0,null,0)).not.toThrow();
-        expect(()=>new VectorAny(0,0,null)).not.toThrow();
-        expect(()=>new VectorAny(null,null,null)).not.toThrow();
-        expect(()=>new VectorAny(undefined,0,0)).not.toThrow();
-        expect(()=>new VectorAny(0,undefined,0)).not.toThrow();
-        expect(()=>new VectorAny(0,0,undefined)).not.toThrow();
-        expect(()=>new VectorAny(undefined,undefined,undefined)).not.toThrow();
-        expect(()=>new VectorAny(NaN,0,0)).not.toThrow();
-        expect(()=>new VectorAny(0,NaN,0)).not.toThrow();
-        expect(()=>new VectorAny(0,0,NaN)).not.toThrow();
-        expect(()=>new VectorAny(NaN,NaN,NaN)).not.toThrow();
-    })
+        expect(() => new VectorAny(null, 0, 0)).not.toThrow();
+        expect(() => new VectorAny(0, null, 0)).not.toThrow();
+        expect(() => new VectorAny(0, 0, null)).not.toThrow();
+        expect(() => new VectorAny(null, null, null)).not.toThrow();
+        expect(() => new VectorAny(undefined, 0, 0)).not.toThrow();
+        expect(() => new VectorAny(0, undefined, 0)).not.toThrow();
+        expect(() => new VectorAny(0, 0, undefined)).not.toThrow();
+        expect(
+            () => new VectorAny(undefined, undefined, undefined),
+        ).not.toThrow();
+        expect(() => new VectorAny(NaN, 0, 0)).not.toThrow();
+        expect(() => new VectorAny(0, NaN, 0)).not.toThrow();
+        expect(() => new VectorAny(0, 0, NaN)).not.toThrow();
+        expect(() => new VectorAny(NaN, NaN, NaN)).not.toThrow();
+    });
 
     it('can be compared by isEqual', () => {
         expect(Vector.isEqual(Vector.fromArray(0, 0), {})).toBe(true);
@@ -161,24 +163,21 @@ describe('Vector', () => {
     it('count average', () => {
         expect(
             Vector.average(
-                new Vector(0,0),
-                new Vector(1,-1),
-                new Vector(-1,1),
+                new Vector(0, 0),
+                new Vector(1, -1),
+                new Vector(-1, 1),
             ),
-        ).toEqual(new Vector(0,0));
+        ).toEqual(new Vector(0, 0));
+        expect(Vector.average(new Vector(10, 10), new Vector(0, 0))).toEqual(
+            new Vector(5, 5),
+        );
         expect(
             Vector.average(
-                new Vector(10,10),
-                new Vector(0,0),
+                new Vector(0, 0, 10),
+                new Vector(1, -1, 10),
+                new Vector(-1, 1, 10),
             ),
-        ).toEqual(new Vector(5,5));
-        expect(
-            Vector.average(
-                new Vector(0,0,10),
-                new Vector(1,-1,10),
-                new Vector(-1,1,10),
-            ),
-        ).toEqual(new Vector(0,0,10));
+        ).toEqual(new Vector(0, 0, 10));
     });
 
     it('can be converted via forPlane', () => {

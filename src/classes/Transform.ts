@@ -18,15 +18,11 @@ export class Transform
         return Transform.fromObject({ translate });
     }
 
-    public static rotate(
-        rotate: number | IVector
-    ): Transform {
+    public static rotate(rotate: number | IVector): Transform {
         return Transform.fromObject({ rotate });
     }
 
-    public static scale(
-        scale: number | IVector
-    ): Transform {
+    public static scale(scale: number | IVector): Transform {
         return Transform.fromObject({ scale });
     }
 
