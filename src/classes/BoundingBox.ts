@@ -85,13 +85,6 @@ export class BoundingBox implements IBoundingBox {
 
     // TODO: Also 3D versions
 
-    public get size(): Vector {
-        return this.transform.scale;
-    }
-
-    public get rotation(): Vector {
-        return this.transform.rotate;
-    }
 
     // TODO: setters
 
@@ -120,7 +113,7 @@ export class BoundingBox implements IBoundingBox {
     private corner2D(relativePosition: IVector): Vector {
         return this.center
             .apply(this.transform.pick('rotate', 'scale'))
-            .add(this.size.multiply(relativePosition))
+            .add(this.transform.scale.multiply(relativePosition))
             .apply(this.transform.pick('translate'));
     }
 }
