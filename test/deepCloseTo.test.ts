@@ -22,9 +22,6 @@ describe('test myModule', () => {
 
 describe('Constructed objects with toBeDeepCloseTo', () => {
     it('should work with Vector', () => {
-        (expect(Vector.box(42).toJSON()) as any).toBeDeepCloseTo(
-            Vector.box(42.000001).toJSON(),
-            3,
-        );
+        (expect(Vector.box(42).toJSON()) as any).toBeDeepCloseTo(Vector.box(42.000001).toJSON(), 3);
     });
 });

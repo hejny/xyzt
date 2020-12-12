@@ -4,28 +4,16 @@ import { transformToStyleSvg } from '../src/utils/transform/transformToStyle/tra
 
 describe('Conversion of SVG transform attribute to Transform object', () => {
     it('is working with translate to SVG ', () => {
-        expect(
-            transformToStyleSvg(
-                Transform.fromObject({ translate: Vector.fromArray(10, 15) }),
-            ),
-        ).toBe(`translate(10 15)`);
+        expect(transformToStyleSvg(Transform.fromObject({ translate: Vector.fromArray(10, 15) }))).toBe(
+            `translate(10 15)`,
+        );
     });
 
     it('is working with rotate to SVG ', () => {
-        expect(
-            transformToStyleSvg(Transform.fromObject({ rotate: Math.PI })),
-        ).toBe(`rotate(180)`);
-        expect(
-            transformToStyleSvg(Transform.fromObject({ rotate: Math.PI * 3 })),
-        ).toBe(`rotate(180)`);
-        expect(
-            transformToStyleSvg(Transform.fromObject({ rotate: -Math.PI })),
-        ).toBe(`rotate(180)`);
-        expect(
-            transformToStyleSvg(
-                Transform.fromObject({ rotate: Vector.fromArray(1, 2, 0) }),
-            ),
-        ).toBe(``);
+        expect(transformToStyleSvg(Transform.fromObject({ rotate: Math.PI }))).toBe(`rotate(180)`);
+        expect(transformToStyleSvg(Transform.fromObject({ rotate: Math.PI * 3 }))).toBe(`rotate(180)`);
+        expect(transformToStyleSvg(Transform.fromObject({ rotate: -Math.PI }))).toBe(`rotate(180)`);
+        expect(transformToStyleSvg(Transform.fromObject({ rotate: Vector.fromArray(1, 2, 0) }))).toBe(``);
     });
 
     /*

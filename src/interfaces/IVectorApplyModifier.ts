@@ -6,6 +6,4 @@ export type IAppliableOnVector = {
     applyOnVector: IVectorApplyModifierFunction;
 };
 
-export type IVectorApplyModifier =
-    | IVectorApplyModifierFunction
-    | IAppliableOnVector;
+export type IVectorApplyModifier = IVectorApplyModifierFunction | IAppliableOnVector;

@@ -2,11 +2,7 @@ import { fullAngle } from './fullAngle';
 import { modulo } from './modulo';
 import { IAngleUnit } from './transform/styleFormat/ITransformStyleFormat';
 
-export function convertAngle(
-    from: IAngleUnit,
-    to: IAngleUnit,
-    value: number,
-): number {
+export function convertAngle(from: IAngleUnit, to: IAngleUnit, value: number): number {
     /*
     TODO: optimalizations with "(rad)" vs "rad"
 

@@ -35,9 +35,7 @@ describe('BoundingBox intersects', () => {
         expect(simpleBoundingBox.intersects(new Vector(0.5, 0.25))).toBe(true);
     });
 
-    const movedBoundingBox = BoundingBox.fromTransform(
-        Transform.translate(new Vector(1, 1)),
-    );
+    const movedBoundingBox = BoundingBox.fromTransform(Transform.translate(new Vector(1, 1)));
 
     it('intersects in cases with translate', () => {
         expect(movedBoundingBox.intersects(new Vector(0.5, 0.5))).toBe(true);
@@ -75,63 +73,29 @@ describe('BoundingBox intersects', () => {
         expect(scaledBoundingBox.intersects(new Vector(1.1, 0))).toBe(false);
         expect(scaledBoundingBox.intersects(new Vector(0, -1.1))).toBe(false);
         expect(scaledBoundingBox.intersects(new Vector(-1.1, 0))).toBe(false);
-        expect(scaledBoundingBox.intersects(new Vector(-1.1, -1.1))).toBe(
-            false,
-        );
+        expect(scaledBoundingBox.intersects(new Vector(-1.1, -1.1))).toBe(false);
         expect(scaledBoundingBox.intersects(new Vector(1.1, 1.1))).toBe(false);
         expect(scaledBoundingBox.intersects(new Vector(1.1, 0.5))).toBe(false);
     });
 
-    const rotatedBoundingBox = BoundingBox.fromTransform(
-        Transform.rotate(Math.PI / 4),
-    );
+    const rotatedBoundingBox = BoundingBox.fromTransform(Transform.rotate(Math.PI / 4));
     it('intersects in cases with rotate', () => {
         for (const k of [1, 0.99, 0.5, 0, -0.5]) {
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, k)),
-                ),
-            ).toBe(true);
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, k)),
-                ),
-            ).toBe(true);
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, -k)),
-                ),
-            ).toBe(true);
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)),
-                ),
-            ).toBe(true);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, k)))).toBe(true);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, k)))).toBe(true);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, -k)))).toBe(true);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)))).toBe(true);
         }
     });
 
     it('not intersects in cases with rotate', () => {
         for (const k of [1.1, 2]) {
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, k)),
-                ),
-            ).toBe(false);
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, k)),
-                ),
-            ).toBe(false);
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, -k)),
-                ),
-            ).toBe(false);
-            expect(
-                rotatedBoundingBox.intersects(
-                    Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)),
-                ),
-            ).toBe(false);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, k)))).toBe(false);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, k)))).toBe(false);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(k, -k)))).toBe(false);
+            expect(rotatedBoundingBox.intersects(Vector.box(Math.sqrt(2) / 4).multiply(new Vector(-k, -k)))).toBe(
+                false,
+            );
         }
     });
 

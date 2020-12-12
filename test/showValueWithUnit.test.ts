@@ -14,9 +14,7 @@ describe('Showing value with unit', () => {
         expect(showValueWithUnit('(px)', -1, 12.3456789)).toBe('10');
         expect(showValueWithUnit('(px)', 1, 12.3456789)).toBe('12.3');
         expect(showValueWithUnit('(px)', 7, 12.3456789)).toBe('12.3456789');
-        expect(() =>
-            showValueWithUnit('(px)', 1000, 12.3456789),
-        ).toThrowError();
+        expect(() => showValueWithUnit('(px)', 1000, 12.3456789)).toThrowError();
     });
 
     it('rounding', () => {
