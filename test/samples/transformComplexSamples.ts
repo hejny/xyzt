@@ -1,4 +1,4 @@
-import { Transform } from '../src/classes/Transform';
+import { Transform } from '../../src/classes/Transform';
 import { transformBasicSamples } from './transformBasicSamples';
 
 export const transformComplexSamples = (() => {
