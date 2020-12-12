@@ -1,15 +1,12 @@
+import { IInversible } from '../interfaces/IInversible';
 import { ITransform } from '../interfaces/ITransform';
-import {
-    IAppliableOnTransform,
-    ITransformApplyModifier,
-} from '../interfaces/ITransformApplyModifier';
+import { IAppliableOnTransform, ITransformApplyModifier } from '../interfaces/ITransformApplyModifier';
 import { IVector } from '../interfaces/IVector';
 import { IAppliableOnVector } from '../interfaces/IVectorApplyModifier';
 import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
-export class Transform
-    implements ITransform, IAppliableOnTransform, IAppliableOnVector {
+export class Transform implements IInversible<ITransform & IAppliableOnTransform & IAppliableOnVector> {
     public static neutral(): Transform {
         return new Transform();
     }
@@ -82,22 +79,15 @@ export class Transform
 
     // TODO: updateWithDeepMutation
 
-    public static apply(
-        transform: ITransform,
-        modifier: ITransformApplyModifier,
-    ): Transform {
+    public static apply(transform: ITransform, modifier: ITransformApplyModifier): Transform {
         if (typeof modifier === 'function') {
-            return Transform.fromObject(
-                modifier(Transform.fromObject(transform)),
-            );
+            return Transform.fromObject(modifier(Transform.fromObject(transform)));
         } else {
-            return Transform.fromObject(
-                modifier.applyOnTransform(Transform.fromObject(transform)),
-            );
+            return Transform.fromObject(modifier.applyOnTransform(Transform.fromObject(transform)));
         }
     }
 
-    public static negate(transform: ITransform): Transform {
+    public static inverse(transform: ITransform): Transform {
         const transformFull = Transform.fromObject(transform);
         return new Transform(
             transformFull.translate.negate(),
@@ -108,10 +98,7 @@ export class Transform
 
     // TODO: isEqual
 
-    public static applyOnTransform(
-        from: ITransform,
-        to: ITransform,
-    ): Transform {
+    public static applyOnTransform(from: ITransform, to: ITransform): Transform {
         const t1 = Transform.fromObject(from);
         const t2 = Transform.fromObject(to);
 
@@ -128,31 +115,6 @@ export class Transform
                 ),
             ),
         });
-
-        /*
-        const fromObject = Transform.fromObject(from);
-        let toCentered = Transform.updateWithMutation(to, (t) => {
-            t.translate = t.translate.subtract(fromObject.translate);
-        });
-
-        // TODO: Make it work 3D
-        // TODO: Optimize
-
-        // Rotate
-        toCentered.translate = toCentered.translate.rotate(fromObject.rotate);
-        toCentered.rotate = Vector.add(toCentered.rotate, fromObject.rotate);
-
-        // Scale
-        toCentered.translate = toCentered.translate.multiply(fromObject.scale);
-        toCentered.scale = Vector.multiply(toCentered.scale, fromObject.scale);
-
-        // Translate
-        toCentered.translate = toCentered.translate.add(fromObject.translate);
-
-        return toCentered.updateWithMutation((t) => {
-            t.translate = t.translate.add(fromObject.translate);
-        });
-        */
     }
 
     public static applyOnVector(from: ITransform, to: IVector): Vector {
@@ -160,13 +122,11 @@ export class Transform
         return Vector.fromObject(to)
             .add(fromObject.translate)
             .rotate(fromObject.rotate)
-            .multiply(fromObject.scale);
+            .multiply(fromObject.scale)
+            .stripInfatesimals();
     }
 
-    public static pick(
-        transform: ITransform,
-        ...keys: Array<keyof ITransform>
-    ): Transform {
+    public static pick(transform: ITransform, ...keys: Array<keyof ITransform>): Transform {
         const transformObject = Transform.fromObject(transform);
         return Transform.neutral().updateWithMutation((t) => {
             for (const key of keys) {
@@ -218,9 +178,7 @@ export class Transform
         return Transform.cloneDeep(this);
     }
 
-    public updateWithMutation(
-        modifier: (Transform: Transform) => Transform | ITransform | void,
-    ): Transform {
+    public updateWithMutation(modifier: (Transform: Transform) => Transform | ITransform | void): Transform {
         return Transform.updateWithMutation(this, modifier);
     }
 
@@ -228,8 +186,8 @@ export class Transform
         return Transform.apply(this, modifier);
     }
 
-    public negate(): Transform {
-        return Transform.negate(this);
+    public inverse(): Transform {
+        return Transform.inverse(this);
     }
 
     public applyOnTransform(to: ITransform) {
