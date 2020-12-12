@@ -1,5 +1,5 @@
-import { stripInfatesimal } from '../src/utils/stripInfatesimal';
 import { Vector } from '../src/classes/Vector';
+import { stripInfatesimal } from '../src/utils/stripInfatesimal';
 
 describe('behaviour of obvious numbers to prevent strange javascript decimal places', () => {
     it('works with pure function stripInfatesimals', () => {

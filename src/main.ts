@@ -7,16 +7,17 @@ import { Vector } from './classes/Vector';
 import { IBoundingBox } from './interfaces/IBoundingBox';
 import { IInversible } from './interfaces/IInversible';
 import { ITransform } from './interfaces/ITransform';
-import { ITransformApplyModifierFunction } from './interfaces/ITransformApplyModifier';
-import { IAppliableOnTransform } from './interfaces/ITransformApplyModifier';
-import { ITransformApplyModifier } from './interfaces/ITransformApplyModifier';
-import { IVector } from './interfaces/IVector';
-import { IVectorObject } from './interfaces/IVector';
-import { IAxis } from './interfaces/IVector';
-import { AXIS } from './interfaces/IVector';
-import { IVectorApplyModifierFunction } from './interfaces/IVectorApplyModifier';
-import { IAppliableOnVector } from './interfaces/IVectorApplyModifier';
-import { IVectorApplyModifier } from './interfaces/IVectorApplyModifier';
+import {
+    IAppliableOnTransform,
+    ITransformApplyModifier,
+    ITransformApplyModifierFunction,
+} from './interfaces/ITransformApplyModifier';
+import { AXIS, IAxis, IVector, IVectorObject } from './interfaces/IVector';
+import {
+    IAppliableOnVector,
+    IVectorApplyModifier,
+    IVectorApplyModifierFunction,
+} from './interfaces/IVectorApplyModifier';
 import { convertAngle } from './utils/convertAngle';
 import { extractValuesFromStyle } from './utils/extractValuesFromStyle';
 import { fullAngle } from './utils/fullAngle';
@@ -27,22 +28,19 @@ import { stripInfatesimal } from './utils/stripInfatesimal';
 import { applyTransformOnElement } from './utils/transform/applyTransformOnElement/applyTransformOnElement';
 import { applyTransformOnHtmlElement } from './utils/transform/applyTransformOnElement/applyTransformOnHtmlElement';
 import { applyTransformOnSvgElement } from './utils/transform/applyTransformOnElement/applyTransformOnSvgElement';
-import { IDimensionUnit } from './utils/transform/styleFormat/ITransformStyleFormat';
-import { IAngleUnit } from './utils/transform/styleFormat/ITransformStyleFormat';
-import { ITransformStyleFormat } from './utils/transform/styleFormat/ITransformStyleFormat';
+import { IAngleUnit, IDimensionUnit, ITransformStyleFormat } from './utils/transform/styleFormat/ITransformStyleFormat';
+import { transformFromStyle } from './utils/transform/transformFromStyle/transformFromStyle';
 import { _rotateFromStyle } from './utils/transform/transformFromStyle/_rotateFromStyle';
 import { _scaleFromStyle } from './utils/transform/transformFromStyle/_scaleFromStyle';
 import { _translateFromStyle } from './utils/transform/transformFromStyle/_translateFromStyle';
-import { transformFromStyle } from './utils/transform/transformFromStyle/transformFromStyle';
+import { transformToStyle } from './utils/transform/transformToStyle/transformToStyle';
+import { CSS_FORMAT, transformToStyleCss } from './utils/transform/transformToStyle/transformToStyleCss';
+import { transformToStyleSvg } from './utils/transform/transformToStyle/transformToStyleSvg';
 import { _transformAngleToStyle } from './utils/transform/transformToStyle/_transformAngleToStyle';
 import { _transformDimensionToStyle } from './utils/transform/transformToStyle/_transformDimensionToStyle';
 import { _transformRotateToStyle } from './utils/transform/transformToStyle/_transformRotateToStyle';
 import { _transformScaleToStyle } from './utils/transform/transformToStyle/_transformScaleToStyle';
 import { _transformTranslateToStyle } from './utils/transform/transformToStyle/_transformTranslateToStyle';
-import { transformToStyle } from './utils/transform/transformToStyle/transformToStyle';
-import { CSS_FORMAT } from './utils/transform/transformToStyle/transformToStyleCss';
-import { transformToStyleCss } from './utils/transform/transformToStyle/transformToStyleCss';
-import { transformToStyleSvg } from './utils/transform/transformToStyle/transformToStyleSvg';
 
 export {
     AXIS,
