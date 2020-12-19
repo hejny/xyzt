@@ -6,9 +6,7 @@ describe('BoundingBox', () => {
     it('Constructing', () => {
         expect(() => BoundingBox.cube()).not.toThrowError();
         expect(() =>
-            BoundingBox.fromTransform(
-                Transform.fromObject({ translate: new Vector(1, 2) }),
-            ),
+            BoundingBox.fromTransform(Transform.fromObject({ translate: new Vector(1, 2) })),
         ).not.toThrowError();
     });
     // TODO: Other methods and scenarios

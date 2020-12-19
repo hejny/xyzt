@@ -89,7 +89,7 @@ export class BoundingBox implements IBoundingBox {
     // TODO: setters
 
     public intersects(position: Vector): boolean {
-        const positionTransformed = position.apply(this.transform.negate());
+        const positionTransformed = position.apply(this.transform.inverse());
 
         // Note: This stupidity is here because javascript is sometimes not precise in the last decimal digit
         const bound = 0.5 + ε;

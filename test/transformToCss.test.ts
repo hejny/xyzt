@@ -5,30 +5,11 @@ import { transformToStyleCss } from '../src/utils/transform/transformToStyle/tra
 describe('Conversion of CSS style attribute transform to Transform object', () => {
     it('is working with neutral transforms which should results in empty css strings', () => {
         expect(transformToStyleCss(Transform.fromObject({}))).toBe(``);
-        expect(
-            transformToStyleCss(
-                Transform.fromObject({ translate: Vector.zero() }),
-            ),
-        ).toBe(``);
-        expect(transformToStyleCss(Transform.fromObject({ rotate: 0 }))).toBe(
-            ``,
-        );
-        expect(
-            transformToStyleCss(
-                Transform.fromObject({ rotate: Vector.zero() }),
-            ),
-        ).toBe(``);
-        expect(transformToStyleCss(Transform.fromObject({ scale: 1 }))).toBe(
-            ``,
-        );
-        expect(
-            transformToStyleCss(
-                Transform.fromObject({ scale: Vector.square() }),
-            ),
-        ).toBe(``);
-        expect(
-            transformToStyleCss(Transform.fromObject({ scale: Vector.cube() })),
-        ).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ translate: Vector.zero() }))).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ rotate: 0 }))).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ rotate: Vector.zero() }))).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ scale: 1 }))).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ scale: Vector.one() }))).toBe(``);
 
         /* Note: Skew will be available in the future
         expect(
@@ -49,28 +30,16 @@ describe('Conversion of CSS style attribute transform to Transform object', () =
     });
 
     it('is working with translate to CSS ', () => {
-        expect(
-            transformToStyleCss(
-                Transform.fromObject({ translate: Vector.fromArray(10, 15) }),
-            ),
-        ).toBe(`translate(10px,15px)`);
+        expect(transformToStyleCss(Transform.fromObject({ translate: Vector.fromArray(10, 15) }))).toBe(
+            `translate(10px,15px)`,
+        );
     });
 
     it('is working with rotate to CSS ', () => {
-        expect(
-            transformToStyleCss(Transform.fromObject({ rotate: Math.PI })),
-        ).toBe(`rotate(180deg)`);
-        expect(
-            transformToStyleCss(Transform.fromObject({ rotate: Math.PI * 3 })),
-        ).toBe(`rotate(180deg)`);
-        expect(
-            transformToStyleCss(Transform.fromObject({ rotate: -Math.PI })),
-        ).toBe(`rotate(180deg)`);
-        expect(
-            transformToStyleCss(
-                Transform.fromObject({ rotate: Vector.fromArray(1, 2, 0) }),
-            ),
-        ).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ rotate: Math.PI }))).toBe(`rotate(180deg)`);
+        expect(transformToStyleCss(Transform.fromObject({ rotate: Math.PI * 3 }))).toBe(`rotate(180deg)`);
+        expect(transformToStyleCss(Transform.fromObject({ rotate: -Math.PI }))).toBe(`rotate(180deg)`);
+        expect(transformToStyleCss(Transform.fromObject({ rotate: Vector.fromArray(1, 2, 0) }))).toBe(``);
     });
 
     /*

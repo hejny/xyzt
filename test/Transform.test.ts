@@ -10,27 +10,25 @@ describe('initialization of Transform', () => {
 
     it('initialize by translate', () => {
         expect(() => Transform.translate({ x: 1, y: 2 })).not.toThrowError();
-        expect(Transform.translate({ x: 1, y: 2 }).translate).toEqual(
-            new Vector(1, 2),
-        );
+        expect(Transform.translate({ x: 1, y: 2 }).translate).toEqual(new Vector(1, 2));
     });
 
     it('initialize by rotate', () => {
         expect(() => Transform.rotate(Math.PI / 3)).not.toThrowError();
-        (expect as any)(
-            Transform.rotate(Math.PI / 3).rotate.toJSON(),
-        ).toMatchCloseTo(new Vector(0, 0, Math.PI / 3).toJSON());
-        (expect as any)(
-            Transform.rotate({ z: Math.PI / 3 }).rotate.toJSON(),
-        ).toMatchCloseTo(new Vector(0, 0, Math.PI / 3).toJSON());
+        (expect as any)(Transform.rotate(Math.PI / 3).rotate.toJSON()).toMatchCloseTo(
+            new Vector(0, 0, Math.PI / 3).toJSON(),
+        );
+        (expect as any)(Transform.rotate({ z: Math.PI / 3 }).rotate.toJSON()).toMatchCloseTo(
+            new Vector(0, 0, Math.PI / 3).toJSON(),
+        );
     });
 
     it('initialize by scale', () => {
         expect(() => Transform.scale(3)).not.toThrowError();
         expect(Transform.scale(3).scale).toEqual(new Vector(3, 3, 3));
-        (expect as any)(
-            Transform.scale({ x: 1, y: 2, z: 3 }).scale.toJSON(),
-        ).toMatchCloseTo(new Vector(1, 2, 3).toJSON());
+        (expect as any)(Transform.scale({ x: 1, y: 2, z: 3 }).scale.toJSON()).toMatchCloseTo(
+            new Vector(1, 2, 3).toJSON(),
+        );
     });
 
     it('initialize by fromObject', () => {
@@ -76,14 +74,14 @@ describe('Operations with Transform', () => {
 
 describe('Operations with Transform and Vector', () => {
     it('do nothing with zero vector and neutral transform', () =>
-        (expect as any)(
-            Transform.neutral().applyOnVector(Vector.zero()).toJSON(),
-        ).toMatchCloseTo(Vector.zero().toJSON()));
+        (expect as any)(Transform.neutral().applyOnVector(Vector.zero()).toJSON()).toMatchCloseTo(
+            Vector.zero().toJSON(),
+        ));
 
     it('do nothing with vector and neutral transform', () =>
-        (expect as any)(
-            Transform.neutral().applyOnVector(new Vector(1, 2, 3)).toJSON(),
-        ).toMatchCloseTo(new Vector(1, 2, 3).toJSON()));
+        (expect as any)(Transform.neutral().applyOnVector(new Vector(1, 2, 3)).toJSON()).toMatchCloseTo(
+            new Vector(1, 2, 3).toJSON(),
+        ));
 
     it('rotate zero vector', () =>
         (expect as any)(

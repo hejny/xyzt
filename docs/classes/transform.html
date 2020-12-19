@@ -73,7 +73,7 @@
 					<a href="transform.html#clonedeep" class="tsd-kind-icon">clone<wbr>Deep</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
-					<a href="transform.html#negate" class="tsd-kind-icon">negate</a>
+					<a href="transform.html#inverse" class="tsd-kind-icon">inverse</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="transform.html#pick" class="tsd-kind-icon">pick</a>
@@ -106,7 +106,7 @@
 					<a href="transform.html#fromobject" class="tsd-kind-icon">from<wbr>Object</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a href="transform.html#negate-1" class="tsd-kind-icon">negate</a>
+					<a href="transform.html#inverse-1" class="tsd-kind-icon">inverse</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a href="transform.html#neutral" class="tsd-kind-icon">neutral</a>
@@ -149,9 +149,7 @@
 		<section class="tsd-panel">
 			<h3>Implements</h3>
 			<ul class="tsd-hierarchy">
-				<li><a href="../interfaces/itransform.html" class="tsd-signature-type">ITransform</a></li>
-				<li><span class="tsd-signature-symbol">{ </span>applyOnTransform<span class="tsd-signature-symbol">: </span><a href="../globals.html#itransformapplymodifierfunction" class="tsd-signature-type">ITransformApplyModifierFunction</a><span class="tsd-signature-symbol"> }</span></li>
-				<li><span class="tsd-signature-symbol">{ </span>applyOnVector<span class="tsd-signature-symbol">: </span><a href="../globals.html#ivectorapplymodifierfunction" class="tsd-signature-type">IVectorApplyModifierFunction</a><span class="tsd-signature-symbol"> }</span></li>
+				<li><a href="../globals.html#iinversible" class="tsd-signature-type">IInversible</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/itransform.html" class="tsd-signature-type">ITransform</a><span class="tsd-signature-symbol"> &amp; </span><a href="../globals.html#iappliableontransform" class="tsd-signature-type">IAppliableOnTransform</a><span class="tsd-signature-symbol"> &amp; </span><a href="../globals.html#iappliableonvector" class="tsd-signature-type">IAppliableOnVector</a><span class="tsd-signature-symbol">&gt;</span></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -174,7 +172,7 @@
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#applyonvector" class="tsd-kind-icon">apply<wbr>OnVector</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#clone" class="tsd-kind-icon">clone</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#clonedeep" class="tsd-kind-icon">clone<wbr>Deep</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#negate" class="tsd-kind-icon">negate</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#inverse" class="tsd-kind-icon">inverse</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#pick" class="tsd-kind-icon">pick</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="transform.html#toobject" class="tsd-kind-icon">to<wbr>Object</a></li>
@@ -185,7 +183,7 @@
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#clone-1" class="tsd-kind-icon">clone</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#clonedeep-1" class="tsd-kind-icon">clone<wbr>Deep</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#fromobject" class="tsd-kind-icon">from<wbr>Object</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#negate-1" class="tsd-kind-icon">negate</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#inverse-1" class="tsd-kind-icon">inverse</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#neutral" class="tsd-kind-icon">neutral</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#pick-1" class="tsd-kind-icon">pick</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="transform.html#rotate-1" class="tsd-kind-icon">rotate</a></li>
@@ -206,9 +204,8 @@
 				<h3>rotate</h3>
 				<div class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">:</span> <a href="vector.html" class="tsd-signature-type">Vector</a></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/itransform.html">ITransform</a>.<a href="../interfaces/itransform.html#rotate">rotate</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L212">classes/Transform.ts:212</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L166">classes/Transform.ts:166</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -217,9 +214,8 @@
 				<h3>scale</h3>
 				<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="vector.html" class="tsd-signature-type">Vector</a></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/itransform.html">ITransform</a>.<a href="../interfaces/itransform.html#scale">scale</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L213">classes/Transform.ts:213</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L167">classes/Transform.ts:167</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -228,9 +224,8 @@
 				<h3>translate</h3>
 				<div class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">:</span> <a href="vector.html" class="tsd-signature-type">Vector</a></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/itransform.html">ITransform</a>.<a href="../interfaces/itransform.html#translate">translate</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L210">classes/Transform.ts:210</a></li>
+						<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L164">classes/Transform.ts:164</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -247,7 +242,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L233">classes/Transform.ts:233</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L185">classes/Transform.ts:185</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -270,7 +265,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L241">classes/Transform.ts:241</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L193">classes/Transform.ts:193</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -293,7 +288,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L245">classes/Transform.ts:245</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L197">classes/Transform.ts:197</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -316,7 +311,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L219">classes/Transform.ts:219</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L173">classes/Transform.ts:173</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="transform.html" class="tsd-signature-type">Transform</a></h4>
@@ -333,7 +328,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L223">classes/Transform.ts:223</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L177">classes/Transform.ts:177</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="transform.html" class="tsd-signature-type">Transform</a></h4>
@@ -341,16 +336,16 @@
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="negate" class="tsd-anchor"></a>
-				<h3>negate</h3>
+				<a name="inverse" class="tsd-anchor"></a>
+				<h3>inverse</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">negate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
+					<li class="tsd-signature tsd-kind-icon">inverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L237">classes/Transform.ts:237</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L189">classes/Transform.ts:189</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="transform.html" class="tsd-signature-type">Transform</a></h4>
@@ -367,7 +362,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L249">classes/Transform.ts:249</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L201">classes/Transform.ts:201</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,7 +385,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L253">classes/Transform.ts:253</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L205">classes/Transform.ts:205</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../interfaces/itransform.html" class="tsd-signature-type">ITransform</a></h4>
@@ -407,7 +402,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L257">classes/Transform.ts:257</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L209">classes/Transform.ts:209</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../interfaces/itransform.html" class="tsd-signature-type">ITransform</a></h4>
@@ -424,7 +419,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L227">classes/Transform.ts:227</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L181">classes/Transform.ts:181</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -465,7 +460,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L91">classes/Transform.ts:91</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L82">classes/Transform.ts:82</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -491,7 +486,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L117">classes/Transform.ts:117</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L101">classes/Transform.ts:101</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -517,7 +512,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L164">classes/Transform.ts:164</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L120">classes/Transform.ts:120</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -543,7 +538,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L44">classes/Transform.ts:44</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L35">classes/Transform.ts:35</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -566,7 +561,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L64">classes/Transform.ts:64</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L55">classes/Transform.ts:55</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -589,7 +584,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L35">classes/Transform.ts:35</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L26">classes/Transform.ts:26</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -603,16 +598,16 @@
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-				<a name="negate-1" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagStatic">Static</span> negate</h3>
+				<a name="inverse-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> inverse</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">negate<span class="tsd-signature-symbol">(</span>transform<span class="tsd-signature-symbol">: </span><a href="../interfaces/itransform.html" class="tsd-signature-type">ITransform</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
+					<li class="tsd-signature tsd-kind-icon">inverse<span class="tsd-signature-symbol">(</span>transform<span class="tsd-signature-symbol">: </span><a href="../interfaces/itransform.html" class="tsd-signature-type">ITransform</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L106">classes/Transform.ts:106</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L90">classes/Transform.ts:90</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -635,7 +630,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L13">classes/Transform.ts:13</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L10">classes/Transform.ts:10</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="transform.html" class="tsd-signature-type">Transform</a></h4>
@@ -652,7 +647,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L172">classes/Transform.ts:172</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L129">classes/Transform.ts:129</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -672,22 +667,19 @@
 				<a name="rotate-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> rotate</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>rotate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, translate<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
+					<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>rotate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L21">classes/Transform.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L18">classes/Transform.ts:18</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>rotate: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> translate: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="transform.html" class="tsd-signature-type">Transform</a></h4>
@@ -698,22 +690,19 @@
 				<a name="scale-1" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> scale</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>scale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a>, translate<span class="tsd-signature-symbol">?: </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
+					<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>scale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transform.html" class="tsd-signature-type">Transform</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L28">classes/Transform.ts:28</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L22">classes/Transform.ts:22</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>scale: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> translate: <a href="../globals.html#ivector" class="tsd-signature-type">IVector</a></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="transform.html" class="tsd-signature-type">Transform</a></h4>
@@ -730,7 +719,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L184">classes/Transform.ts:184</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L138">classes/Transform.ts:138</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -753,7 +742,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L188">classes/Transform.ts:188</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L142">classes/Transform.ts:142</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -776,7 +765,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L17">classes/Transform.ts:17</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L14">classes/Transform.ts:14</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -799,7 +788,7 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/251949b/src/classes/Transform.ts#L75">classes/Transform.ts:75</a></li>
+								<li>Defined in <a href="https://github.com/hejny/xyzt/blob/d720f0b/src/classes/Transform.ts#L66">classes/Transform.ts:66</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>

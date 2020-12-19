@@ -1,4 +1,4 @@
-import { Vector } from '../src/classes/Vector';
+import { Vector } from '../../src/classes/Vector';
 
 export const vectorSamples = [
     Vector.zero(),

@@ -1,12 +1,18 @@
 import { AXES, IAxis, IVector } from '../interfaces/IVector';
-import { IVectorApplyModifier } from '../interfaces/IVectorApplyModifier';
 import { ε } from '../config';
+import { IInversible } from '../interfaces/IInversible';
+import {
+    IAppliableOnVector,
+    IVectorApplyModifier,
+    IVectorApplyModifierFunction,
+} from '../interfaces/IVectorApplyModifier';
+import { stripInfatesimal } from '../utils/stripInfatesimal';
 
 // TODO: toCss toTopLeft as helpers
 // TODO: ? Vector is kind of Transform with only a translation
 // TODO: ? add, subtract, etc should take also a Transform
 
-export class Vector implements IVector {
+export class Vector implements IVector, IInversible<IVector> {
     // TODO: DRY axis
 
     [axis: string]: any; // TODO: Better
@@ -169,6 +175,17 @@ export class Vector implements IVector {
         return true;
     }
 
+    public static stripInfatesimals(vector: IVector): Vector {
+        // TODO: Use in methods with problematic infatesimals to stop using toBeDeepCloseTo and toMatchCloseTo in tests
+        const vectorObject = Vector.clone(vector);
+        for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
+            keyof IVector
+        >) {
+            vectorObject[axis] = stripInfatesimal(vectorObject[axis]);
+        }
+        return vectorObject;
+    }
+
     public static isZero(vector: IVector): boolean {
         return Vector.isEqual({}, vector);
     }
@@ -225,6 +242,14 @@ export class Vector implements IVector {
         } else {
             return Vector.fromObject(modifier.applyOnVector(Vector.fromObject(vector)));
         }
+    }
+
+    public static within(
+        vector: IVector,
+        context: IInversible<IAppliableOnVector>,
+        modifier: IVectorApplyModifierFunction,
+    ): Vector {
+        return Vector.apply(modifier(Vector.apply(vector, context)), context.inverse());
     }
 
     public static to2D(vector: IVector): Vector {
@@ -284,11 +309,7 @@ export class Vector implements IVector {
     public constructor(vector: IVector);
     public constructor(x?: number, y?: number, z?: number);
     public constructor(x?: number | IVector, y?: number, z?: number) {
-        if (typeof x === 'number' || x === undefined) {
-            if (isNaN(x || 0) || isNaN(y || 0) || isNaN(z || 0)) {
-                throw new Error(`Vector can not be constructed due to NaN values.`);
-            }
-
+        if (typeof x === 'number' || x === undefined || x === null) {
             this.x = x || 0;
             this.y = y || 0;
             this.z = z || 0;
@@ -301,7 +322,7 @@ export class Vector implements IVector {
     }
 
     public inverse(): Vector {
-        return this.map((v) => 1 / v);
+        return this.map((v) => 1 / v).stripInfatesimals();
     }
 
     public negate(): Vector {
@@ -385,6 +406,10 @@ export class Vector implements IVector {
         return Vector.isZero(this);
     }
 
+    public stripInfatesimals(): Vector {
+        return Vector.stripInfatesimals(this);
+    }
+
     public distance(vectorB?: IVector): number {
         return Vector.distance(this, vectorB);
     }
@@ -411,6 +436,10 @@ export class Vector implements IVector {
 
     public apply(modifier: IVectorApplyModifier): Vector {
         return Vector.apply(this, modifier);
+    }
+
+    public within(context: IInversible<IAppliableOnVector>, modifier: IVectorApplyModifierFunction): Vector {
+        return Vector.within(this, context, modifier);
     }
 
     public to2D() {

@@ -32,9 +32,7 @@ describe('Conversion of Transform object to CSS', () => {
     });
 
     it('is working with z deg CSS rotate ', () => {
-        (expect as any)(
-            transformFromStyle(`rotate(60deg)`).toJSON(),
-        ).toMatchCloseTo(
+        (expect as any)(transformFromStyle(`rotate(60deg)`).toJSON()).toMatchCloseTo(
             Transform.fromObject({
                 rotate: Math.PI / 3,
             }).toJSON(),
@@ -42,9 +40,7 @@ describe('Conversion of Transform object to CSS', () => {
     });
 
     it('is working with z grad CSS rotate ', () => {
-        (expect as any)(
-            transformFromStyle(`rotate(100grad)`).toJSON(),
-        ).toMatchCloseTo(
+        (expect as any)(transformFromStyle(`rotate(100grad)`).toJSON()).toMatchCloseTo(
             Transform.fromObject({
                 rotate: Math.PI / 2,
             }).toJSON(),

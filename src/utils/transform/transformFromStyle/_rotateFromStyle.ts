@@ -7,9 +7,5 @@ export function _rotateFromStyle(cssTransform: string): number | null {
     if (!values) {
         return null;
     }
-    return convertAngle(
-        (values[0].unit as IAngleUnit) || '(deg)',
-        '(rad)',
-        values[0].value,
-    );
+    return convertAngle((values[0].unit as IAngleUnit) || '(deg)', '(rad)', values[0].value);
 }

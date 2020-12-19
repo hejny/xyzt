@@ -3,10 +3,7 @@ import { ITransform } from '../../../interfaces/ITransform';
 import { transformFromStyle } from '../transformFromStyle/transformFromStyle';
 import { transformToStyleSvg } from '../transformToStyle/transformToStyleSvg';
 
-export function applyTransformOnSvgElement(
-    transform: ITransform,
-    element: SVGGElement,
-) {
+export function applyTransformOnSvgElement(transform: ITransform, element: SVGGElement) {
     element.setAttribute(
         'transform',
         transformToStyleSvg(

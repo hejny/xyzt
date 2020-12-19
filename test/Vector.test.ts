@@ -23,6 +23,22 @@ describe('Vector', () => {
         // !!! fromPolar
     });
 
+    it('does not crash when Vector recives broken data', () => {
+        const VectorAny = Vector as any;
+        expect(() => new VectorAny(null, 0, 0)).not.toThrow();
+        expect(() => new VectorAny(0, null, 0)).not.toThrow();
+        expect(() => new VectorAny(0, 0, null)).not.toThrow();
+        expect(() => new VectorAny(null, null, null)).not.toThrow();
+        expect(() => new VectorAny(undefined, 0, 0)).not.toThrow();
+        expect(() => new VectorAny(0, undefined, 0)).not.toThrow();
+        expect(() => new VectorAny(0, 0, undefined)).not.toThrow();
+        expect(() => new VectorAny(undefined, undefined, undefined)).not.toThrow();
+        expect(() => new VectorAny(NaN, 0, 0)).not.toThrow();
+        expect(() => new VectorAny(0, NaN, 0)).not.toThrow();
+        expect(() => new VectorAny(0, 0, NaN)).not.toThrow();
+        expect(() => new VectorAny(NaN, NaN, NaN)).not.toThrow();
+    });
+
     it('can be compared by isEqual', () => {
         expect(Vector.isEqual(Vector.fromArray(0, 0), {})).toBe(true);
         expect(Vector.isEqual({}, {})).toBe(true);
@@ -30,8 +46,8 @@ describe('Vector', () => {
         expect(Vector.isEqual(Vector.fromObject({}), Vector.fromArray(0, 0))).toBe(true);
         expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.fromArray(1, 1))).toBe(true);
         expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.fromObject({ x: 1, y: 1 }).clone())).toBe(true);
-        expect(Vector.isEqual(Vector.fromArray(1, 1, 1), Vector.cube(1))).toBe(true);
-        expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.cube(1))).toBe(false);
+        expect(Vector.isEqual(Vector.fromArray(1, 1, 1), Vector.box(1))).toBe(true);
+        expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.box(1))).toBe(false);
         expect(
             Vector.isEqual(
                 Vector.fromArray(1, 1),

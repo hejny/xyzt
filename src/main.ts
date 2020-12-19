@@ -5,6 +5,7 @@ import { BoundingBox } from './classes/BoundingBox';
 import { Transform } from './classes/Transform';
 import { Vector } from './classes/Vector';
 import { IBoundingBox } from './interfaces/IBoundingBox';
+import { IInversible } from './interfaces/IInversible';
 import { ITransform } from './interfaces/ITransform';
 import {
     IAppliableOnTransform,
@@ -23,23 +24,17 @@ import { fullAngle } from './utils/fullAngle';
 import { modulo } from './utils/modulo';
 import { showValue } from './utils/showValue';
 import { showValueWithUnit } from './utils/showValueWithUnit';
+import { stripInfatesimal } from './utils/stripInfatesimal';
 import { applyTransformOnElement } from './utils/transform/applyTransformOnElement/applyTransformOnElement';
 import { applyTransformOnHtmlElement } from './utils/transform/applyTransformOnElement/applyTransformOnHtmlElement';
 import { applyTransformOnSvgElement } from './utils/transform/applyTransformOnElement/applyTransformOnSvgElement';
-import {
-    IAngleUnit,
-    IDimensionUnit,
-    ITransformStyleFormat,
-} from './utils/transform/styleFormat/ITransformStyleFormat';
+import { IAngleUnit, IDimensionUnit, ITransformStyleFormat } from './utils/transform/styleFormat/ITransformStyleFormat';
 import { transformFromStyle } from './utils/transform/transformFromStyle/transformFromStyle';
 import { _rotateFromStyle } from './utils/transform/transformFromStyle/_rotateFromStyle';
 import { _scaleFromStyle } from './utils/transform/transformFromStyle/_scaleFromStyle';
 import { _translateFromStyle } from './utils/transform/transformFromStyle/_translateFromStyle';
 import { transformToStyle } from './utils/transform/transformToStyle/transformToStyle';
-import {
-    CSS_FORMAT,
-    transformToStyleCss,
-} from './utils/transform/transformToStyle/transformToStyleCss';
+import { CSS_FORMAT, transformToStyleCss } from './utils/transform/transformToStyle/transformToStyleCss';
 import { transformToStyleSvg } from './utils/transform/transformToStyle/transformToStyleSvg';
 import { _transformAngleToStyle } from './utils/transform/transformToStyle/_transformAngleToStyle';
 import { _transformDimensionToStyle } from './utils/transform/transformToStyle/_transformDimensionToStyle';
@@ -59,6 +54,7 @@ export {
     CSS_FORMAT,
     IAngleUnit,
     ITransform,
+    IInversible,
     BoundingBox,
     convertAngle,
     IBoundingBox,
@@ -67,6 +63,7 @@ export {
     _scaleFromStyle,
     transformToStyle,
     _rotateFromStyle,
+    stripInfatesimal,
     showValueWithUnit,
     transformFromStyle,
     IAppliableOnVector,

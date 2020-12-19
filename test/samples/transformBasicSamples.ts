@@ -1,5 +1,5 @@
-import { Transform } from '../src/classes/Transform';
-import { Vector } from '../src/classes/Vector';
+import { Transform } from '../../src/classes/Transform';
+import { Vector } from '../../src/classes/Vector';
 
 export const transformBasicSamples = [
     Transform.neutral(),
