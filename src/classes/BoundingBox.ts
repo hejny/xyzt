@@ -1,7 +1,7 @@
 import { ε } from '../config';
 import { IBoundingBox } from '../interfaces/IBoundingBox';
 import { ITransform } from '../interfaces/ITransform';
-import { AXES, IVector } from '../interfaces/IVector';
+import { IVector } from '../interfaces/IVector';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
