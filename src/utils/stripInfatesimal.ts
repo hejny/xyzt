@@ -1,4 +1,4 @@
-import { ε, NEGLIGIBLE_THRESHOLD } from '../config';
+import { NEGLIGIBLE_THRESHOLD, ε } from '../config';
 
 //  TODO: Move to indipendent library
 export function stripInfatesimal(value: number): number {

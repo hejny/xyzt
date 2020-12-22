@@ -1,6 +1,6 @@
-import { AXES, IAxis, IVector } from '../interfaces/IVector';
 import { ε } from '../config';
 import { IInversible } from '../interfaces/IInversible';
+import { AXES, IAxis, IVector } from '../interfaces/IVector';
 import {
     IAppliableOnVector,
     IVectorApplyModifier,
