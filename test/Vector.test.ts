@@ -20,7 +20,27 @@ describe('Vector', () => {
         expect(Vector.fromObject({ top: 2, left: 1 }, ['left', 'top'])).toEqual(Vector.fromArray(1, 2));
         expect(Vector.fromObject({ clientX: 1, clientY: 2 }, ['clientX', 'clientY'])).toEqual(Vector.fromArray(1, 2));
 
-        // !!! fromPolar
+        // More more ways
+        expect(Vector.fromArray(0, 0)).toEqual({ x: 0, y: 0, z: 0 });
+        expect({}).toEqual({});
+        expect(Vector.fromArray()).toEqual(Vector.fromArray(0, 0));
+        expect(Vector.fromObject({})).toEqual(Vector.fromArray(0, 0));
+        expect(Vector.fromArray(1, 1)).toEqual(Vector.fromArray(1, 1));
+        expect(Vector.fromArray(1, 1)).toEqual(Vector.fromObject({ x: 1, y: 1 }).clone());
+        expect(Vector.fromArray(1, 1, 1)).toEqual({ x: 1, y: 1, z: 1 });
+        expect(Vector.square(2)).toEqual({ x: 2, y: 2, z: 0 });
+        expect(Vector.cube(2)).toEqual({ x: 2, y: 2, z: 2 });
+        expect(Vector.fromArray(1, 1)).toEqual(Vector.square());
+        expect(Vector.fromArray(1, 1)).toEqual(
+            Vector.fromArray(1, 1)
+                .scale(100)
+                .scale(1 / 100),
+        );
+        expect(Vector.fromArray(1, 1)).toEqual(Vector.fromArray(2, 2).half());
+
+        expect(Vector.fromArray(1, 1).double()).toEqual(Vector.fromArray(2, 2));
+        expect(Vector.fromArray(1, 1)).toEqual({ x: 1, y: 1, z: 0 });
+        // TODO: fromPolar
     });
 
     it('does not crash when Vector recives broken data', () => {
@@ -46,8 +66,9 @@ describe('Vector', () => {
         expect(Vector.isEqual(Vector.fromObject({}), Vector.fromArray(0, 0))).toBe(true);
         expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.fromArray(1, 1))).toBe(true);
         expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.fromObject({ x: 1, y: 1 }).clone())).toBe(true);
-        expect(Vector.isEqual(Vector.fromArray(1, 1, 1), Vector.box(1))).toBe(true);
-        expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.box(1))).toBe(false);
+        expect(Vector.isEqual(Vector.fromArray(1, 1, 1), Vector.cube(1))).toBe(true);
+        expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.cube(1))).toBe(false);
+        expect(Vector.isEqual(Vector.fromArray(1, 1), Vector.square(1))).toBe(true);
         expect(
             Vector.isEqual(
                 Vector.fromArray(1, 1),

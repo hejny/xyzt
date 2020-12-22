@@ -9,7 +9,7 @@ describe('Conversion of CSS style attribute transform to Transform object', () =
         expect(transformToStyleCss(Transform.fromObject({ rotate: 0 }))).toBe(``);
         expect(transformToStyleCss(Transform.fromObject({ rotate: Vector.zero() }))).toBe(``);
         expect(transformToStyleCss(Transform.fromObject({ scale: 1 }))).toBe(``);
-        expect(transformToStyleCss(Transform.fromObject({ scale: Vector.one() }))).toBe(``);
+        expect(transformToStyleCss(Transform.fromObject({ scale: Vector.square() }))).toBe(``);
 
         /* Note: Skew will be available in the future
         expect(

@@ -177,6 +177,7 @@ export class Vector implements IVector, IInversible<IVector> {
 
     public static stripInfatesimals(vector: IVector): Vector {
         // TODO: Use in methods with problematic infatesimals to stop using toBeDeepCloseTo and toMatchCloseTo in tests
+        // TODO: Use here Vector.map
         const vectorObject = Vector.clone(vector);
         for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
             keyof IVector
@@ -264,7 +265,7 @@ export class Vector implements IVector, IInversible<IVector> {
         const object: Partial<T> = {};
         const array = Vector.toArray(vector);
 
-        for (const axis of axisMapping || ((AXES as unknown) as keyof T)) {
+        for (const axis of (axisMapping || AXES) as Array<keyof T>) {
             object[axis] = (array.shift() || 0) as any;
         }
         return object as T;
