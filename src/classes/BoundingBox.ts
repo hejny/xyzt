@@ -16,7 +16,8 @@ export class BoundingBox implements IBoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
-    public static fromPoints(points: IVector[]): BoundingBox {
+    /* TODO:
+    public static fromPoints(...points: IVector[]): BoundingBox {
         const vectorMin: IVector = {};
         const vectorMax: IVector = {};
         for (const point of points) {
@@ -31,7 +32,9 @@ export class BoundingBox implements IBoundingBox {
         }
         return BoundingBox.fromTwoPoints([vectorMin, vectorMax]);
     }
+    */
 
+    /* TODO:
     public static fromTwoPoints([vectorA, vectorB]: [IVector, IVector]): BoundingBox {
         // TODO: param rotation
 
@@ -43,11 +46,11 @@ export class BoundingBox implements IBoundingBox {
 
         return BoundingBox.fromTransform({ translate, scale });
     }
+    */
 
     protected constructor(public transform: Transform) {}
 
     // TODO: circumscribed
-
     /*
     TODO:
     public clone() {
@@ -68,23 +71,22 @@ export class BoundingBox implements IBoundingBox {
     }
 
     public get topLeft(): Vector {
-        return this.corner2D({ x: -0.5, y: -0.5 });
-    }
-
-    public get topRight(): Vector {
-        return this.corner2D({ x: 0.5, y: -0.5 });
-    }
-
-    public get bottomLeft(): Vector {
         return this.corner2D({ x: -0.5, y: 0.5 });
     }
 
-    public get bottomRight(): Vector {
+    public get topRight(): Vector {
         return this.corner2D({ x: 0.5, y: 0.5 });
     }
 
-    // TODO: Also 3D versions
+    public get bottomLeft(): Vector {
+        return this.corner2D({ x: -0.5, y: -0.5 });
+    }
 
+    public get bottomRight(): Vector {
+        return this.corner2D({ x: 0.5, y: -0.5 });
+    }
+
+    // TODO: Also 3D versions
 
     // TODO: setters
 
@@ -112,8 +114,7 @@ export class BoundingBox implements IBoundingBox {
 
     private corner2D(relativePosition: IVector): Vector {
         return this.center
-            .apply(this.transform.pick('rotate', 'scale'))
-            .add(this.transform.scale.multiply(relativePosition))
-            .apply(this.transform.pick('translate'));
+            .within(this.transform.pick('rotate', 'scale'), (t) => t.add(relativePosition))
+            .stripInfatesimals();
     }
 }

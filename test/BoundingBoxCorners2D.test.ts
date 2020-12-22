@@ -5,21 +5,24 @@ import { Vector } from '../src/classes/Vector';
 describe('BoundingBox 2D corners', () => {
     it('corners in simple cases', () => {
         const simpleBoundingBox = BoundingBox.cube();
-        expect(Vector.isEqual(simpleBoundingBox.center, Vector.zero())).toBe(true);
-        expect(Vector.isEqual(simpleBoundingBox.topLeft, new Vector(-0.5, -0.5))).toBe(true);
-        expect(Vector.isEqual(simpleBoundingBox.topRight, new Vector(0.5, -0.5))).toBe(true);
-        expect(Vector.isEqual(simpleBoundingBox.bottomLeft, new Vector(-0.5, 0.5))).toBe(true);
-        expect(Vector.isEqual(simpleBoundingBox.bottomRight, new Vector(0.5, 0.5))).toBe(true);
+        expect(simpleBoundingBox.center).toEqual(Vector.zero());
+        expect(simpleBoundingBox.topLeft).toEqual(new Vector(-0.5, 0.5));
+        expect(simpleBoundingBox.topRight).toEqual(new Vector(0.5, 0.5));
+        expect(simpleBoundingBox.bottomLeft).toEqual(new Vector(-0.5, -0.5));
+        expect(simpleBoundingBox.bottomRight).toEqual(new Vector(0.5, -0.5));
     });
 
     it('corners in cases with translate', () => {
-        const movedBoundingBox = BoundingBox.fromTransform(Transform.translate(new Vector(1, 1)));
-        console.log(movedBoundingBox.topLeft);
-        expect(Vector.isEqual(movedBoundingBox.center, Vector.square())).toBe(true);
-        expect(Vector.isEqual(movedBoundingBox.topLeft, new Vector(0.5, 0.5))).toBe(true);
-        expect(Vector.isEqual(movedBoundingBox.topRight, new Vector(0.5, -0.5))).toBe(true);
-        expect(Vector.isEqual(movedBoundingBox.bottomLeft, new Vector(-0.5, 0.5))).toBe(true);
-        expect(Vector.isEqual(movedBoundingBox.bottomRight, new Vector(0.5, 0.5))).toBe(true);
+        const moveBy = new Vector(1, 1); // TODO: More moveBys
+        const movedBoundingBox = BoundingBox.fromTransform(Transform.translate(moveBy));
+
+        console.log('topLeft', movedBoundingBox.topLeft, new Vector(-0.5, 0.5).add(moveBy));
+
+        expect(movedBoundingBox.center).toEqual(Vector.zero().add(moveBy));
+        expect(movedBoundingBox.topLeft).toEqual(new Vector(-0.5, 0.5).add(moveBy));
+        expect(movedBoundingBox.topRight).toEqual(new Vector(0.5, 0.5).add(moveBy));
+        expect(movedBoundingBox.bottomLeft).toEqual(new Vector(-0.5, -0.5).add(moveBy));
+        expect(movedBoundingBox.bottomRight).toEqual(new Vector(0.5, -0.5).add(moveBy));
     });
 
     /*

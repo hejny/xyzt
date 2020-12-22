@@ -1,6 +1,7 @@
+/*
+TODO:
 import { BoundingBox } from '../src/classes/BoundingBox';
-import { Vector } from '../src/classes/Vector';
-import { vectorSamples } from './vectorSamples';
+import { vectorSamples } from './samples/vectorSamples';
 import { createTuples } from './_createTuples';
 
 describe('constructing BoundingBox fromPoints', () => {
@@ -19,7 +20,7 @@ describe('constructing BoundingBox fromPoints', () => {
         it(`can construct BoundingBox from ${pointsCount} points and points will be in intersecting the BoundingBox`, () => {
             for (const vectors of createTuples({
                 items: vectorSamples,
-                itemsPerTuple: 2,
+                itemsPerTuple: pointsCount,
                 onePermutation: true,
             })) {
                 const boundingBox = BoundingBox.fromPoints(...vectors);
@@ -30,7 +31,8 @@ describe('constructing BoundingBox fromPoints', () => {
         });
     }
 
-    // TODO: !!! Not intersecting
-
+    // TODO: Not intersecting
     // TODO: More tests
 });
+
+*/
