@@ -15,9 +15,6 @@ describe('BoundingBox 2D corners', () => {
     it('corners in cases with translate', () => {
         const moveBy = new Vector(1, 1); // TODO: More moveBys
         const movedBoundingBox = BoundingBox.fromTransform(Transform.translate(moveBy));
-
-        console.log('topLeft', movedBoundingBox.topLeft, new Vector(-0.5, 0.5).add(moveBy));
-
         expect(movedBoundingBox.center).toEqual(Vector.zero().add(moveBy));
         expect(movedBoundingBox.topLeft).toEqual(new Vector(-0.5, 0.5).add(moveBy));
         expect(movedBoundingBox.topRight).toEqual(new Vector(0.5, 0.5).add(moveBy));

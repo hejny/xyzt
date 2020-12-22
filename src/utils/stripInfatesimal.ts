@@ -15,7 +15,6 @@ function stripInfatesimalOneSide(value: number, cropSecondSide: boolean): number
     }
 
     if (value < 0) {
-        console.log(1);
         return -stripInfatesimalOneSide(-value, cropSecondSide);
     }
 
