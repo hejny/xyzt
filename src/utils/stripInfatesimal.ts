@@ -1,25 +1,47 @@
+import { ε, NEGLIGIBLE_THRESHOLD } from '../config';
+
+//  TODO: Move to indipendent library
 export function stripInfatesimal(value: number): number {
-    if (!(value < 1 && value > -1) && /^-?\d+(\.0+\d)?$/.test(value.toString())) {
-        return value > 0 ? Math.floor(value) : Math.ceil(value);
-    } else {
-        return value;
+    if (value === NaN) {
+        return NaN;
     }
 
-    /*
-    // TODO: Maybe more efficient not using conversion to strings but only withing number type but the code below makes typical JS number WTFs
-    Note: I am not using *1e15 directly, because JS make weird results with it:
-        1.000000000000084*1e15 = 1000000000000083.9
-    * /
+    return stripInfatesimalOneSide(value, true);
+}
+
+function stripInfatesimalOneSide(value: number, cropSecondSide: boolean): number {
+    if (value <= ε && value >= -ε) {
+        return 0;
+    }
+
+    if (value < 0) {
+        console.log(1);
+        return -stripInfatesimalOneSide(-value, cropSecondSide);
+    }
+
+    if (value === Infinity) {
+        return Infinity;
+    }
+
+    if (value < 1) {
+        return stripInfatesimalOneSide(value * 10, cropSecondSide) / 10;
+    }
+
     const decimal = value - Math.floor(value);
-    const satoshi = (decimal * 1e16) / 10;
 
-    return decimal;
-    return satoshi.toString().substr(1) as any;
-
-    if (parseInt(satoshi.toString().substr(1), 10) === 0) {
-        return Math.floor(value);
-    } else {
+    if (decimal === 0) {
         return value;
     }
-    */
+
+    const whole = value - decimal;
+
+    if (decimal <= NEGLIGIBLE_THRESHOLD) {
+        return whole;
+    }
+
+    if (cropSecondSide) {
+        return whole + (1 - stripInfatesimalOneSide(1 - decimal, false));
+    }
+
+    return whole + decimal;
 }
