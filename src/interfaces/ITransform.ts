@@ -1,5 +1,6 @@
 import { IVector } from './IVector';
 
+// TODO: !!! Probbably suffix with Data
 export interface ITransform {
     translate?: IVector;
     // center?: IVector;

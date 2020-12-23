@@ -160,7 +160,11 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         return json;
     }
 
-    private constructor(
+    public static toString(transform: ITransform): string {
+        return JSON.stringify(Transform.toObject(transform));
+    }
+
+    public constructor(
         public translate: Vector = Vector.zero(),
         // public center: Vector = Vector.zero(),
         public rotate: Vector = Vector.zero(),
@@ -208,5 +212,9 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
 
     public toObject() {
         return Transform.toObject(this);
+    }
+
+    public toString() {
+        return Transform.toString(this);
     }
 }
