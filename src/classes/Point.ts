@@ -1,22 +1,22 @@
 import { ICoorsys } from '../interfaces/ICoorsys';
 import { IVector } from '../interfaces/IVector';
-import { IVectorInCoorsys } from '../interfaces/IVectorInCoorsys';
+import { IPointData } from '../interfaces/IPointData';
 import { Vector } from './Vector';
 
 /**
- * @experimental Maybe better name than VectorInCoorsys !!! What about Point
+ * @experimental
  */
-export class VectorInCoorsys implements IVectorInCoorsys {
+export class Point implements IPointData {
     [axis: string]: any; // TODO: Better
 
     readonly vector: Vector;
 
-    public static fromObject(coorsysLibrary: ICoorsys[], vectorInCoorsys: IVectorInCoorsys): VectorInCoorsys {
+    public static fromObject(coorsysLibrary: ICoorsys[], vectorInCoorsys: IPointData): Point {
         const coorsys = coorsysLibrary.find(({ coorsysName }) => coorsysName === vectorInCoorsys.coorsysName);
         if (!coorsys) {
             throw new Error(`Can not find "${vectorInCoorsys.coorsysName}" in provided library.`);
         }
-        return new VectorInCoorsys(coorsys, vectorInCoorsys);
+        return new Point(coorsys, vectorInCoorsys);
     }
 
     constructor(readonly coorsys: ICoorsys, vector: IVector) {
@@ -28,12 +28,12 @@ export class VectorInCoorsys implements IVectorInCoorsys {
     }
 
     // !! what is the best name in/on
-    public in(coorsys: ICoorsys): VectorInCoorsys {
+    public in(coorsys: ICoorsys): Point {
         const selfInNeutral = this.coorsys.vectorToNeutral(this.vector);
-        return new VectorInCoorsys(coorsys, coorsys.vectorFromNeutral(selfInNeutral));
+        return new Point(coorsys, coorsys.vectorFromNeutral(selfInNeutral));
     }
 
-    public toObject(): IVectorInCoorsys {
+    public toObject(): IPointData {
         return {
             // Note: error "'coorsysName' is specified more than once, so this usage will be overwritten" is nonsence
             // @ts-expect-error

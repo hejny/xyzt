@@ -1,5 +1,5 @@
 import { Coorsys } from '../../src/classes/Coorsys';
-import { VectorInCoorsys } from '../../src/classes/VectorInCoorsys';
+import { Point } from '../../src/classes/Point';
 import { Vector } from '../../src/classes/Vector';
 
 describe('how related Coorsyses works', () => {
@@ -12,7 +12,7 @@ describe('how related Coorsyses works', () => {
             translate: screenSize.half(),
         });
 
-        const pointAfromCenter = new VectorInCoorsys(screenCentered, { x: 100, y: 100 });
+        const pointAfromCenter = new Point(screenCentered, { x: 100, y: 100 });
         const pointAfromScreen = pointAfromCenter.in(screen);
 
         expect(pointAfromScreen.vector.toObject2D()).toEqual({ x: 350, y: 350 });
