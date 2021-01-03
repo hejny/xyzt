@@ -249,7 +249,6 @@ export class Vector implements IVectorData, IInversible<IVectorData> {
     }
 
     public static within(
-        // TODO: !!! integrate Coorsys
         vector: IVectorData,
         context: IInversible<IAppliableOnVector>,
         modifier: IVectorApplyModifierFunction,
@@ -440,7 +439,6 @@ export class Vector implements IVectorData, IInversible<IVectorData> {
     }
 
     public within(context: IInversible<IAppliableOnVector>, modifier: IVectorApplyModifierFunction): Vector {
-        // TODO: !!! integrate Coorsys
         return Vector.within(this, context, modifier);
     }
 
