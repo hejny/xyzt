@@ -12,9 +12,9 @@ export class Point implements IPointData {
     readonly vector: Vector;
 
     public static fromObject(coorsysLibrary: ICoorsys[], vectorInCoorsys: IPointData): Point {
-        const coorsys = coorsysLibrary.find(({ coorsysName }) => coorsysName === vectorInCoorsys.coorsysName);
+        const coorsys = coorsysLibrary.find(({ csid }) => csid === vectorInCoorsys.csid);
         if (!coorsys) {
-            throw new Error(`Can not find "${vectorInCoorsys.coorsysName}" in provided library.`);
+            throw new Error(`Can not find "${vectorInCoorsys.csid}" in provided library.`);
         }
         return new Point(coorsys, vectorInCoorsys);
     }
@@ -23,8 +23,8 @@ export class Point implements IPointData {
         this.vector = Vector.fromObject(vector);
     }
 
-    public get coorsysName(): string {
-        return this.coorsys.coorsysName;
+    public get csid(): string {
+        return this.coorsys.csid;
     }
 
     // !! what is the best name in/on
@@ -35,9 +35,9 @@ export class Point implements IPointData {
 
     public toObject(): IPointData {
         return {
-            // Note: error "'coorsysName' is specified more than once, so this usage will be overwritten" is nonsence
+            // Note: error "'csid' is specified more than once, so this usage will be overwritten" is nonsence
             // @ts-expect-error
-            coorsysName: this.coorsysName,
+            csid: this.csid,
             ...this.vector.toObject(),
         };
     }

@@ -5,8 +5,7 @@ import { IVector } from '../main';
  * Maybe better name than ICorsys
  */
 export interface ICoorsys {
-    // TODO: !!! csid
-    coorsysName: string;
+    csid: string;
     vectorToNeutral(vectorInThisSystem: IVector): IVector;
     vectorFromNeutral(vectorInNeutralSystem: IVector): IVector;
 }
