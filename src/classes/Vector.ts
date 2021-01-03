@@ -222,7 +222,7 @@ export class Vector implements IVector, IInversible<IVector> {
         for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
             keyof IVector
         >) {
-            mappedVector[axis] = modifier(vector[axis] || 0, axis);
+            mappedVector[axis] = modifier((vector[axis] as number) || 0, axis);
         }
 
         return mappedVector;
@@ -256,10 +256,6 @@ export class Vector implements IVector, IInversible<IVector> {
 
     public static to2D(vector: IVector): Vector {
         return new Vector(vector.x, vector.y);
-    }
-
-    public static toJSON(vector: IVector) {
-        return Vector.toObject(vector);
     }
 
     public static toObject<T = IVector>(vector: IVector, axisMapping?: Array<keyof T>): T {
@@ -449,12 +445,15 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.to2D(this);
     }
 
-    public toJSON() {
-        return Vector.toJSON(this);
-    }
-
     public toObject<T = IVector>(axisMapping?: Array<keyof T>) {
         return Vector.toObject(this, axisMapping);
+    }
+
+    /**
+     * Prefered way is to use toObject. This is just for compatibility with JSON.strigify.
+     */
+    public toJSON() {
+        return Vector.toObject(this);
     }
 
     public toObject2D() {
