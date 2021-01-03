@@ -1,7 +1,7 @@
 import { Vector } from '../classes/Vector';
-import { IVector } from './IVector';
+import { IVectorData } from './IVectorData';
 
-export type IVectorApplyModifierFunction = (vector: Vector) => IVector;
+export type IVectorApplyModifierFunction = (vector: Vector) => IVectorData;
 export type IAppliableOnVector = {
     applyOnVector: IVectorApplyModifierFunction;
 };

@@ -1,5 +1,5 @@
 import { ICoorsys } from '../interfaces/ICoorsys';
-import { IVector } from '../interfaces/IVector';
+import { IVectorData } from '../interfaces/IVectorData';
 import { IPointData } from '../interfaces/IPointData';
 import { Vector } from './Vector';
 
@@ -19,7 +19,7 @@ export class Point implements IPointData {
         return new Point(coorsys, vectorInCoorsys);
     }
 
-    constructor(readonly coorsys: ICoorsys, vector: IVector) {
+    constructor(readonly coorsys: ICoorsys, vector: IVectorData) {
         this.vector = Vector.fromObject(vector);
     }
 

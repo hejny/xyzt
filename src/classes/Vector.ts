@@ -1,6 +1,6 @@
 import { ε } from '../config';
 import { IInversible } from '../interfaces/IInversible';
-import { AXES, IAxis, IVector } from '../interfaces/IVector';
+import { AXES, IAxis, IVectorData } from '../interfaces/IVectorData';
 import {
     IAppliableOnVector,
     IVectorApplyModifier,
@@ -12,7 +12,7 @@ import { stripInfatesimal } from '../utils/stripInfatesimal';
 // TODO: ? Vector is kind of Transform with only a translation
 // TODO: ? add, subtract, etc should take also a Transform
 
-export class Vector implements IVector, IInversible<IVector> {
+export class Vector implements IVectorData, IInversible<IVectorData> {
     // TODO: DRY axis
 
     [axis: string]: any; // TODO: Better
@@ -36,9 +36,9 @@ export class Vector implements IVector, IInversible<IVector> {
     }
     */
 
-    public static fromObject<T>(vector: IVector): Vector;
+    public static fromObject<T>(vector: IVectorData): Vector;
     public static fromObject<T>(vector: T, axisMapping: Array<keyof T>): Vector;
-    public static fromObject<T>(vector: IVector | T, axisMapping?: Array<keyof T> | null): Vector {
+    public static fromObject<T>(vector: IVectorData | T, axisMapping?: Array<keyof T> | null): Vector {
         if (vector instanceof Vector) {
             return vector;
         }
@@ -80,11 +80,11 @@ export class Vector implements IVector, IInversible<IVector> {
 
     // Note: Static methods bellow have instance equivalents
 
-    public static clone(vector: IVector): Vector {
+    public static clone(vector: IVectorData): Vector {
         return new Vector(vector.x, vector.y, vector.z);
     }
 
-    public static add(...vectors: IVector[]): Vector {
+    public static add(...vectors: IVectorData[]): Vector {
         return new Vector(
             vectors.reduce((x, vector) => x + (vector.x || 0), 0),
             vectors.reduce((y, vector) => y + (vector.y || 0), 0),
@@ -92,11 +92,11 @@ export class Vector implements IVector, IInversible<IVector> {
         );
     }
 
-    public static subtract(vectorA: IVector, vectorB: IVector): Vector {
+    public static subtract(vectorA: IVectorData, vectorB: IVectorData): Vector {
         return Vector.add(vectorA, Vector.fromObject(vectorB).negate());
     }
 
-    public static multiply(...vectors: IVector[]): Vector {
+    public static multiply(...vectors: IVectorData[]): Vector {
         return new Vector(
             vectors.reduce((x, vector) => x * (vector.x || 0), 1),
             vectors.reduce((y, vector) => y * (vector.y || 0), 1),
@@ -104,15 +104,15 @@ export class Vector implements IVector, IInversible<IVector> {
         );
     }
 
-    public static divide(vectorA: IVector, vectorB: IVector): Vector {
+    public static divide(vectorA: IVectorData, vectorB: IVectorData): Vector {
         return Vector.multiply(vectorA, Vector.fromObject(vectorB).inverse());
     }
 
-    public static scale(vector: IVector, scale: number): Vector {
+    public static scale(vector: IVectorData, scale: number): Vector {
         return new Vector((vector.x || 0) * scale, (vector.y || 0) * scale, (vector.z || 0) * scale);
     }
 
-    public static rotate(vector: IVector, rotate: IVector): Vector {
+    public static rotate(vector: IVectorData, rotate: IVectorData): Vector {
         return Vector.forEachPlane(vector, (ortogonalAxis, vectorBD) => {
             const rotateAxis = rotate[ortogonalAxis] || 0;
             const rotation = vectorBD.rotation();
@@ -121,7 +121,10 @@ export class Vector implements IVector, IInversible<IVector> {
         });
     }
 
-    public static forEachPlane(vector: IVector, callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
+    public static forEachPlane(
+        vector: IVectorData,
+        callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVectorData,
+    ): Vector {
         let vectorObject = Vector.fromObject(vector);
         for (const axis of AXES) {
             vectorObject = Vector.forPlane(vectorObject, axis, (vectorBD) => {
@@ -131,7 +134,7 @@ export class Vector implements IVector, IInversible<IVector> {
         return vectorObject;
     }
 
-    public static forPlane(vector: IVector, axis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
+    public static forPlane(vector: IVectorData, axis: IAxis, callback: (vectorBD: Vector) => IVectorData): Vector {
         let { x, y, z } = Vector.fromObject(vector);
 
         switch (axis) {
@@ -149,23 +152,23 @@ export class Vector implements IVector, IInversible<IVector> {
         return new Vector(x, y, z);
     }
 
-    public static dotProduct(vectorA: IVector, vectorB: IVector): number {
+    public static dotProduct(vectorA: IVectorData, vectorB: IVectorData): number {
         const a = Vector.fromObject(vectorA);
         const b = Vector.fromObject(vectorB);
         return a.x * b.x + a.y * b.y + a.z * b.z;
     }
 
-    public static crossProduct(vectorA: IVector, vectorB: IVector): Vector {
+    public static crossProduct(vectorA: IVectorData, vectorB: IVectorData): Vector {
         const a = Vector.fromObject(vectorA);
         const b = Vector.fromObject(vectorB);
         return new Vector(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
     }
 
-    public static average(...vectors: IVector[]): IVector {
+    public static average(...vectors: IVectorData[]): IVectorData {
         return Vector.add(...vectors).scale(1 / vectors.length);
     }
 
-    public static isEqual(vectorA: IVector, vectorB: IVector): boolean {
+    public static isEqual(vectorA: IVectorData, vectorB: IVectorData): boolean {
         // TODO: Maybe spread arguments as in add
         for (const axis of AXES) {
             if (Math.abs((vectorA[axis] || 0) - (vectorB[axis] || 0)) > ε) {
@@ -175,27 +178,27 @@ export class Vector implements IVector, IInversible<IVector> {
         return true;
     }
 
-    public static stripInfatesimals(vector: IVector): Vector {
+    public static stripInfatesimals(vector: IVectorData): Vector {
         // TODO: Use in methods with problematic infatesimals to stop using toBeDeepCloseTo and toMatchCloseTo in tests
         // TODO: Use here Vector.map
         const vectorObject = Vector.clone(vector);
         for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
-            keyof IVector
+            keyof IVectorData
         >) {
             vectorObject[axis] = stripInfatesimal(vectorObject[axis]);
         }
         return vectorObject;
     }
 
-    public static isZero(vector: IVector): boolean {
+    public static isZero(vector: IVectorData): boolean {
         return Vector.isEqual({}, vector);
     }
 
-    public static distance(vectorA: IVector, vectorB: IVector = Vector.zero()): number {
+    public static distance(vectorA: IVectorData, vectorB: IVectorData = Vector.zero()): number {
         return Math.sqrt(Vector.distanceSquared(vectorA, vectorB));
     }
 
-    public static distanceSquared(vectorA: IVector, vectorB: IVector = Vector.zero()): number {
+    public static distanceSquared(vectorA: IVectorData, vectorB: IVectorData = Vector.zero()): number {
         return (
             ((vectorA.x || 0) - (vectorB.x || 0)) ** 2 +
             ((vectorA.y || 0) - (vectorB.y || 0)) ** 2 +
@@ -203,24 +206,24 @@ export class Vector implements IVector, IInversible<IVector> {
         );
     }
 
-    public static rotation(vectorA: IVector, vectorB: IVector = Vector.zero()): number {
+    public static rotation(vectorA: IVectorData, vectorB: IVectorData = Vector.zero()): number {
         // TODO: Just for compatibility, because it does not make sence in Vector
         // TODO: Work with 3D rotation
         return Math.atan2((vectorA.y || 0) - (vectorB.y || 0), (vectorA.x || 0) - (vectorB.x || 0));
     }
 
-    public static cubeMax(vector: IVector): Vector {
+    public static cubeMax(vector: IVectorData): Vector {
         // TODO: Maybe create boxMin and boxVolume and boxRound
         const value = Math.max(...Vector.fromObject(vector).toArray());
         return Vector.cube(value);
     }
 
-    public static map(vector: IVector, modifier: (value: number, axis: keyof IVector) => number): Vector {
+    public static map(vector: IVectorData, modifier: (value: number, axis: keyof IVectorData) => number): Vector {
         const mappedVector = Vector.clone(vector);
 
         // TODO: USE apply in all other methods to avoid making same thing 3x
         for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
-            keyof IVector
+            keyof IVectorData
         >) {
             mappedVector[axis] = modifier((vector[axis] as number) || 0, axis);
         }
@@ -229,7 +232,7 @@ export class Vector implements IVector, IInversible<IVector> {
     }
 
     public static rearrangeAxis(
-        vector: IVector,
+        vector: IVectorData,
         modifier: (values: number[] /* TODO: Maybe tuple [number,number,number] */) => number[],
     ): Vector {
         let { x, y, z } = vector;
@@ -237,7 +240,7 @@ export class Vector implements IVector, IInversible<IVector> {
         return new Vector(x, y, z);
     }
 
-    public static apply(vector: IVector, modifier: IVectorApplyModifier): Vector {
+    public static apply(vector: IVectorData, modifier: IVectorApplyModifier): Vector {
         if (typeof modifier === 'function') {
             return Vector.fromObject(modifier(Vector.fromObject(vector)));
         } else {
@@ -247,18 +250,18 @@ export class Vector implements IVector, IInversible<IVector> {
 
     public static within(
         // TODO: !!! integrate Coorsys
-        vector: IVector,
+        vector: IVectorData,
         context: IInversible<IAppliableOnVector>,
         modifier: IVectorApplyModifierFunction,
     ): Vector {
         return Vector.apply(modifier(Vector.apply(vector, context)), context.inverse());
     }
 
-    public static to2D(vector: IVector): Vector {
+    public static to2D(vector: IVectorData): Vector {
         return new Vector(vector.x, vector.y);
     }
 
-    public static toObject<T = IVector>(vector: IVector, axisMapping?: Array<keyof T>): T {
+    public static toObject<T = IVectorData>(vector: IVectorData, axisMapping?: Array<keyof T>): T {
         const object: Partial<T> = {};
         const array = Vector.toArray(vector);
 
@@ -268,35 +271,35 @@ export class Vector implements IVector, IInversible<IVector> {
         return object as T;
     }
 
-    public static toObject2D(vector: IVector): IVector {
+    public static toObject2D(vector: IVectorData): IVectorData {
         return { x: vector.x || 0, y: vector.y || 0 };
     }
 
-    public static toObject3D(vector: IVector): IVector {
+    public static toObject3D(vector: IVectorData): IVectorData {
         return { x: vector.x || 0, y: vector.y || 0, z: vector.z || 0 };
     }
 
-    public static toArray(vector: IVector): number[] {
+    public static toArray(vector: IVectorData): number[] {
         return [vector.x || 0, vector.y || 0, vector.z || 0];
     }
 
-    public static toArray2D(vector: IVector): [number, number] {
+    public static toArray2D(vector: IVectorData): [number, number] {
         return [vector.x || 0, vector.y || 0];
     }
 
-    public static toArray3D(vector: IVector): [number, number, number] {
+    public static toArray3D(vector: IVectorData): [number, number, number] {
         return [vector.x || 0, vector.y || 0, vector.z || 0];
     }
 
-    public static toString(vector: IVector): string {
+    public static toString(vector: IVectorData): string {
         return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
     }
 
-    public static toString2D(vector: IVector): string {
+    public static toString2D(vector: IVectorData): string {
         return `[${vector.x || 0},${vector.y || 0}]`;
     }
 
-    public static toString3D(vector: IVector): string {
+    public static toString3D(vector: IVectorData): string {
         return `[${vector.x || 0},${vector.y || 0},${vector.z || 0}]`;
     }
 
@@ -304,9 +307,9 @@ export class Vector implements IVector, IInversible<IVector> {
     public readonly y: number;
     public readonly z: number;
 
-    public constructor(vector: IVector);
+    public constructor(vector: IVectorData);
     public constructor(x?: number, y?: number, z?: number);
-    public constructor(x?: number | IVector, y?: number, z?: number) {
+    public constructor(x?: number | IVectorData, y?: number, z?: number) {
         if (typeof x === 'number' || x === undefined || x === null) {
             this.x = x || 0;
             this.y = y || 0;
@@ -356,19 +359,19 @@ export class Vector implements IVector, IInversible<IVector> {
 
     // TODO: updateWithMutation
 
-    public add(...vectors: IVector[]): Vector {
+    public add(...vectors: IVectorData[]): Vector {
         return Vector.add(this, ...vectors);
     }
 
-    public subtract(vectorB: IVector): Vector {
+    public subtract(vectorB: IVectorData): Vector {
         return Vector.subtract(this, vectorB);
     }
 
-    public multiply(...vectors: IVector[]): Vector {
+    public multiply(...vectors: IVectorData[]): Vector {
         return Vector.multiply(this, ...vectors);
     }
 
-    public divide(vectorB: IVector): Vector {
+    public divide(vectorB: IVectorData): Vector {
         return Vector.divide(this, vectorB);
     }
 
@@ -376,27 +379,27 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.scale(this, scale);
     }
 
-    public rotate(rotate: IVector): Vector {
+    public rotate(rotate: IVectorData): Vector {
         return Vector.rotate(this, rotate);
     }
 
-    public forEachPlane(callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
+    public forEachPlane(callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVectorData): Vector {
         return Vector.forEachPlane(this, callback);
     }
 
-    public forPlane(axis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
+    public forPlane(axis: IAxis, callback: (vectorBD: Vector) => IVectorData): Vector {
         return Vector.forPlane(this, axis, callback);
     }
 
-    public dotProduct(vectorB: IVector): number {
+    public dotProduct(vectorB: IVectorData): number {
         return Vector.dotProduct(this, vectorB);
     }
 
-    public crossProduct(vectorB: IVector): Vector {
+    public crossProduct(vectorB: IVectorData): Vector {
         return Vector.crossProduct(this, vectorB);
     }
 
-    public isEqual(vectorB: IVector): boolean {
+    public isEqual(vectorB: IVectorData): boolean {
         return Vector.isEqual(this, vectorB);
     }
 
@@ -408,15 +411,15 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.stripInfatesimals(this);
     }
 
-    public distance(vectorB?: IVector): number {
+    public distance(vectorB?: IVectorData): number {
         return Vector.distance(this, vectorB);
     }
 
-    public distanceSquared(vectorB?: IVector): number {
+    public distanceSquared(vectorB?: IVectorData): number {
         return Vector.distanceSquared(this, vectorB);
     }
 
-    public rotation(vectorB?: IVector): number {
+    public rotation(vectorB?: IVectorData): number {
         return Vector.rotation(this, vectorB);
     }
 
@@ -424,7 +427,7 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.cubeMax(this);
     }
 
-    public map(modifier: (value: number, axis: keyof IVector) => number): Vector {
+    public map(modifier: (value: number, axis: keyof IVectorData) => number): Vector {
         return Vector.map(this, modifier);
     }
 
@@ -445,7 +448,7 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.to2D(this);
     }
 
-    public toObject<T = IVector>(axisMapping?: Array<keyof T>) {
+    public toObject<T = IVectorData>(axisMapping?: Array<keyof T>) {
         return Vector.toObject(this, axisMapping);
     }
 

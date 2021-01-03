@@ -1,5 +1,5 @@
 import { Transform } from '../../../classes/Transform';
-import { ITransform } from '../../../interfaces/ITransform';
+import { ITransformData } from '../../../interfaces/ITransformData';
 import { _rotateFromStyle } from './_rotateFromStyle';
 import { _scaleFromStyle } from './_scaleFromStyle';
 import { _translateFromStyle } from './_translateFromStyle';
@@ -13,7 +13,7 @@ export function transformFromStyle(cssTransform: string): Transform {
     const rotate = _rotateFromStyle(cssTransform);
     const scale = _scaleFromStyle(cssTransform);
 
-    const transform: ITransform = {};
+    const transform: ITransformData = {};
 
     if (translate) {
         transform.translate = translate;

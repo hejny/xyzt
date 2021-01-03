@@ -2,7 +2,7 @@ import { IVector } from '../main';
 
 /**
  * @experimental
- * !!! Maybe better name than ICorsys and suffix with methods  (like data)
+ * Maybe better name than ICorsys
  */
 export interface ICoorsys {
     // TODO: !!! csid

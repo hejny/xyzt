@@ -1,9 +1,9 @@
 import { Transform } from '../../../classes/Transform';
-import { ITransform } from '../../../interfaces/ITransform';
+import { ITransformData } from '../../../interfaces/ITransformData';
 import { transformFromStyle } from '../transformFromStyle/transformFromStyle';
 import { transformToStyleCss } from '../transformToStyle/transformToStyleCss';
 
-export function applyTransformOnHtmlElement(transform: ITransform, element: HTMLElement) {
+export function applyTransformOnHtmlElement(transform: ITransformData, element: HTMLElement) {
     element.style.transform = transformToStyleCss(
         Transform.apply(transformFromStyle(element.style.transform), Transform.fromObject(transform)),
     );

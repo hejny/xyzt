@@ -1,7 +1,6 @@
-export type IVector = IVectorObject; // TODO: | number[];
+export type IVectorData = IVectorDataObject; // TODO: | number[];
 
-// TODO: !!! Probbably suffix with Data
-export interface IVectorObject {
+export interface IVectorDataObject {
     x?: number;
     y?: number;
     z?: number;
