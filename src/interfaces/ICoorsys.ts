@@ -1,4 +1,4 @@
-import { IVector } from '../main';
+import { IVectorData } from '../interfaces/IVectorData';
 
 /**
  * @experimental
@@ -6,6 +6,6 @@ import { IVector } from '../main';
  */
 export interface ICoorsys {
     csid: string;
-    vectorToNeutral(vectorInThisSystem: IVector): IVector;
-    vectorFromNeutral(vectorInNeutralSystem: IVector): IVector;
+    vectorToNeutral(vectorInThisSystem: IVectorData): IVectorData;
+    vectorFromNeutral(vectorInNeutralSystem: IVectorData): IVectorData;
 }
