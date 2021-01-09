@@ -27,8 +27,7 @@ export class Point implements IPointData {
         return this.coorsys.csid;
     }
 
-    // !! what is the best name in/on
-    public in(coorsys: ICoorsys): Point {
+    public on(coorsys: ICoorsys): Point {
         const selfInNeutral = this.coorsys.vectorToNeutral(this.vector);
         return new Point(coorsys, coorsys.vectorFromNeutral(selfInNeutral));
     }

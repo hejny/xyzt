@@ -13,7 +13,7 @@ describe('how related Coorsyses works', () => {
         });
 
         const pointAfromCenter = new Point(screenCentered, { x: 100, y: 100 });
-        const pointAfromScreen = pointAfromCenter.in(screen);
+        const pointAfromScreen = pointAfromCenter.on(screen);
 
         expect(pointAfromScreen.vector.toObject2D()).toEqual({ x: 350, y: 350 });
     });
