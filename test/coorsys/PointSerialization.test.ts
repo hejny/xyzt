@@ -1,6 +1,6 @@
 import { Coorsys } from '../../src/classes/Coorsys';
-import { Vector } from '../../src/classes/Vector';
 import { Point } from '../../src/classes/Point';
+import { Vector } from '../../src/classes/Vector';
 
 describe('how serialize and deserialize Point', () => {
     const screenSize = new Vector(1920, 1200);

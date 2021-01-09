@@ -1,6 +1,6 @@
 import { ICoorsys } from '../interfaces/ICoorsys';
-import { IVectorData } from '../interfaces/IVectorData';
 import { ITransformData } from '../interfaces/ITransformData';
+import { IVectorData } from '../interfaces/IVectorData';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
