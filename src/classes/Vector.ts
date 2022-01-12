@@ -121,6 +121,9 @@ export class Vector implements IVectorData, IInversible<IVectorData> {
         });
     }
 
+    /**
+     * .....
+     */
     public static forEachPlane(
         vector: IVectorData,
         callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVectorData,
@@ -134,6 +137,9 @@ export class Vector implements IVectorData, IInversible<IVectorData> {
         return vectorObject;
     }
 
+    /**
+     * .....
+     */
     public static forPlane(vector: IVectorData, axis: IAxis, callback: (vectorBD: Vector) => IVectorData): Vector {
         let { x, y, z } = Vector.fromObject(vector);
 
