@@ -1,29 +1,29 @@
 import { IInversible } from '../interfaces/IInversible';
-import { ITransform } from '../interfaces/ITransform';
 import { IAppliableOnTransform, ITransformApplyModifier } from '../interfaces/ITransformApplyModifier';
-import { IVector } from '../interfaces/IVector';
+import { ITransformData } from '../interfaces/ITransformData';
 import { IAppliableOnVector } from '../interfaces/IVectorApplyModifier';
+import { IVectorData } from '../interfaces/IVectorData';
 import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
-export class Transform implements IInversible<ITransform & IAppliableOnTransform & IAppliableOnVector> {
+export class Transform implements IInversible<ITransformData & IAppliableOnTransform & IAppliableOnVector> {
     public static neutral(): Transform {
         return new Transform();
     }
 
-    public static translate(translate: IVector): Transform {
+    public static translate(translate: IVectorData): Transform {
         return Transform.fromObject({ translate });
     }
 
-    public static rotate(rotate: number | IVector): Transform {
+    public static rotate(rotate: number | IVectorData): Transform {
         return Transform.fromObject({ rotate });
     }
 
-    public static scale(scale: number | IVector): Transform {
+    public static scale(scale: number | IVectorData): Transform {
         return Transform.fromObject({ scale });
     }
 
-    public static fromObject(transform: ITransform): Transform {
+    public static fromObject(transform: ITransformData): Transform {
         if (transform instanceof Transform) {
             return transform;
         }
@@ -32,8 +32,8 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
 
     // Note: Static methods bellow have instance equivalents
 
-    public static clone(transform: ITransform): Transform {
-        const optionsFull: Required<ITransform> = {
+    public static clone(transform: ITransformData): Transform {
+        const optionsFull: Required<ITransformData> = {
             ...Transform.neutral(),
             ...transform,
         };
@@ -52,7 +52,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         );
     }
 
-    public static cloneDeep(transform: ITransform): Transform {
+    public static cloneDeep(transform: ITransformData): Transform {
         const transformFull = Transform.fromObject(transform);
         return new Transform(
             Vector.fromObject(transformFull.translate).clone(),
@@ -64,8 +64,8 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
     }
 
     public static updateWithMutation(
-        transform: ITransform,
-        modifier: (Transform: Transform) => Transform | ITransform | void,
+        transform: ITransformData,
+        modifier: (Transform: Transform) => Transform | ITransformData | void,
     ): Transform {
         const transformObject = Transform.clone(transform);
         const result = modifier(transformObject);
@@ -79,7 +79,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
 
     // TODO: updateWithDeepMutation
 
-    public static apply(transform: ITransform, modifier: ITransformApplyModifier): Transform {
+    public static apply(transform: ITransformData, modifier: ITransformApplyModifier): Transform {
         if (typeof modifier === 'function') {
             return Transform.fromObject(modifier(Transform.fromObject(transform)));
         } else {
@@ -87,7 +87,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         }
     }
 
-    public static inverse(transform: ITransform): Transform {
+    public static inverse(transform: ITransformData): Transform {
         const transformFull = Transform.fromObject(transform);
         return new Transform(
             transformFull.translate.negate(),
@@ -98,7 +98,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
 
     // TODO: isEqual
 
-    public static applyOnTransform(from: ITransform, to: ITransform): Transform {
+    public static applyOnTransform(from: ITransformData, to: ITransformData): Transform {
         const t1 = Transform.fromObject(from);
         const t2 = Transform.fromObject(to);
 
@@ -117,7 +117,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         });
     }
 
-    public static applyOnVector(from: ITransform, to: IVector): Vector {
+    public static applyOnVector(from: ITransformData, to: IVectorData): Vector {
         let fromObject = Transform.fromObject(from);
         return Vector.fromObject(to)
             .add(fromObject.translate)
@@ -126,7 +126,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
             .stripInfatesimals();
     }
 
-    public static pick(transform: ITransform, ...keys: Array<keyof ITransform>): Transform {
+    public static pick(transform: ITransformData, ...keys: Array<keyof ITransformData>): Transform {
         const transformObject = Transform.fromObject(transform);
         return Transform.neutral().updateWithMutation((t) => {
             for (const key of keys) {
@@ -135,15 +135,15 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         });
     }
 
-    public static toJSON(transform: ITransform) {
+    public static toJSON(transform: ITransformData) {
         return Transform.toObject(transform);
     }
 
-    public static toObject(transform: ITransform): ITransform {
+    public static toObject(transform: ITransformData): ITransformData {
         const transformObject = Transform.fromObject(transform);
 
         const { translate, rotate, scale } = transformObject;
-        const json: ITransform = {};
+        const json: ITransformData = {};
 
         if (!Vector.isZero(translate)) {
             json.translate = translate.toObject();
@@ -160,7 +160,11 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         return json;
     }
 
-    private constructor(
+    public static toString(transform: ITransformData): string {
+        return JSON.stringify(Transform.toObject(transform));
+    }
+
+    public constructor(
         public translate: Vector = Vector.zero(),
         // public center: Vector = Vector.zero(),
         public rotate: Vector = Vector.zero(),
@@ -178,7 +182,7 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         return Transform.cloneDeep(this);
     }
 
-    public updateWithMutation(modifier: (Transform: Transform) => Transform | ITransform | void): Transform {
+    public updateWithMutation(modifier: (Transform: Transform) => Transform | ITransformData | void): Transform {
         return Transform.updateWithMutation(this, modifier);
     }
 
@@ -190,15 +194,15 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
         return Transform.inverse(this);
     }
 
-    public applyOnTransform(to: ITransform) {
+    public applyOnTransform(to: ITransformData) {
         return Transform.applyOnTransform(this, to);
     }
 
-    public applyOnVector(to: IVector) {
+    public applyOnVector(to: IVectorData) {
         return Transform.applyOnVector(this, to);
     }
 
-    public pick(...keys: Array<keyof ITransform>): Transform {
+    public pick(...keys: Array<keyof ITransformData>): Transform {
         return Transform.pick(this, ...keys);
     }
 
@@ -208,5 +212,9 @@ export class Transform implements IInversible<ITransform & IAppliableOnTransform
 
     public toObject() {
         return Transform.toObject(this);
+    }
+
+    public toString() {
+        return Transform.toString(this);
     }
 }

@@ -2,23 +2,27 @@
 // Warning: Do not edit by hand, all changes will be lost on next execution!
 
 import { BoundingBox } from './classes/BoundingBox';
+import { Coorsys } from './classes/Coorsys';
+import { Point } from './classes/Point';
 import { Transform } from './classes/Transform';
 import { Vector } from './classes/Vector';
 import { NEGLIGIBLE_THRESHOLD } from './config';
 import { IBoundingBox } from './interfaces/IBoundingBox';
+import { ICoorsys } from './interfaces/ICoorsys';
 import { IInversible } from './interfaces/IInversible';
-import { ITransform } from './interfaces/ITransform';
+import { IPointData } from './interfaces/IPointData';
 import {
     IAppliableOnTransform,
     ITransformApplyModifier,
     ITransformApplyModifierFunction,
 } from './interfaces/ITransformApplyModifier';
-import { AXES, IAxis, IVector, IVectorObject } from './interfaces/IVector';
+import { ITransformData } from './interfaces/ITransformData';
 import {
     IAppliableOnVector,
     IVectorApplyModifier,
     IVectorApplyModifierFunction,
 } from './interfaces/IVectorApplyModifier';
+import { AXES, IAxis, IVectorData, IVectorDataObject } from './interfaces/IVectorData';
 import { convertAngle } from './utils/convertAngle';
 import { extractValuesFromStyle } from './utils/extractValuesFromStyle';
 import { fullAngle } from './utils/fullAngle';
@@ -46,26 +50,30 @@ import { _transformTranslateToStyle } from './utils/transform/transformToStyle/_
 export {
     AXES,
     IAxis,
+    Point,
     modulo,
     Vector,
-    IVector,
+    Coorsys,
+    ICoorsys,
     showValue,
     fullAngle,
     Transform,
     CSS_FORMAT,
     IAngleUnit,
-    ITransform,
+    IPointData,
+    IVectorData,
     IInversible,
     BoundingBox,
     convertAngle,
     IBoundingBox,
-    IVectorObject,
     IDimensionUnit,
+    ITransformData,
     _scaleFromStyle,
     transformToStyle,
     _rotateFromStyle,
     stripInfatesimal,
     showValueWithUnit,
+    IVectorDataObject,
     transformFromStyle,
     IAppliableOnVector,
     transformToStyleSvg,

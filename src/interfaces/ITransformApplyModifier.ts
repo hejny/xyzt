@@ -1,7 +1,7 @@
 import { Transform } from '../classes/Transform';
-import { ITransform } from './ITransform';
+import { ITransformData } from './ITransformData';
 
-export type ITransformApplyModifierFunction = (Transform: Transform) => ITransform;
+export type ITransformApplyModifierFunction = (Transform: Transform) => ITransformData;
 export type IAppliableOnTransform = {
     applyOnTransform: ITransformApplyModifierFunction;
 };

@@ -1,4 +1,5 @@
 import { toMatchCloseTo } from 'jest-matcher-deep-close-to';
+import { Coorsys } from '../src/classes/Coorsys';
 import { Transform } from '../src/classes/Transform';
 import { Vector } from '../src/classes/Vector';
 
@@ -18,5 +19,13 @@ describe('interaction between vector and transform', () => {
             new Vector(30, 30),
         );
         // TODO: more
+    });
+
+    it('vector can be used within Corsys', () => {
+        expect(
+            new Vector(10, 10).within(new Coorsys('halfed', Transform.scale(1 / 2)), (vector) =>
+                vector.add(new Vector(10, 10)),
+            ),
+        ).toEqual(new Vector(30, 30));
     });
 });

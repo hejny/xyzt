@@ -1,9 +1,9 @@
 import { Transform } from '../../../classes/Transform';
-import { ITransform } from '../../../interfaces/ITransform';
+import { ITransformData } from '../../../interfaces/ITransformData';
 import { transformFromStyle } from '../transformFromStyle/transformFromStyle';
 import { transformToStyleSvg } from '../transformToStyle/transformToStyleSvg';
 
-export function applyTransformOnSvgElement(transform: ITransform, element: SVGGElement) {
+export function applyTransformOnSvgElement(transform: ITransformData, element: SVGGElement) {
     element.setAttribute(
         'transform',
         transformToStyleSvg(

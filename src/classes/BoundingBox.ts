@@ -1,7 +1,7 @@
 import { ε } from '../config';
 import { IBoundingBox } from '../interfaces/IBoundingBox';
-import { ITransform } from '../interfaces/ITransform';
-import { IVector } from '../interfaces/IVector';
+import { ITransformData } from '../interfaces/ITransformData';
+import { IVectorData } from '../interfaces/IVectorData';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
@@ -12,7 +12,7 @@ export class BoundingBox implements IBoundingBox {
 
     // TODO: Maybe square
 
-    public static fromTransform(transform: ITransform): BoundingBox {
+    public static fromTransform(transform: ITransformData): BoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
@@ -106,13 +106,13 @@ export class BoundingBox implements IBoundingBox {
 
     // !! TODO: intersects for another BoundingBox
 
-    public applyTransform(transform: ITransform) {
+    public applyTransform(transform: ITransformData) {
         // TODO: Same pattern as Vector and Transform
         // TODO: Immutable
         this.transform = this.transform.apply(Transform.fromObject(transform));
     }
 
-    private corner2D(relativePosition: IVector): Vector {
+    private corner2D(relativePosition: IVectorData): Vector {
         return this.center
             .within(this.transform.pick('rotate', 'scale'), (t) => t.add(relativePosition))
             .stripInfatesimals();

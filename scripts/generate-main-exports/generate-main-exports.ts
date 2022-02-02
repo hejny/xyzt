@@ -40,10 +40,7 @@ async function main() {
     content += exports
         .map(
             ({ name, path }) =>
-                `import { ${name} } from './${relative(
-                    join(__dirname, '../../src'),
-                    path,
-                )
+                `import { ${name} } from './${relative(join(__dirname, '../../src'), path)
                     .split('\\')
                     .join('/')
                     .replace(/\.tsx?$/, '')}';`,
@@ -52,12 +49,7 @@ async function main() {
     content += '\n\n';
 
     content += `export {\n${exports
-        .sort(
-            (a, b) =>
-                a.name.length > b.name.length
-                    ? 1
-                    : -1 /* TODO: Maybe some better sorting */,
-        )
+        .sort((a, b) => (a.name.length > b.name.length ? 1 : -1) /* TODO: Maybe some better sorting */)
         .map(({ name }) => name)
         .join(',\n')}\n};`;
 
