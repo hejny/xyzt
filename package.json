@@ -1,6 +1,6 @@
 {
     "name": "xyzt",
-    "version": "4.6.0",
+    "version": "5.0.0",
     "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
     "description": "A vector manipulation class",
     "sideEffects": false,
