@@ -37,10 +37,12 @@
         "update-packages": "npm-check-updates -u && git add ./package.json && git commit -m \"Update packages\" && npm run force-reinstall",
         "force-reinstall": "rm ./package-lock.json && rm -rf ./node_modules && npm install && git add ./package-lock.json && git commit -m \"Force reinstall\""
     },
-    "dependencies": {},
+    "dependencies": {
+        "tslib": "^2.3.1"
+    },
     "devDependencies": {
-        "@rollup/plugin-typescript": "^8.3.1",
-        "rollup": "^2.68.0",
+        "@rollup/plugin-typescript": "8.3.0",
+        "rollup": "2.58.1",
         "@types/jest": "^26.0.15",
         "@types/uuid": "^8.3.0",
         "codecov": "^3.8.1",

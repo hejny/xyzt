@@ -16,6 +16,7 @@
         "noEmit": true,
         "sourceMap": true,
         "declaration": true,
+        "importHelpers": true,
         "outDir": "typings"
     },
     "include": ["src"]
