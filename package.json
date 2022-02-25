@@ -3,11 +3,10 @@
     "version": "4.6.0",
     "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
     "description": "A vector manipulation class",
-    "main": "./dist/main.js",
-    "types": "./dist/typings/src/main.d.ts",
-    "files": [
-        "dist/**"
-    ],
+    "sideEffects": false,
+    "module": "./dist/esm/xyzt.js",
+    "main": "./dist/umd/xyzt.js",
+    "typings": "./dist/esm/typings/xyzt.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/hejny/xyzt"
@@ -54,7 +53,7 @@
         "prettier": "^2.2.0",
         "ts-jest": "^26.4.4",
         "ts-loader": "^8.0.11",
-        "ts-node": "^9.0.0",
+        "ts-node": "^10.5.0",
         "tslint": "^5.20.1",
         "tslint-config-prettier": "^1.18.0",
         "typedoc": "^0.19.2",
