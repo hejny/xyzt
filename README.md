@@ -11,7 +11,7 @@
 
 <!--/Badges-->
 
-A vector simple vector manipulation class.
+The vector simple vector manipulation class.
 
 ## Install
 

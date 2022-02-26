@@ -19,5 +19,15 @@
         "importHelpers": true,
         "outDir": "typings"
     },
-    "include": ["src"]
+    "include": ["src"],
+    "typedocOptions": {
+        "name": "XYZT - The vector manipulation class",
+        "entryPoints": ["./src/main.ts"],
+        "includeVersion": true,
+        "hideGenerator": true,
+        "out": "./docs",
+        "media": "./media",
+        "gaID": "UA-161448779-1",
+        "gitRemote": "https://github.com/hejny/xyzt"
+    }
 }
