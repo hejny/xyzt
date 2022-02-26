@@ -6,7 +6,7 @@
     "sideEffects": false,
     "module": "./dist/esm/xyzt.js",
     "main": "./dist/umd/xyzt.js",
-    "typings": "./dist/esm/typings/xyzt.d.ts",
+    "types": "./dist/umd/typings/main.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/hejny/xyzt"
