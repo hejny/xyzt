@@ -22,7 +22,7 @@
         "prettier": "npx prettier --config .prettierrc --write \"{src,test,samples}/**/*.{ts,json,js,html,css}\"",
         "prettier-watch": "npx onchange \"{src,test,samples}/**/*.{ts,json,js,html,css}\" -- npx prettier --config .prettierrc --write {{changed}}",
         "prettier-commit": "git diff --exit-code && npm run pretty-imports && npm run prettier && git add --all && git commit --allow-empty -m \"Prettier\"",
-        "documentation": "typedoc --excludePrivate --hideGenerator --mode file --theme minimal --out docs --name \"Documentation\" ./src",
+        "documentation": "typedoc --excludePrivate --hideGenerator --theme minimal --out docs --name \"Documentation\" ./src",
         "documentation-commit": "git diff --exit-code && npm run documentation && git add docs && git commit --allow-empty -m \"Vector\"",
         "test": "jest --config jestconfig.json",
         "test-watch": "jest --config jestconfig.json --watchAll",
