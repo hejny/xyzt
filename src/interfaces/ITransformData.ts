@@ -1,6 +1,6 @@
-import { IVector } from './IVector';
+import { IVector } from './IVectorData';
 
-export interface ITransform {
+export interface ITransformData {
     translate?: IVector;
     // center?: IVector;
     rotate?: number | IVector;

@@ -1,5 +1,5 @@
 import { Vector } from '../classes/Vector';
-import { IVector } from './IVector';
+import { IVector } from './IVectorData';
 
 export type IVectorApplyModifierFunction = (vector: Vector) => IVector;
 export type IAppliableOnVector = {
