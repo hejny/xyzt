@@ -1,8 +1,8 @@
 import { IInversible } from '../interfaces/IInversible';
-import { ITransformData } from '../interfaces/ITransformData';
 import { IAppliableOnTransform, ITransformApplyModifier } from '../interfaces/ITransformApplyModifier';
-import { IVector } from '../interfaces/IVectorData';
+import { ITransformData } from '../interfaces/ITransformData';
 import { IAppliableOnVector } from '../interfaces/IVectorApplyModifier';
+import { IVector } from '../interfaces/IVectorData';
 import { convertAngle } from '../utils/convertAngle';
 import { Vector } from './Vector';
 
