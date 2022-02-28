@@ -9,5 +9,21 @@ describe('BoundingBox', () => {
             BoundingBox.fromTransform(Transform.fromObject({ translate: new Vector(1, 2) })),
         ).not.toThrowError();
     });
+
+
+    it('can be created from two points', () => {
+      expect( BoundingBox.fromTwoPoints()).not.toThrowError();
+
+
+  });
+
+
+
+  it('can be created from multiple points', () => {
+
+  });
+
+
+
     // TODO: Other methods and scenarios
 });

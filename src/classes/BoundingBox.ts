@@ -16,7 +16,7 @@ export class BoundingBox implements IBoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
-    /* TODO:
+
     public static fromPoints(...points: IVector[]): BoundingBox {
         const vectorMin: IVector = {};
         const vectorMax: IVector = {};
@@ -32,9 +32,9 @@ export class BoundingBox implements IBoundingBox {
         }
         return BoundingBox.fromTwoPoints([vectorMin, vectorMax]);
     }
-    */
 
-    /* TODO:
+
+
     public static fromTwoPoints([vectorA, vectorB]: [IVector, IVector]): BoundingBox {
         // TODO: param rotation
 
@@ -46,7 +46,7 @@ export class BoundingBox implements IBoundingBox {
 
         return BoundingBox.fromTransform({ translate, scale });
     }
-    */
+
 
     protected constructor(public transform: Transform) {}
 
