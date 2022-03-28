@@ -2,7 +2,7 @@
   "name": "xyzt",
   "version": "5.1.0",
   "author": "Pavol Hejný <me@pavolhejny.com> (https://pavolhejny.com)",
-  "description": "The vector manipulation class",
+  "description": "The vector simple vector manipulation class.",
   "sideEffects": false,
   "module": "./dist/esm/xyzt.js",
   "main": "./dist/umd/xyzt.js",
