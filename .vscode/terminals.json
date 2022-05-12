@@ -1,20 +1,38 @@
 {
-    "autokill": true,
-    "terminals": [
-        {
-            "name": "prettier-watch",
-            "command": "npm run prettier-watch",
-            "onlySingle": true
-        },
-        {
-            "name": "test-watch",
-            "command": "npm run test-watch",
-            "onlySingle": true
-        },
-        {
-            "name": "generate-main-exports",
-            "command": "npm run generate-main-exports",
-            "onlySingle": true
-        }
-    ]
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "prettier-watch",
+      "command": "npm run prettier-watch",
+      "onlySingle": true
+    },
+    {
+      "name": "test-watch",
+      "command": "npm run test-watch",
+      "onlySingle": true
+    },
+    {
+      "name": "generate-main-exports",
+      "command": "npm run generate-main-exports",
+      "onlySingle": true
+    },
+    {
+      "name": "🔼👑 Release major version",
+      "command": "npm version major",
+      "onlySingle": true,
+      "focus": true
+    },
+    {
+      "name": "🔼🚀 Release minor version",
+      "command": "npm version minor",
+      "onlySingle": true,
+      "focus": true
+    },
+    {
+      "name": "🔼🩹 Release patch version",
+      "command": "npm version patch",
+      "onlySingle": true,
+      "focus": true
+    }
+  ]
 }
