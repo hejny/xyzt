@@ -16,6 +16,14 @@ export class BoundingBox implements IBoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
+    public static fromDomRect(domRect: DOMRect): BoundingBox {
+        // !!! Implement
+    }
+
+    public static merge(...boundingBoxes: IBoundingBox[]): BoundingBox {
+        // !!! Implement
+    }
+
     /* TODO:
     public static fromPoints(...points: IVector[]): BoundingBox {
         const vectorMin: IVector = {};
