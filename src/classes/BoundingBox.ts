@@ -16,7 +16,7 @@ export class BoundingBox implements IBoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
-    public static fromDomRect(domRect: DOMRect): BoundingBox {
+    public static fromDomRect(domRect: { height: number; width: number; x: number; y: number }): BoundingBox {
         // !!! Implement
     }
 
