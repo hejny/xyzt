@@ -17,6 +17,14 @@ export class BoundingBox implements IBoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
+    public static fromDomRect(domRect: { height: number; width: number; x: number; y: number }): BoundingBox {
+        // !!! Implement
+    }
+
+    public static merge(...boundingBoxes: IBoundingBox[]): BoundingBox {
+        // !!! Implement
+    }
+
     public static fromPoints(...points: ArrayFull2<IVector>): BoundingBox {
         const vectorMin: IVector = {};
         const vectorMax: IVector = {};
@@ -34,12 +42,8 @@ export class BoundingBox implements IBoundingBox {
         const a = Vector.fromObject(vectorMin);
         const b = Vector.fromObject(vectorMax);
 
-
-
         const translate = Vector.add(a, b).half();
         const scale = b.subtract(a);
-
-
 
         return BoundingBox.fromTransform({ translate, scale });
     }
