@@ -1,7 +1,8 @@
 import { ε } from '../config';
 import { IBoundingBox } from '../interfaces/IBoundingBox';
 import { ITransform } from '../interfaces/ITransform';
-import { IVector } from '../interfaces/IVector';
+import { AXES, IVector } from '../interfaces/IVector';
+import { ArrayFull2 } from '../interfaces/typeHelpers';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
@@ -16,8 +17,7 @@ export class BoundingBox implements IBoundingBox {
         return new BoundingBox(Transform.fromObject(transform));
     }
 
-
-    public static fromPoints(...points: IVector[]): BoundingBox {
+    public static fromPoints(...points: ArrayFull2<IVector>): BoundingBox {
         const vectorMin: IVector = {};
         const vectorMax: IVector = {};
         for (const point of points) {
@@ -30,23 +30,15 @@ export class BoundingBox implements IBoundingBox {
                 }
             }
         }
-        return BoundingBox.fromTwoPoints([vectorMin, vectorMax]);
-    }
 
-
-
-    public static fromTwoPoints([vectorA, vectorB]: [IVector, IVector]): BoundingBox {
-        // TODO: param rotation
-
-        const a = Vector.fromObject(vectorA);
-        const b = Vector.fromObject(vectorB);
+        const a = Vector.fromObject(vectorMin);
+        const b = Vector.fromObject(vectorMax);
 
         const translate = new Vector(Math.min(a.x, b.x), Math.min(a.y, b.y));
         const scale = Vector.subtract(a, b).map(Math.abs);
 
         return BoundingBox.fromTransform({ translate, scale });
     }
-
 
     protected constructor(public transform: Transform) {}
 
