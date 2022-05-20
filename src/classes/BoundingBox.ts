@@ -1,7 +1,7 @@
 import { ε } from '../config';
 import { IBoundingBox } from '../interfaces/IBoundingBox';
 import { AXES, IVector } from '../interfaces/IVectorData';
-import { ArrayFull2 } from '../interfaces/typeHelpers';
+import { ArrayFull, ArrayFull2 } from '../interfaces/typeHelpers';
 import { ITransformData } from '../interfaces/ITransformData';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
@@ -18,11 +18,14 @@ export class BoundingBox implements IBoundingBox {
     }
 
     public static fromDomRect(domRect: { height: number; width: number; x: number; y: number }): BoundingBox {
-        // !!! Implement
+        const { x, y, width, height } = domRect;
+        return BoundingBox.fromPoints(new Vector(x, y), new Vector(x + width, y + height));
     }
 
-    public static merge(...boundingBoxes: IBoundingBox[]): BoundingBox {
-        // !!! Implement
+    public static merge(...boundingBoxes: ArrayFull<BoundingBox>): BoundingBox {
+        return BoundingBox.fromPoints(
+            ...(boundingBoxes.flatMap((boundingBox) => [boundingBox.topLeft, boundingBox.bottomRight]) as any),
+        );
     }
 
     public static fromPoints(...points: ArrayFull2<IVector>): BoundingBox {
