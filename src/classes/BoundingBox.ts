@@ -1,8 +1,8 @@
 import { ε } from '../config';
 import { IBoundingBox } from '../interfaces/IBoundingBox';
+import { ITransformData } from '../interfaces/ITransformData';
 import { AXES, IVector } from '../interfaces/IVectorData';
 import { ArrayFull, ArrayFull2 } from '../interfaces/typeHelpers';
-import { ITransformData } from '../interfaces/ITransformData';
 import { Transform } from './Transform';
 import { Vector } from './Vector';
 
