@@ -10,11 +10,31 @@ describe('BoundingBox', () => {
         ).not.toThrowError();
     });
 
-    it('can be created from two points', () => {
-        expect(BoundingBox.fromPoints(new Vector(0, 0), new Vector(1, 1))).toEqual(
-            BoundingBox.fromTransform({ translate: new Vector(0.5, 0.5), scale: new Vector(1, 1) }),
-        );
-    });
+    for (const [topLeft, bottomRight] of [
+        [new Vector(0, 0), new Vector(1, 1)],
+        //[new Vector(0, 0), new Vector(10, 10)],
+        //[new Vector(-1, 0), new Vector(1, 1)],
+        //[new Vector(0, -5), new Vector(1, 1)],
+        //[new Vector(50, 50), new Vector(100, 100)],
+        //[new Vector(-5, 8), new Vector(1, 1000)],
+    ]) {
+        it(`can be created from two points ${topLeft} and ${bottomRight}`, () => {
+            for (const boundingBox of [
+                BoundingBox.fromPoints(topLeft, bottomRight),
+                //BoundingBox.fromPoints(bottomRight, topLeft),
+                //BoundingBox.fromPoints(topLeft, bottomRight, topLeft, bottomRight),
+            ]) {
+                expect(boundingBox.topLeft).toEqual(topLeft);
+                expect(boundingBox.bottomRight).toEqual(bottomRight);
+                expect(boundingBox).toEqual(
+                    BoundingBox.fromTransform({
+                        translate: Vector.add(topLeft, bottomRight).half(),
+                        scale: bottomRight.subtract(topLeft),
+                    }),
+                );
+            }
+        });
+    }
 
     it('can be created from multiple points', () => {});
 

@@ -34,8 +34,14 @@ export class BoundingBox implements IBoundingBox {
         const a = Vector.fromObject(vectorMin);
         const b = Vector.fromObject(vectorMax);
 
-        const translate = new Vector(Math.min(a.x, b.x), Math.min(a.y, b.y));
-        const scale = Vector.subtract(a, b).map(Math.abs);
+        //!!!
+        //console.log({ a, b });
+
+        const translate = Vector.add(a, b).half();
+        const scale = b.subtract(a);
+
+        //!!!
+        //console.log({ translate, scale });
 
         return BoundingBox.fromTransform({ translate, scale });
     }
@@ -58,24 +64,51 @@ export class BoundingBox implements IBoundingBox {
     }
     */
 
+    /**
+     * Get center point of the bounding box
+     */
     public get center(): Vector {
         return this.transform.translate;
     }
 
+    /**
+     * Get top-left point of the bounding box
+     *
+     * 🟥🟦
+     * 🟦🟦
+     */
     public get topLeft(): Vector {
-        return this.corner2D({ x: -0.5, y: 0.5 });
-    }
-
-    public get topRight(): Vector {
-        return this.corner2D({ x: 0.5, y: 0.5 });
-    }
-
-    public get bottomLeft(): Vector {
         return this.corner2D({ x: -0.5, y: -0.5 });
     }
 
-    public get bottomRight(): Vector {
+    /**
+     * Get top-right point of the bounding box
+     *
+     * 🟦🟥
+     * 🟦🟦
+     */
+    public get topRight(): Vector {
         return this.corner2D({ x: 0.5, y: -0.5 });
+    }
+
+    /**
+     * Get bottom-left point of the bounding box
+     *
+     * 🟦🟦
+     * 🟥🟦
+     */
+    public get bottomLeft(): Vector {
+        return this.corner2D({ x: -0.5, y: 0.5 });
+    }
+
+    /**
+     * Get bottom-right point of the bounding box
+     *
+     * 🟦🟦
+     * 🟦🟥
+     */
+    public get bottomRight(): Vector {
+        return this.corner2D({ x: 0.5, y: 0.5 });
     }
 
     // TODO: Also 3D versions
