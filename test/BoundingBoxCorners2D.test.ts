@@ -3,24 +3,24 @@ import { Transform } from '../src/classes/Transform';
 import { Vector } from '../src/classes/Vector';
 
 describe('BoundingBox 2D corners', () => {
-    it('corners in simple cases', () => {
-        const simpleBoundingBox = BoundingBox.cube();
-        expect(simpleBoundingBox.center).toEqual(Vector.zero());
-        expect(simpleBoundingBox.topLeft).toEqual(new Vector(-0.5, -0.5));
-        expect(simpleBoundingBox.topRight).toEqual(new Vector(0.5, -0.5));
-        expect(simpleBoundingBox.bottomLeft).toEqual(new Vector(-0.5, 0.5));
-        expect(simpleBoundingBox.bottomRight).toEqual(new Vector(0.5, 0.5));
-    });
+    for (const { translate, scale } of [
+        { translate: new Vector(0, 0), scale: new Vector(1, 1) },
+        { translate: new Vector(1, 1), scale: new Vector(1, 1) },
+        { translate: new Vector(1, 1), scale: new Vector(1, 1) },
+        { translate: new Vector(1, 1), scale: new Vector(2, 2) },
+        { translate: new Vector(1, 2), scale: new Vector(3, 4) },
+        { translate: new Vector(-50, -11), scale: new Vector(23, 28) },
+    ]) {
+        const boundingBox = BoundingBox.fromTransform({ translate, scale });
 
-    it('corners in cases with translate', () => {
-        const moveBy = new Vector(1, 1); // TODO: More moveBys
-        const movedBoundingBox = BoundingBox.fromTransform(Transform.translate(moveBy));
-        expect(movedBoundingBox.center).toEqual(Vector.zero().add(moveBy));
-        expect(movedBoundingBox.topLeft).toEqual(new Vector(-0.5, -0.5).add(moveBy));
-        expect(movedBoundingBox.topRight).toEqual(new Vector(0.5, -0.5).add(moveBy));
-        expect(movedBoundingBox.bottomLeft).toEqual(new Vector(-0.5, 0.5).add(moveBy));
-        expect(movedBoundingBox.bottomRight).toEqual(new Vector(0.5, 0.5).add(moveBy));
-    });
+        it(`corners in cases with ${boundingBox}`, () => {
+            expect(boundingBox.center).toEqual(Vector.zero().add(translate));
+            expect(boundingBox.topLeft).toEqual(new Vector(-0.5, -0.5).multiply(scale).add(translate));
+            expect(boundingBox.topRight).toEqual(new Vector(0.5, -0.5).multiply(scale).add(translate));
+            expect(boundingBox.bottomLeft).toEqual(new Vector(-0.5, 0.5).multiply(scale).add(translate));
+            expect(boundingBox.bottomRight).toEqual(new Vector(0.5, 0.5).multiply(scale).add(translate));
+        });
+    }
 
     /*
     const scaledBoundingBox = BoundingBox.fromTransform(Transform.scale(2));

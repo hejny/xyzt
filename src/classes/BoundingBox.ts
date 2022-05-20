@@ -34,14 +34,12 @@ export class BoundingBox implements IBoundingBox {
         const a = Vector.fromObject(vectorMin);
         const b = Vector.fromObject(vectorMax);
 
-        //!!!
-        //console.log({ a, b });
+
 
         const translate = Vector.add(a, b).half();
         const scale = b.subtract(a);
 
-        //!!!
-        //console.log({ translate, scale });
+
 
         return BoundingBox.fromTransform({ translate, scale });
     }
@@ -138,8 +136,16 @@ export class BoundingBox implements IBoundingBox {
     }
 
     private corner2D(relativePosition: IVector): Vector {
-        return this.center
-            .within(this.transform.pick('rotate', 'scale'), (t) => t.add(relativePosition))
-            .stripInfatesimals();
+        return (
+            this.center
+                .add(this.transform.scale.multiply(relativePosition))
+                // TODO: 🔼 Also consider rotation; originally used broken: .within(this.transform.pick('rotate', 'scale'), (center) => center.add(relativePosition))
+                .stripInfatesimals()
+        );
+    }
+
+    public toString() {
+        // TODO: Better
+        return JSON.stringify(Transform.toJSON(this.transform));
     }
 }
