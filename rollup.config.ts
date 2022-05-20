@@ -1,8 +1,7 @@
 import typescript from '@rollup/plugin-typescript';
 
 export default {
-
-   input: './src/main.ts',
+    input: './src/main.ts',
     output: [
         {
             file: './dist/umd/xyzt.js',
