@@ -250,7 +250,12 @@ export class Vector implements IVector, IInversible<IVector> {
         context: IInversible<IAppliableOnVector>,
         modifier: IVectorApplyModifierFunction,
     ): Vector {
-        return Vector.apply(modifier(Vector.apply(vector, context)), context.inverse());
+        const vectorInContext = Vector.apply(vector, context);
+        const modifiedVectorInContext = modifier(vectorInContext);
+        const modifiedVector = Vector.apply(modifiedVectorInContext, context.inverse());
+
+        console.log({ context, vector, vectorInContext, modifiedVectorInContext, modifiedVector });
+        return modifiedVector;
     }
 
     public static to2D(vector: IVector): Vector {

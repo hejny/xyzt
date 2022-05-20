@@ -9,3 +9,7 @@ export interface IVectorData {
 
 export type IAxis = 'x' | 'y' | 'z';
 export const AXES = ['x', 'y', 'z'] as IAxis[];
+
+/**
+ * TODO: Use one of IVector vs. IVectorData and deprecte other one
+ */

@@ -209,4 +209,9 @@ export class Transform implements IInversible<ITransformData & IAppliableOnTrans
     public toObject() {
         return Transform.toObject(this);
     }
+
+    public toString() {
+        // TODO: Better
+        return JSON.stringify(Transform.toJSON(this));
+    }
 }
