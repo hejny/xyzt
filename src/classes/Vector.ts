@@ -1,11 +1,11 @@
 import { ε } from '../config';
 import { IInversible } from '../interfaces/IInversible';
-import { AXES, IAxis, IVector } from '../interfaces/IVector';
 import {
     IAppliableOnVector,
     IVectorApplyModifier,
     IVectorApplyModifierFunction,
 } from '../interfaces/IVectorApplyModifier';
+import { AXES, IAxis, IVector } from '../interfaces/IVectorData';
 import { stripInfatesimal } from '../utils/stripInfatesimal';
 
 // TODO: toCss toTopLeft as helpers

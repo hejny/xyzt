@@ -1,6 +1,6 @@
-export type IVector = IVectorObject; // TODO: | number[];
+export type IVector = IVectorData; // TODO: | number[];
 
-export interface IVectorObject {
+export interface IVectorData {
     x?: number;
     y?: number;
     z?: number;

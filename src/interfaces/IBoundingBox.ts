@@ -1,6 +1,6 @@
-import { ITransform } from './ITransform';
+import { ITransformData } from './ITransformData';
 
 export interface IBoundingBox {
-    transform: ITransform;
-    applyTransform(transform: ITransform): void;
+    transform: ITransformData;
+    applyTransform(transform: ITransformData): void;
 }

@@ -7,18 +7,18 @@ import { Vector } from './classes/Vector';
 import { NEGLIGIBLE_THRESHOLD } from './config';
 import { IBoundingBox } from './interfaces/IBoundingBox';
 import { IInversible } from './interfaces/IInversible';
-import { ITransform } from './interfaces/ITransform';
 import {
     IAppliableOnTransform,
     ITransformApplyModifier,
     ITransformApplyModifierFunction,
 } from './interfaces/ITransformApplyModifier';
-import { AXES, IAxis, IVector, IVectorObject } from './interfaces/IVector';
+import { ITransformData } from './interfaces/ITransformData';
 import {
     IAppliableOnVector,
     IVectorApplyModifier,
     IVectorApplyModifierFunction,
 } from './interfaces/IVectorApplyModifier';
+import { AXES, IAxis, IVector, IVectorData } from './interfaces/IVectorData';
 import { convertAngle } from './utils/convertAngle';
 import { extractValuesFromStyle } from './utils/extractValuesFromStyle';
 import { fullAngle } from './utils/fullAngle';
@@ -54,13 +54,13 @@ export {
     Transform,
     CSS_FORMAT,
     IAngleUnit,
-    ITransform,
+    IVectorData,
     IInversible,
     BoundingBox,
     convertAngle,
     IBoundingBox,
-    IVectorObject,
     IDimensionUnit,
+    ITransformData,
     _scaleFromStyle,
     transformToStyle,
     _rotateFromStyle,
