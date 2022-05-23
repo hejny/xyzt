@@ -70,6 +70,20 @@ export class BoundingBox implements IBoundingBox {
     */
 
     /**
+     * Get width of the bounding box
+     */
+    public get width(): number {
+        return this.transform.scale.x;
+    }
+
+    /**
+     * Get width of the bounding box
+     */
+    public get height(): number {
+        return this.transform.scale.y;
+    }
+
+    /**
      * Get center point of the bounding box
      */
     public get center(): Vector {
