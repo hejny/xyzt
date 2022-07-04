@@ -356,7 +356,8 @@ export class Vector implements IVector, IInversible<IVector> {
     }
 
     // Note: Bellow are instance equivalents of static methods
-    // TODO: Auto-generate them
+    // TODO: !!! Auto-generate them
+    // TODO: !!! Generate inPlace methods automatically
 
     public clone(): Vector {
         return Vector.clone(this);
