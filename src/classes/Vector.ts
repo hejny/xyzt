@@ -5,7 +5,7 @@ import {
     IVectorApplyModifier,
     IVectorApplyModifierFunction,
 } from '../interfaces/IVectorApplyModifier';
-import { AXES, IAxis, IVector } from '../interfaces/IVectorData';
+import { AXES, IAxis, IVector, IVectorData } from '../interfaces/IVectorData';
 import { stripInfatesimal } from '../utils/stripInfatesimal';
 
 // TODO: toCss toTopLeft as helpers
@@ -113,7 +113,7 @@ export class Vector implements IVector, IInversible<IVector> {
     }
 
     public static rotate(vector: IVector, rotate: IVector): Vector {
-        return Vector.forEachPlane(vector, (ortogonalAxis, vectorBD) => {
+        return Vector.mapEachPlane(vector, (ortogonalAxis, vectorBD) => {
             const rotateAxis = rotate[ortogonalAxis] || 0;
             const rotation = vectorBD.rotation();
             const distance = vectorBD.distance();
@@ -121,20 +121,20 @@ export class Vector implements IVector, IInversible<IVector> {
         });
     }
 
-    public static forEachPlane(vector: IVector, callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
+    public static mapEachPlane(vector: IVector, callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
         let vectorObject = Vector.fromObject(vector);
         for (const axis of AXES) {
-            vectorObject = Vector.forPlane(vectorObject, axis, (vectorBD) => {
+            vectorObject = Vector.mapPlane(vectorObject, axis, (vectorBD) => {
                 return callback(axis, vectorBD);
             });
         }
         return vectorObject;
     }
 
-    public static forPlane(vector: IVector, axis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
+    public static mapPlane(vector: IVector, ortogonalAxis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
         let { x, y, z } = Vector.fromObject(vector);
 
-        switch (axis) {
+        switch (ortogonalAxis) {
             case 'x':
                 [y, z] = Vector.fromObject(callback(new Vector(y, z))).toArray2D();
                 break;
@@ -180,7 +180,7 @@ export class Vector implements IVector, IInversible<IVector> {
         // TODO: Use here Vector.map
         const vectorObject = Vector.clone(vector);
         for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
-            keyof IVector
+            keyof IVectorData
         >) {
             vectorObject[axis] = stripInfatesimal(vectorObject[axis]);
         }
@@ -215,12 +215,12 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.cube(value);
     }
 
-    public static map(vector: IVector, modifier: (value: number, axis: keyof IVector) => number): Vector {
+    public static map(vector: IVector, modifier: (value: number, axis: keyof IVectorData) => number): Vector {
         const mappedVector = Vector.clone(vector);
 
         // TODO: USE apply in all other methods to avoid making same thing 3x
         for (const axis of ['x', 'y', 'z' /* TODO: Some central place or getter for all axis */] as Array<
-            keyof IVector
+            keyof IVectorData
         >) {
             mappedVector[axis] = modifier(vector[axis] || 0, axis);
         }
@@ -228,7 +228,7 @@ export class Vector implements IVector, IInversible<IVector> {
         return mappedVector;
     }
 
-    public static rearrangeAxis(
+    public static rearrangeAxes(
         vector: IVector,
         modifier: (values: number[] /* TODO: Maybe tuple [number,number,number] */) => number[],
     ): Vector {
@@ -245,7 +245,7 @@ export class Vector implements IVector, IInversible<IVector> {
         }
     }
 
-    public static within(
+    public static applyWithin(
         vector: IVector,
         context: IInversible<IAppliableOnVector>,
         modifier: IVectorApplyModifierFunction,
@@ -388,12 +388,12 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.rotate(this, rotate);
     }
 
-    public forEachPlane(callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
-        return Vector.forEachPlane(this, callback);
+    public mapEachPlane(callback: (ortogonalAxis: IAxis, vectorBD: Vector) => IVector): Vector {
+        return Vector.mapEachPlane(this, callback);
     }
 
-    public forPlane(axis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
-        return Vector.forPlane(this, axis, callback);
+    public mapPlane(ortogonalAxis: IAxis, callback: (vectorBD: Vector) => IVector): Vector {
+        return Vector.mapPlane(this, ortogonalAxis, callback);
     }
 
     public dotProduct(vectorB: IVector): number {
@@ -432,20 +432,20 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.cubeMax(this);
     }
 
-    public map(modifier: (value: number, axis: keyof IVector) => number): Vector {
+    public map(modifier: (value: number, axis: keyof IVectorData) => number): Vector {
         return Vector.map(this, modifier);
     }
 
-    public rearrangeAxis(modifier: (values: number[]) => number[]): Vector {
-        return Vector.rearrangeAxis(this, modifier);
+    public rearrangeAxes(modifier: (values: number[]) => number[]): Vector {
+        return Vector.rearrangeAxes(this, modifier);
     }
 
     public apply(modifier: IVectorApplyModifier): Vector {
         return Vector.apply(this, modifier);
     }
 
-    public within(context: IInversible<IAppliableOnVector>, modifier: IVectorApplyModifierFunction): Vector {
-        return Vector.within(this, context, modifier);
+    public applyWithin(context: IInversible<IAppliableOnVector>, modifier: IVectorApplyModifierFunction): Vector {
+        return Vector.applyWithin(this, context, modifier);
     }
 
     public to2D() {
