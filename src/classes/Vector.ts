@@ -493,3 +493,9 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.toString3D(this);
     }
 }
+
+
+/**
+ * TODO: toPolar()
+ * TODO: ortogonal(), normal()
+ */
