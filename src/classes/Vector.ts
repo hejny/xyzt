@@ -498,4 +498,5 @@ export class Vector implements IVector, IInversible<IVector> {
 /**
  * TODO: toPolar()
  * TODO: ortogonal(), normal()
+ * TODO: rotate should accept just a number as a rotatation to rotate along z axis
  */
