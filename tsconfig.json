@@ -1,17 +1,32 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "lib": ["es6", "dom"],
-    "sourceMap": true,
-    "declaration": true,
-    "declarationDir": "typings",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,    
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "suppressImplicitAnyIndexErrors": true
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "downlevelIteration": true,
+        "noEmit": true,
+        "sourceMap": true,
+        "declaration": true,
+        "outDir": "typings"
+    },
+    "include": ["src"],
+    "typedocOptions": {
+        "name": "XYZT - The vector manipulation class",
+        "entryPoints": ["./src/main.ts"],
+        "includeVersion": true,
+        "hideGenerator": true,
+        "out": "./docs",
+        "media": "./media",
+        "gaID": "UA-161448779-1",
+        "gitRemote": "https://github.com/hejny/xyzt"
+    }
 }

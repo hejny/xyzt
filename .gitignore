@@ -1,6 +1,5 @@
 
 # build
-/lib
 /dist
 
 # dependencies
@@ -10,6 +9,7 @@
 /coverage
 
 # misc
+/secrets.md
 .DS_Store
 .env.local
 .env.development.local
@@ -26,4 +26,5 @@ yarn.lock
 # IDEs
 .idea
 .vscode/*
+!.vscode/settings.json
 !.vscode/terminals.json
