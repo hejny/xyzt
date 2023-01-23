@@ -70,6 +70,13 @@ export class BoundingBox implements IBoundingBox {
     */
 
     /**
+     * Get size of the bounding box
+     */
+    public get size(): Vector {
+        return this.transform.scale;
+    }
+
+    /**
      * Get width of the bounding box
      */
     public get width(): number {
@@ -81,6 +88,13 @@ export class BoundingBox implements IBoundingBox {
      */
     public get height(): number {
         return this.transform.scale.y;
+    }
+
+    /**
+     * Get rotation of the bounding box
+     */
+    public get rotation(): number {
+        return this.transform.rotate.z;
     }
 
     /**
