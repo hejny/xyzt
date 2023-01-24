@@ -9,8 +9,15 @@
 [![Quality of package ❇️ XYZT](https://packagequality.com/shield/xyzt.svg)](https://packagequality.com/#?package=xyzt)
 [![Known Vulnerabilities](https://snyk.io/test/github/hejny/xyzt/badge.svg)](https://snyk.io/test/github/hejny/xyzt)
 [![Issues](https://img.shields.io/github/issues/hejny/xyzt.svg?style=flat)](https://github.com/hejny/xyzt/issues)
+[![Product Hunt](/assets/producthunt-badge.svg)](https://www.producthunt.com/posts/xyzt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xyzt)
+
+
+
+<a href="https://www.producthunt.com/posts/xyzt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xyzt" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=376396&theme=neutral" alt="❇️&#0032;XYZT - ❇️&#0032;The&#0032;vector&#0032;simple&#0032;vector&#0032;manipulation&#0032;class&#0046; | Product Hunt" style="height: 24px;" width="250" height="54" /></a>
 
 <!--/Badges-->
+
+
 
 The vector simple vector manipulation class.
 
