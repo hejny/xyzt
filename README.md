@@ -12,10 +12,14 @@
 [![Product Hunt](/assets/producthunt-badge.svg)](https://www.producthunt.com/posts/xyzt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xyzt)
 
 
-
-<a href="https://www.producthunt.com/posts/xyzt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xyzt" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=376396&theme=neutral" alt="❇️&#0032;XYZT - ❇️&#0032;The&#0032;vector&#0032;simple&#0032;vector&#0032;manipulation&#0032;class&#0046; | Product Hunt" style="height: 24px;" width="250" height="54" /></a>
-
 <!--/Badges-->
+
+
+<!--
+TODO: BPE add [![Product Hunt](/assets/producthunt-badge.svg)](https://www.producthunt.com/posts/xyzt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-xyzt)
+TODO: Enhance design of Product Hunt badge
+TODO: Auto detect Product Hunt presence
+-->
 
 
 
