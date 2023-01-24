@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="75"
+   height="20.000002"
+   viewBox="0 0 75 20.000002"
+   version="1.1"
+   id="svg1374"
+   sodipodi:docname="featured (1).svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1378" />
+  <sodipodi:namedview
+     id="namedview1376"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.3703704"
+     inkscape:cx="96.673729"
+     inkscape:cy="27"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="1072"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1368" />
+  <g
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     id="g1372"
+     transform="matrix(0.36440678,0,0,0.36440678,0.78813729,4.126864e-7)">
+    <g
+       transform="translate(-130,-73)"
+       id="g1370">
+      <g
+         transform="translate(130,73)"
+         id="g1368">
+        <rect
+           stroke="#d9e1ec"
+           stroke-width="0.915382"
+           fill="#ffffff"
+           x="-1.7051044"
+           y="0.45768988"
+           width="204.89857"
+           height="53.968346"
+           rx="8.2288589"
+           id="rect1342" />
+        <g
+           id="g1879"
+           transform="translate(2.8809,-0.05813808)">
+          <text
+             font-family="Helvetica-Bold, Helvetica"
+             font-size="21px"
+             font-weight="bold"
+             fill="#4b587c"
+             id="text1350"
+             y="-5.1650724"><tspan
+               x="52"
+               y="34.834927"
+               id="tspan1348">Product Hunt</tspan></text>
+          <g
+             transform="translate(11,12)"
+             id="g1366">
+            <path
+               d="M 31,15.5 C 31,24.060392 24.060392,31 15.5,31 6.9396083,31 0,24.060392 0,15.5 0,6.9396083 6.9396083,0 15.5,0 24.060392,0 31,6.9396083 31,15.5"
+               fill="#4b587c"
+               id="path1362" />
+            <path
+               d="m 17.432941,15.955882 v 1.3e-4 h -4.34 v -4.65 h 4.34 v -1.3e-4 c 1.26894,0 2.297647,1.040955 2.297647,2.325 0,1.284046 -1.028707,2.325 -2.297647,2.325 m 0,-7.7499996 v 1.291e-4 L 10.029412,8.2058824 V 23.705882 h 3.063529 v -4.649871 h 4.34 v -1.29e-4 c 2.960901,0 5.361177,-2.42885 5.361177,-5.425 0,-2.99615 -2.400276,-5.4249996 -5.361177,-5.4249996"
+               fill="#ffffff"
+               id="path1364" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
