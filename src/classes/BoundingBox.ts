@@ -162,7 +162,7 @@ export class BoundingBox implements IBoundingBox {
         );
     }
 
-    // TODO: !! TODO: intersects for another BoundingBox
+    // !! TODO: intersects for another BoundingBox
 
     public applyTransform(transform: ITransformData) {
         // TODO: Same pattern as Vector and Transform
