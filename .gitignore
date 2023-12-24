@@ -28,3 +28,6 @@ yarn.lock
 .vscode/*
 !.vscode/settings.json
 !.vscode/terminals.json
+
+# NPM configuration
+.npmrc
