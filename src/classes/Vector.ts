@@ -1,9 +1,9 @@
 import { ε } from '../config';
 import { IInversible } from '../interfaces/IInversible';
 import {
-  IAppliableOnVector,
-  IVectorApplyModifier,
-  IVectorApplyModifierFunction
+    IAppliableOnVector,
+    IVectorApplyModifier,
+    IVectorApplyModifierFunction,
 } from '../interfaces/IVectorApplyModifier';
 import { AXES, IAxis, IVector, IVectorData } from '../interfaces/IVectorData';
 import { stripInfatesimal } from '../utils/stripInfatesimal';
@@ -493,7 +493,6 @@ export class Vector implements IVector, IInversible<IVector> {
         return Vector.toString3D(this);
     }
 }
-
 
 /**
  * TODO: .length.
