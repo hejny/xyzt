@@ -159,13 +159,13 @@ describe('Vector', () => {
     });
 
     it('can be converted via forPlane', () => {
-        expect(new Vector(1, 2, 3).forPlane('x', ({ x, y }) => new Vector(y, x)).toArray()).toEqual([1, 3, 2]);
-        expect(new Vector(1, 2, 3).forPlane('y', ({ x, y }) => new Vector(y, x)).toArray()).toEqual([3, 2, 1]);
-        expect(new Vector(1, 2, 3).forPlane('z', ({ x, y }) => new Vector(y, x)).toArray()).toEqual([2, 1, 3]);
+        expect(new Vector(1, 2, 3).mapPlane('x', ({ x, y }) => new Vector(y, x)).toArray()).toEqual([1, 3, 2]);
+        expect(new Vector(1, 2, 3).mapPlane('y', ({ x, y }) => new Vector(y, x)).toArray()).toEqual([3, 2, 1]);
+        expect(new Vector(1, 2, 3).mapPlane('z', ({ x, y }) => new Vector(y, x)).toArray()).toEqual([2, 1, 3]);
     });
 
-    it('can be converted via forEachPlane', () => {
-        expect(new Vector(1, 2, 3).forEachPlane((axis, { x, y }) => new Vector(y, x)).toArray()).toEqual([3, 2, 1]);
+    it('can be converted via mapEachPlane', () => {
+        expect(new Vector(1, 2, 3).mapEachPlane((axis, { x, y }) => new Vector(y, x)).toArray()).toEqual([3, 2, 1]);
     });
 
     it('rotate zero vector with no rotation', () => {

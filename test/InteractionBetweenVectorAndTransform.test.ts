@@ -14,9 +14,9 @@ describe('interaction between vector and transform', () => {
     });
 
     it('vector can be used within some transform', () => {
-        expect(new Vector(10, 10).within(Transform.scale(1 / 2), (vector) => vector.add(new Vector(10, 10)))).toEqual(
-            new Vector(30, 30),
-        );
+        expect(
+            new Vector(10, 10).applyWithin(Transform.scale(1 / 2), (vector: any) => vector.add(new Vector(10, 10))),
+        ).toEqual(new Vector(30, 30));
         // TODO: more
     });
 });
