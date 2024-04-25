@@ -12,7 +12,7 @@
             "onlySingle": true
         },
         {
-            "name": "generate-main-exports",
+            "name": "🏭 Generate main exports",
             "command": "npm run generate-main-exports",
             "onlySingle": true
         },
