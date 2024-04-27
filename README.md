@@ -56,17 +56,11 @@ You can also ⭐ star the xyzt package, [follow me on GitHub](https://github.com
 ## ✨ Partners
 
 
-<a href="https://collboard.com/">
-  <img src="https://collboard.fra1.cdn.digitaloceanspaces.com/assets/18.12.1/logo-small.png" alt="Collboard logo" width="50"  />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://czech.events/">
-  <img src="https://czech.events/design/logos/czech.events.transparent-logo.png" alt="Czech.events logo" width="50"  />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://sigmastamp.ml/">
-  <img src="https://www.sigmastamp.ml/sigmastamp-logo.white.svg" alt="SigmaStamp logo" width="50"  />
-</a>
+<a href="https://collboard.com/" title="Collboard"><img src="https://collboard.fra1.cdn.digitaloceanspaces.com/assets/18.12.1/logo-small.png#gh-light-mode-only" alt="Collboard" height="60"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://webgpt.cz/?partner=ph&utm_medium=referral&utm_source=github-readme&utm_campaign=partner-ph" title="WebGPT"><img src="https://webgpt.cz/_next/static/media/webgpt-black.8d958d25.png#gh-light-mode-only" alt="WebGPT" height="60"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://github.com/webgptorg/promptbook" title="Promptbook"><img src="https://raw.githubusercontent.com/webgptorg/promptbook/main/other/design/logo.png#gh-light-mode-only" alt="Promptbook" height="60"/></a>
 
 
 [Become a partner](https://www.pavolhejny.com/contact/)
