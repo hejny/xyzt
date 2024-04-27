@@ -8,6 +8,7 @@
 [![Quality of package ❇️ XYZT](https://packagequality.com/shield/xyzt.svg)](https://packagequality.com/#?package=xyzt)
 [![Known Vulnerabilities](https://snyk.io/test/github/hejny/xyzt/badge.svg)](https://snyk.io/test/github/hejny/xyzt)
 [![Issues](https://img.shields.io/github/issues/hejny/xyzt.svg?style=flat)](https://github.com/hejny/xyzt/issues)
+[![Socket](https://socket.dev/api/badge/npm/package/xyzt)](https://socket.dev/npm/package/xyzt)
 <!--[![License of ❇️ XYZT](https://img.shields.io/github/license/hejny/xyzt.svg?style=flat)](https://github.com/hejny/xyzt/blob/main/LICENSE)-->
 
 <!--/Badges-->
